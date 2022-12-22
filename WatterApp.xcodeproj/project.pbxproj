@@ -7,15 +7,84 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		190745EC293F30DC00C6B5BF /* Pie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190745EB293F30DC00C6B5BF /* Pie.swift */; };
+		190A72A12941FF41009E79C7 /* PieDateUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190A72A02941FF41009E79C7 /* PieDateUnit.swift */; };
+		190A72A32941FF6C009E79C7 /* PieDateVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190A72A22941FF6C009E79C7 /* PieDateVM.swift */; };
+		190A72A52941FFB9009E79C7 /* PieSliceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190A72A42941FFB9009E79C7 /* PieSliceView.swift */; };
+		190A72A729421998009E79C7 /* UserPrivateinfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190A72A629421998009E79C7 /* UserPrivateinfo.swift */; };
+		191BB21B2937FDC200F99A26 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191BB21A2937FDC200F99A26 /* DateExtension.swift */; };
+		191BB21D293805EA00F99A26 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191BB21C293805EA00F99A26 /* SettingsView.swift */; };
+		191BB21F2938063000F99A26 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191BB21E2938063000F99A26 /* CustomButton.swift */; };
+		191BB221293806A300F99A26 /* CustomButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191BB220293806A300F99A26 /* CustomButtonStyle.swift */; };
+		19277CEC29463119006BFE64 /* NotificationCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19277CEB29463119006BFE64 /* NotificationCenterManager.swift */; };
+		1937D470293761490041FFCF /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1937D46F293761490041FFCF /* MainView.swift */; };
+		1937D472293773400041FFCF /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1937D471293773400041FFCF /* Home.swift */; };
+		193BB086293D315F00AB5840 /* DropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193BB085293D315F00AB5840 /* DropDown.swift */; };
+		193BB088293D33BF00AB5840 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193BB087293D33BF00AB5840 /* HomeVM.swift */; };
+		193BB08A293D42A100AB5840 /* SettingsReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193BB089293D42A000AB5840 /* SettingsReminderView.swift */; };
+		193BB08C293DF25B00AB5840 /* SettingsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193BB08B293DF25B00AB5840 /* SettingsVM.swift */; };
+		193BB08F293DF39000AB5840 /* BackgroundGroupCaption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193BB08E293DF39000AB5840 /* BackgroundGroupCaption.swift */; };
+		193BB091293DF3EB00AB5840 /* CustomNumberFiled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193BB090293DF3EB00AB5840 /* CustomNumberFiled.swift */; };
+		193BB094293DF3FF00AB5840 /* CustomTextStringFiled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193BB092293DF3FF00AB5840 /* CustomTextStringFiled.swift */; };
+		193BB095293DF3FF00AB5840 /* CustomTextTapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193BB093293DF3FF00AB5840 /* CustomTextTapView.swift */; };
+		193BB097293DF45400AB5840 /* AddWaterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193BB096293DF45400AB5840 /* AddWaterButton.swift */; };
+		1959016629407BEE008AE6D5 /* WaterTypesListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1959016529407BEE008AE6D5 /* WaterTypesListManager.swift */; };
+		196109942938B9EB00D505B2 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196109932938B9EB00D505B2 /* StatisticsView.swift */; };
 		1969C9D829375A070032AED5 /* WatterAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1969C9D729375A070032AED5 /* WatterAppApp.swift */; };
 		1969C9DA29375A070032AED5 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1969C9D929375A070032AED5 /* Persistence.swift */; };
 		1969C9DD29375A070032AED5 /* WatterApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1969C9DB29375A070032AED5 /* WatterApp.xcdatamodeld */; };
 		1969C9DF29375A070032AED5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1969C9DE29375A070032AED5 /* ContentView.swift */; };
 		1969C9E129375A090032AED5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1969C9E029375A090032AED5 /* Assets.xcassets */; };
 		1969C9E529375A090032AED5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1969C9E429375A090032AED5 /* Preview Assets.xcassets */; };
+		19726A8029466496001A9A21 /* water3.png in Resources */ = {isa = PBXBuildFile; fileRef = 19726A7F29466496001A9A21 /* water3.png */; };
+		19726A8229474E63001A9A21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19726A8129474E63001A9A21 /* AppDelegate.swift */; };
+		197A4544293C0010008B33DA /* StatisticsDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197A4543293C0010008B33DA /* StatisticsDetailsView.swift */; };
+		197A4546293C0098008B33DA /* DrinkItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197A4545293C0098008B33DA /* DrinkItem.swift */; };
+		197A4548293C00B3008B33DA /* DayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197A4547293C00B3008B33DA /* DayItem.swift */; };
+		197A454B293C0B7D008B33DA /* WaveShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197A454A293C0B7D008B33DA /* WaveShape.swift */; };
+		197A454D293C0B9F008B33DA /* ContinueRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197A454C293C0B9F008B33DA /* ContinueRing.swift */; };
+		19C72CCF2954526E009662FF /* MapManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C72CCE2954526E009662FF /* MapManager.swift */; };
+		19C72CD129545299009662FF /* NewWorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C72CD029545299009662FF /* NewWorkoutManager.swift */; };
+		19C72CD5295455A3009662FF /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C72CD4295455A3009662FF /* MapView.swift */; };
+		19C72CD729545605009662FF /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C72CD629545605009662FF /* Workout.swift */; };
+		19C72CD9295456A3009662FF /* WorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C72CD8295456A3009662FF /* WorkoutView.swift */; };
+		19C72CDB2954597A009662FF /* NewWorkoutInfoBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C72CDA2954597A009662FF /* NewWorkoutInfoBarView.swift */; };
+		19C72CDD29545AFD009662FF /* WorkoutInfoBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C72CDC29545AFD009662FF /* WorkoutInfoBarView.swift */; };
+		19C72CDF29545EB5009662FF /* HealthKitDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C72CDE29545EB5009662FF /* HealthKitDataStore.swift */; };
+		19F870802938F18000500178 /* ChartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F8707F2938F18000500178 /* ChartsView.swift */; };
+		19F87C742940C59E00816561 /* WaterTypesList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 19F87C732940C59E00816561 /* WaterTypesList.plist */; };
+		19F87C762940D8B600816561 /* testView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F87C752940D8B600816561 /* testView.swift */; };
+		19FB055D29493FB90085709A /* GeneralExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FB055C29493FB90085709A /* GeneralExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		190745EB293F30DC00C6B5BF /* Pie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pie.swift; sourceTree = "<group>"; };
+		190A72A02941FF41009E79C7 /* PieDateUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieDateUnit.swift; sourceTree = "<group>"; };
+		190A72A22941FF6C009E79C7 /* PieDateVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieDateVM.swift; sourceTree = "<group>"; };
+		190A72A42941FFB9009E79C7 /* PieSliceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieSliceView.swift; sourceTree = "<group>"; };
+		190A72A629421998009E79C7 /* UserPrivateinfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPrivateinfo.swift; sourceTree = "<group>"; };
+		191BB21A2937FDC200F99A26 /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		191BB21C293805EA00F99A26 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		191BB21E2938063000F99A26 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		191BB220293806A300F99A26 /* CustomButtonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButtonStyle.swift; sourceTree = "<group>"; };
+		19277CEB29463119006BFE64 /* NotificationCenterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterManager.swift; sourceTree = "<group>"; };
+		1937D46F293761490041FFCF /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		1937D471293773400041FFCF /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		193BB085293D315F00AB5840 /* DropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDown.swift; sourceTree = "<group>"; };
+		193BB087293D33BF00AB5840 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
+		193BB089293D42A000AB5840 /* SettingsReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsReminderView.swift; sourceTree = "<group>"; };
+		193BB08B293DF25B00AB5840 /* SettingsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVM.swift; sourceTree = "<group>"; };
+		193BB08E293DF39000AB5840 /* BackgroundGroupCaption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundGroupCaption.swift; sourceTree = "<group>"; };
+		193BB090293DF3EB00AB5840 /* CustomNumberFiled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNumberFiled.swift; sourceTree = "<group>"; };
+		193BB092293DF3FF00AB5840 /* CustomTextStringFiled.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextStringFiled.swift; sourceTree = "<group>"; };
+		193BB093293DF3FF00AB5840 /* CustomTextTapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextTapView.swift; sourceTree = "<group>"; };
+		193BB096293DF45400AB5840 /* AddWaterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWaterButton.swift; sourceTree = "<group>"; };
+		1959016529407BEE008AE6D5 /* WaterTypesListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterTypesListManager.swift; sourceTree = "<group>"; };
+		1961097E2938B3CF00D505B2 /* Day+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Day+CoreDataClass.swift"; sourceTree = "<group>"; };
+		1961097F2938B3CF00D505B2 /* Day+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Day+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		196109802938B3CF00D505B2 /* Drink+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Drink+CoreDataClass.swift"; sourceTree = "<group>"; };
+		196109812938B3CF00D505B2 /* Drink+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Drink+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		196109932938B9EB00D505B2 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
 		1969C9D429375A070032AED5 /* WatterApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatterApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1969C9D729375A070032AED5 /* WatterAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatterAppApp.swift; sourceTree = "<group>"; };
 		1969C9D929375A070032AED5 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -24,6 +93,26 @@
 		1969C9E029375A090032AED5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1969C9E229375A090032AED5 /* WatterApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WatterApp.entitlements; sourceTree = "<group>"; };
 		1969C9E429375A090032AED5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		19726A7F29466496001A9A21 /* water3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = water3.png; sourceTree = "<group>"; };
+		19726A8129474E63001A9A21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		197A4543293C0010008B33DA /* StatisticsDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsDetailsView.swift; sourceTree = "<group>"; };
+		197A4545293C0098008B33DA /* DrinkItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkItem.swift; sourceTree = "<group>"; };
+		197A4547293C00B3008B33DA /* DayItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayItem.swift; sourceTree = "<group>"; };
+		197A454A293C0B7D008B33DA /* WaveShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveShape.swift; sourceTree = "<group>"; };
+		197A454C293C0B9F008B33DA /* ContinueRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueRing.swift; sourceTree = "<group>"; };
+		19C72CCE2954526E009662FF /* MapManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapManager.swift; sourceTree = "<group>"; };
+		19C72CD029545299009662FF /* NewWorkoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWorkoutManager.swift; sourceTree = "<group>"; };
+		19C72CD2295452DA009662FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		19C72CD4295455A3009662FF /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		19C72CD629545605009662FF /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
+		19C72CD8295456A3009662FF /* WorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutView.swift; sourceTree = "<group>"; };
+		19C72CDA2954597A009662FF /* NewWorkoutInfoBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWorkoutInfoBarView.swift; sourceTree = "<group>"; };
+		19C72CDC29545AFD009662FF /* WorkoutInfoBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutInfoBarView.swift; sourceTree = "<group>"; };
+		19C72CDE29545EB5009662FF /* HealthKitDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitDataStore.swift; sourceTree = "<group>"; };
+		19F8707F2938F18000500178 /* ChartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsView.swift; sourceTree = "<group>"; };
+		19F87C732940C59E00816561 /* WaterTypesList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WaterTypesList.plist; sourceTree = "<group>"; };
+		19F87C752940D8B600816561 /* testView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testView.swift; sourceTree = "<group>"; };
+		19FB055C29493FB90085709A /* GeneralExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +126,105 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		190A729F2941FF04009E79C7 /* PieClasses */ = {
+			isa = PBXGroup;
+			children = (
+				190745EB293F30DC00C6B5BF /* Pie.swift */,
+				190A72A02941FF41009E79C7 /* PieDateUnit.swift */,
+				190A72A22941FF6C009E79C7 /* PieDateVM.swift */,
+				190A72A42941FFB9009E79C7 /* PieSliceView.swift */,
+			);
+			path = PieClasses;
+			sourceTree = "<group>";
+		};
+		193BB084293D312700AB5840 /* CusomeViews */ = {
+			isa = PBXGroup;
+			children = (
+				190A729F2941FF04009E79C7 /* PieClasses */,
+				193BB085293D315F00AB5840 /* DropDown.swift */,
+				193BB090293DF3EB00AB5840 /* CustomNumberFiled.swift */,
+				193BB092293DF3FF00AB5840 /* CustomTextStringFiled.swift */,
+				193BB093293DF3FF00AB5840 /* CustomTextTapView.swift */,
+				193BB096293DF45400AB5840 /* AddWaterButton.swift */,
+				191BB21E2938063000F99A26 /* CustomButton.swift */,
+				191BB220293806A300F99A26 /* CustomButtonStyle.swift */,
+			);
+			path = CusomeViews;
+			sourceTree = "<group>";
+		};
+		193BB08D293DF36A00AB5840 /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				193BB08E293DF39000AB5840 /* BackgroundGroupCaption.swift */,
+			);
+			path = ViewModifiers;
+			sourceTree = "<group>";
+		};
+		1961098E2938B5DE00D505B2 /* Modle */ = {
+			isa = PBXGroup;
+			children = (
+				1969C9DB29375A070032AED5 /* WatterApp.xcdatamodeld */,
+				1961098F2938B5E900D505B2 /* DBfiles */,
+				197A4545293C0098008B33DA /* DrinkItem.swift */,
+				197A4547293C00B3008B33DA /* DayItem.swift */,
+				190A72A629421998009E79C7 /* UserPrivateinfo.swift */,
+				19C72CD629545605009662FF /* Workout.swift */,
+			);
+			path = Modle;
+			sourceTree = "<group>";
+		};
+		1961098F2938B5E900D505B2 /* DBfiles */ = {
+			isa = PBXGroup;
+			children = (
+				1961097E2938B3CF00D505B2 /* Day+CoreDataClass.swift */,
+				1961097F2938B3CF00D505B2 /* Day+CoreDataProperties.swift */,
+				196109802938B3CF00D505B2 /* Drink+CoreDataClass.swift */,
+				196109812938B3CF00D505B2 /* Drink+CoreDataProperties.swift */,
+			);
+			path = DBfiles;
+			sourceTree = "<group>";
+		};
+		196109902938B60200D505B2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				19C72CD329545597009662FF /* Map */,
+				193BB08D293DF36A00AB5840 /* ViewModifiers */,
+				193BB084293D312700AB5840 /* CusomeViews */,
+				197A4549293C0B61008B33DA /* Shapes */,
+				1937D46F293761490041FFCF /* MainView.swift */,
+				1937D471293773400041FFCF /* Home.swift */,
+				196109932938B9EB00D505B2 /* StatisticsView.swift */,
+				19F8707F2938F18000500178 /* ChartsView.swift */,
+				197A4543293C0010008B33DA /* StatisticsDetailsView.swift */,
+				191BB21C293805EA00F99A26 /* SettingsView.swift */,
+				193BB089293D42A000AB5840 /* SettingsReminderView.swift */,
+				19F87C752940D8B600816561 /* testView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		196109912938B61100D505B2 /* ViewModle */ = {
+			isa = PBXGroup;
+			children = (
+				193BB087293D33BF00AB5840 /* HomeVM.swift */,
+				193BB08B293DF25B00AB5840 /* SettingsVM.swift */,
+			);
+			path = ViewModle;
+			sourceTree = "<group>";
+		};
+		196109922938B63300D505B2 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				1969C9D929375A070032AED5 /* Persistence.swift */,
+				1959016529407BEE008AE6D5 /* WaterTypesListManager.swift */,
+				19277CEB29463119006BFE64 /* NotificationCenterManager.swift */,
+				19C72CCE2954526E009662FF /* MapManager.swift */,
+				19C72CD029545299009662FF /* NewWorkoutManager.swift */,
+				19C72CDE29545EB5009662FF /* HealthKitDataStore.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		1969C9CB29375A070032AED5 = {
 			isa = PBXGroup;
 			children = (
@@ -56,12 +244,19 @@
 		1969C9D629375A070032AED5 /* WatterApp */ = {
 			isa = PBXGroup;
 			children = (
+				19C72CD2295452DA009662FF /* Info.plist */,
+				197A4542293BD815008B33DA /* Extensions */,
+				196109922938B63300D505B2 /* Managers */,
+				196109912938B61100D505B2 /* ViewModle */,
+				196109902938B60200D505B2 /* View */,
+				1961098E2938B5DE00D505B2 /* Modle */,
 				1969C9D729375A070032AED5 /* WatterAppApp.swift */,
-				1969C9D929375A070032AED5 /* Persistence.swift */,
+				19726A8129474E63001A9A21 /* AppDelegate.swift */,
 				1969C9DE29375A070032AED5 /* ContentView.swift */,
 				1969C9E029375A090032AED5 /* Assets.xcassets */,
+				19726A7F29466496001A9A21 /* water3.png */,
 				1969C9E229375A090032AED5 /* WatterApp.entitlements */,
-				1969C9DB29375A070032AED5 /* WatterApp.xcdatamodeld */,
+				19F87C732940C59E00816561 /* WaterTypesList.plist */,
 				1969C9E329375A090032AED5 /* Preview Content */,
 			);
 			path = WatterApp;
@@ -73,6 +268,35 @@
 				1969C9E429375A090032AED5 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		197A4542293BD815008B33DA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				191BB21A2937FDC200F99A26 /* DateExtension.swift */,
+				19FB055C29493FB90085709A /* GeneralExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		197A4549293C0B61008B33DA /* Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				197A454A293C0B7D008B33DA /* WaveShape.swift */,
+				197A454C293C0B9F008B33DA /* ContinueRing.swift */,
+			);
+			path = Shapes;
+			sourceTree = "<group>";
+		};
+		19C72CD329545597009662FF /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				19C72CD8295456A3009662FF /* WorkoutView.swift */,
+				19C72CD4295455A3009662FF /* MapView.swift */,
+				19C72CDC29545AFD009662FF /* WorkoutInfoBarView.swift */,
+				19C72CDA2954597A009662FF /* NewWorkoutInfoBarView.swift */,
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,6 +359,8 @@
 			files = (
 				1969C9E529375A090032AED5 /* Preview Assets.xcassets in Resources */,
 				1969C9E129375A090032AED5 /* Assets.xcassets in Resources */,
+				19F87C742940C59E00816561 /* WaterTypesList.plist in Resources */,
+				19726A8029466496001A9A21 /* water3.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,10 +371,50 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				191BB21D293805EA00F99A26 /* SettingsView.swift in Sources */,
+				196109942938B9EB00D505B2 /* StatisticsView.swift in Sources */,
+				193BB091293DF3EB00AB5840 /* CustomNumberFiled.swift in Sources */,
+				19C72CD729545605009662FF /* Workout.swift in Sources */,
+				19277CEC29463119006BFE64 /* NotificationCenterManager.swift in Sources */,
+				19C72CD5295455A3009662FF /* MapView.swift in Sources */,
+				197A4544293C0010008B33DA /* StatisticsDetailsView.swift in Sources */,
+				193BB08A293D42A100AB5840 /* SettingsReminderView.swift in Sources */,
+				19F87C762940D8B600816561 /* testView.swift in Sources */,
+				197A4546293C0098008B33DA /* DrinkItem.swift in Sources */,
 				1969C9D829375A070032AED5 /* WatterAppApp.swift in Sources */,
+				190A72A32941FF6C009E79C7 /* PieDateVM.swift in Sources */,
+				191BB221293806A300F99A26 /* CustomButtonStyle.swift in Sources */,
+				19C72CDD29545AFD009662FF /* WorkoutInfoBarView.swift in Sources */,
+				191BB21F2938063000F99A26 /* CustomButton.swift in Sources */,
+				191BB21B2937FDC200F99A26 /* DateExtension.swift in Sources */,
+				19C72CDF29545EB5009662FF /* HealthKitDataStore.swift in Sources */,
+				19C72CD9295456A3009662FF /* WorkoutView.swift in Sources */,
 				1969C9DD29375A070032AED5 /* WatterApp.xcdatamodeld in Sources */,
 				1969C9DF29375A070032AED5 /* ContentView.swift in Sources */,
+				1959016629407BEE008AE6D5 /* WaterTypesListManager.swift in Sources */,
+				19C72CCF2954526E009662FF /* MapManager.swift in Sources */,
+				190A72A12941FF41009E79C7 /* PieDateUnit.swift in Sources */,
+				193BB094293DF3FF00AB5840 /* CustomTextStringFiled.swift in Sources */,
+				19726A8229474E63001A9A21 /* AppDelegate.swift in Sources */,
+				1937D470293761490041FFCF /* MainView.swift in Sources */,
+				193BB08F293DF39000AB5840 /* BackgroundGroupCaption.swift in Sources */,
+				193BB088293D33BF00AB5840 /* HomeVM.swift in Sources */,
+				190A72A729421998009E79C7 /* UserPrivateinfo.swift in Sources */,
+				1937D472293773400041FFCF /* Home.swift in Sources */,
 				1969C9DA29375A070032AED5 /* Persistence.swift in Sources */,
+				190A72A52941FFB9009E79C7 /* PieSliceView.swift in Sources */,
+				190745EC293F30DC00C6B5BF /* Pie.swift in Sources */,
+				19C72CDB2954597A009662FF /* NewWorkoutInfoBarView.swift in Sources */,
+				197A4548293C00B3008B33DA /* DayItem.swift in Sources */,
+				19FB055D29493FB90085709A /* GeneralExtensions.swift in Sources */,
+				193BB086293D315F00AB5840 /* DropDown.swift in Sources */,
+				197A454D293C0B9F008B33DA /* ContinueRing.swift in Sources */,
+				19C72CD129545299009662FF /* NewWorkoutManager.swift in Sources */,
+				197A454B293C0B7D008B33DA /* WaveShape.swift in Sources */,
+				193BB08C293DF25B00AB5840 /* SettingsVM.swift in Sources */,
+				193BB097293DF45400AB5840 /* AddWaterButton.swift in Sources */,
+				193BB095293DF3FF00AB5840 /* CustomTextTapView.swift in Sources */,
+				19F870802938F18000500178 /* ChartsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,12 +537,19 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = WatterApp/WatterApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.1;
 				DEVELOPMENT_ASSET_PATHS = "\"WatterApp/Preview Content\"";
 				DEVELOPMENT_TEAM = X8RDCFJK95;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WatterApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Water app";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "MyMap shows all your workouts on one map";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "App saves the workouts you record in the Health App";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "App needs to record your workout route when your phone is turned off";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "App shows your current location on the map";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -285,8 +558,8 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -309,12 +582,19 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = WatterApp/WatterApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.1;
 				DEVELOPMENT_ASSET_PATHS = "\"WatterApp/Preview Content\"";
 				DEVELOPMENT_TEAM = X8RDCFJK95;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WatterApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Water app";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "MyMap shows all your workouts on one map";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "App saves the workouts you record in the Health App";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "App needs to record your workout route when your phone is turned off";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "App shows your current location on the map";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -323,8 +603,8 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
