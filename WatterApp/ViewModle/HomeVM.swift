@@ -17,6 +17,10 @@ class HomeVM: ObservableObject {
         if userPrivateinfoSaved == nil{
             self.userPrivateinfoSaved = UserPrivateinfo(fullName: "", height: 0, weight: 0, age: 0, customTotal: 3000, gender: Gander.male.rawValue, slectedRimniderHour: 3, enabledReminde: false)
         }
+//        Task{
+//            let a =  await PersistenceController.shared.fetchAllDaysItemsInBg()
+//            print(a?.count ?? 0)
+//        }
     }
     
     func addWaterToCureentDay(waterType : DrinkType, daysItems: FetchedResults<Day>){

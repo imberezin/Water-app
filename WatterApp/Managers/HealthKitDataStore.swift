@@ -32,10 +32,24 @@ class HealthKitDataStore {
         let typesToRead: Set = [
             HKObjectType.workoutType(),
             HKSeriesType.workoutRoute()
+            
         ]
         
+        let allTypes = Set([HKObjectType.workoutType(),
+                            HKSeriesType.workoutRoute(),
+                            HKObjectType.quantityType(forIdentifier: .stepCount)!,
+                            HKObjectType.quantityType(forIdentifier: .height)!,
+                            HKObjectType.quantityType(forIdentifier: .walkingSpeed)!,
+                            HKObjectType.quantityType(forIdentifier: .walkingStepLength)!,
+
+                            HKObjectType.quantityType(forIdentifier: .activeEnergyBurned)!,
+                            HKObjectType.quantityType(forIdentifier: .distanceCycling)!,
+                            HKObjectType.quantityType(forIdentifier: .distanceWalkingRunning)!,
+                            HKObjectType.quantityType(forIdentifier: .heartRate)!])
+
+        
         // Request authorization for those quantity types
-        healthStore.requestAuthorization(toShare: typesToShare, read: typesToRead) { (success, error) in
+        healthStore.requestAuthorization(toShare: typesToShare, read: allTypes) { (success, error) in
             if error != nil {
                 completion(error!.localizedDescription)
                 return
@@ -100,6 +114,71 @@ class HealthKitDataStore {
                 }
             }
         }
+    }
+    
+    
+    func getDistanceWalkingRunning(completion:@escaping (_ count: Double)-> Void){
+        guard let type = HKSampleType.quantityType(forIdentifier: .distanceWalkingRunning) else {
+            fatalError("Something went wrong retriebing quantity type distanceWalkingRunning")
+        }
+        let date =  Date()
+        let cal = Calendar(identifier: Calendar.Identifier.gregorian)
+        let newDate = cal.startOfDay(for: date)
+
+        let predicate = HKQuery.predicateForSamples(withStart: newDate, end: Date(), options: .strictStartDate)
+
+        let query = HKStatisticsQuery(quantityType: type, quantitySamplePredicate: predicate, options: [.cumulativeSum]) { (query, statistics, error) in
+            var value: Double = 0
+
+            if error != nil {
+                print("something went wrong")
+            } else if let quantity = statistics?.sumQuantity() {
+                value = quantity.doubleValue(for: HKUnit.meter())
+            }
+            DispatchQueue.main.async {
+                completion(value)
+            }
+        }
+        healthStore.execute(query)
+
+    }
+    func getStepCountPerDay(completion:@escaping (_ count: Double)-> Void){
+
+        guard let sampleType = HKObjectType.quantityType(forIdentifier: .stepCount)
+            else {
+                return
+        }
+        let calendar = Calendar.current
+        var dateComponents = DateComponents()
+        dateComponents.day = 1
+
+        var anchorComponents = calendar.dateComponents([.day, .month, .year], from: Date())
+        anchorComponents.hour = 0
+        let anchorDate = calendar.date(from: anchorComponents)
+
+        let stepsCumulativeQuery = HKStatisticsCollectionQuery(quantityType: sampleType, quantitySamplePredicate: nil, options: .cumulativeSum, anchorDate: anchorDate!, intervalComponents: dateComponents
+        )
+
+        // Set the results handler
+        stepsCumulativeQuery.initialResultsHandler = {query, results, error in
+            let endDate = Date()
+            let startDate = calendar.date(byAdding: .day, value: 0, to: endDate, wrappingComponents: false)
+            if let myResults = results{
+                myResults.enumerateStatistics(from: startDate!, to: endDate as Date) { statistics, stop in
+                    if let quantity = statistics.sumQuantity(){
+                        let date = statistics.startDate
+                        let steps = quantity.doubleValue(for: HKUnit.count())
+                        print("\(date): steps = \(steps)")
+                        completion(steps)
+                        //NOTE: If you are going to update the UI do it in the main thread
+                        DispatchQueue.main.async {
+                            //update UI components
+                        }
+                    }
+                } //end block
+            } //end if let
+        }
+        HKHealthStore().execute(stepsCumulativeQuery)
     }
     
     // MARK: - Private Methods

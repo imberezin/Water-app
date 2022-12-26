@@ -50,7 +50,7 @@ struct MainView: View {
 
 enum Tab: String, CaseIterable{
     
-    case home = "house"
+    case home = "mug"
     case scan = "figure.walk"
     case folder = "list.bullet.clipboard"
     case cart = "gearshape"

@@ -188,7 +188,7 @@ struct PersistenceController {
         })
         container.viewContext.automaticallyMergesChangesFromParent = true
         self.buildDrinks()
-       // self.AddTempData()
+        //self.AddTempData()
        // self.deleteAllData("Day")
 
     }
@@ -278,13 +278,13 @@ struct PersistenceController {
         let viewContext = container.viewContext
         
         
-        for daysToAdd in 2..<5 {
+        for daysToAdd in 0..<20 {
             let newItem = Day(context: viewContext)
             newItem.id = UUID()
-            newItem.date = Date().addingTimeInterval(TimeInterval(DayTimeInterval*daysToAdd))
+            newItem.date = Date().addingTimeInterval(TimeInterval(-DayTimeInterval*daysToAdd))
             
             var drinksList:Set = Set<Drink>()
-            let randomNumber: Int = Int.random(in: 5...10)
+            let randomNumber: Int = Int.random(in: 10...20)
             
             for _ in 0..<randomNumber {
                 
@@ -405,4 +405,43 @@ struct PersistenceController {
         self.drinksTypes = temp
 
     }
+        
+    
+    func fetchAllDaysItemsInBg() async-> [DayItem]?{
+        
+        
+        let fetchRequest: NSFetchRequest<Day> = Day.fetchRequest()
+
+        let taskContext = container.newBackgroundContext()
+        var results:  [Day] = [Day]()
+        do {
+        
+            try await taskContext.perform({
+               results = try taskContext.fetch(fetchRequest)
+            })
+            
+        } catch {
+            print("error :", error)
+        }
+        
+        let arr: [DayItem] = covertToDayItemArray(daysList: results)
+        
+        return arr.sorted(by:{
+            $0.date.compare($1.date) == .orderedAscending})
+    }
+    
+    func covertToDayItemArray(daysList:[Day])->[DayItem]{
+                
+        var arr = [DayItem]()
+        for item in daysList{
+            if let drink = item.drink{
+                let newItem = DayItem(date: item.date!, drink: drink)
+                arr.append(newItem)
+            }
+        }
+
+        return arr
+    }
+
 }
+

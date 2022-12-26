@@ -75,6 +75,14 @@ class NewWorkoutManager: NSObject, ObservableObject {
                 print(error!)
                 return
             }
+            
+            healthKitDataStore.getStepCountPerDay { count in
+                print("getStepCountPerDay count \(count)")
+            }
+            
+            healthKitDataStore.getDistanceWalkingRunning { count in
+                print("getDistanceWalkingRunning count = \(count)")
+            }
 //            healthKitDataStore.loadAllWorkouts { workouts in
 //                // Update published properties
 //                DispatchQueue.main.async {
@@ -117,6 +125,7 @@ class NewWorkoutManager: NSObject, ObservableObject {
     
     // Setup the location manager to be used
     private func setupLocationManager() {
+        //https://developer.apple.com/documentation/healthkit/workouts_and_activity_rings/creating_a_workout_route
         // Create the location manager
         locationManager = CLLocationManager()
         locationManager.delegate = self
@@ -262,6 +271,7 @@ class NewWorkoutManager: NSObject, ObservableObject {
         
         let newPolyline = MulticolourPolyline(coordinates: formattedNewLocations, count: formattedNewLocations.count)
         newPolyline.colour = polylineColour
+        
         polylines.append(newPolyline)
         
         for segmentRouteLocations in formattedAccumulatedLocations {
@@ -280,8 +290,16 @@ extension NewWorkoutManager: CLLocationManagerDelegate {
         // Only add locations during a workout session
         if workoutState != .running { return }
 
+        
+        let filteredLocations = locations.filter { (location: CLLocation) -> Bool in
+            location.horizontalAccuracy <= 50.0
+        }
+        
+        guard !filteredLocations.isEmpty else { return }
+
+     //   print(filteredLocations)
         // Format and add the locations to the new locations arrays
-        for location in locations {
+        for location in filteredLocations {
             // Get the distance from the previous location
             if let lastLocation = newLocations.last {
                 let delta: Double = location.distance(from: lastLocation)

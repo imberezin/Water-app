@@ -59,6 +59,9 @@ struct SettingsView: View {
                             }
                         .padding(.bottom,8)
                         
+                        AwardListView()
+                            .padding(.vertical,8)
+
                         CustomTextStringFiled(title: "Full Name", systemName: "person", keyboardType: .default, value: $settingsVM.userPrivateinfo.fullName)
                                 .focused($checkoutInFocus, equals: .fullNameType)
                             

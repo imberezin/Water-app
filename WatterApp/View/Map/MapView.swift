@@ -59,6 +59,7 @@ struct MapView: UIViewRepresentable {
         mapView.removeOverlays(mapView.overlays)
         // Add new workout polyline
         mapView.addOverlays(newWorkoutManager.getCurrentWorkoutMultiPolyline())
+    
         // Add filtered workouts polylines
 //        if workoutsManager.numberShown != .none && workoutsManager.finishedLoading {
 //            if mapManager.searchState == .found && workoutsManager.selectedWorkout != nil {

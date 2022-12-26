@@ -11,7 +11,7 @@ import Foundation
 struct DayItem: Identifiable{
     
      public var id: String = UUID().uuidString
-     public var date: Date
+     public let date: Date //= Date()
      public var total: Int = 0
      public var drink: [Drink]?
      public var animation: Bool = false
@@ -20,6 +20,7 @@ struct DayItem: Identifiable{
     
     
     init(date: Date, drink: NSSet?) {
+        print("date = \(date)")
         self.date = date
         self.animation = false
         self.drink = nil
@@ -37,6 +38,8 @@ struct DayItem: Identifiable{
             
         }
 
+        print("self.date = \(self.date)")
+
         
     }
     
@@ -46,9 +49,9 @@ struct DayItem: Identifiable{
         self.drinkItems = drinkItems
     }
     
-    mutating func updateAnumation(value: Bool){
-        self.animation = value
-    }
-    
+//    mutating func updateAnumation(value: Bool){
+//        self.animation = value
+//    }
+//
     
 }

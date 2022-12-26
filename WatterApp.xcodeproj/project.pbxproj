@@ -19,6 +19,8 @@
 		19277CEC29463119006BFE64 /* NotificationCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19277CEB29463119006BFE64 /* NotificationCenterManager.swift */; };
 		1937D470293761490041FFCF /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1937D46F293761490041FFCF /* MainView.swift */; };
 		1937D472293773400041FFCF /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1937D471293773400041FFCF /* Home.swift */; };
+		1938E92929587813003F8390 /* AwardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1938E92829587813003F8390 /* AwardListView.swift */; };
+		1938E92B29587F3E003F8390 /* AwardListViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1938E92A29587F3E003F8390 /* AwardListViewVM.swift */; };
 		193BB086293D315F00AB5840 /* DropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193BB085293D315F00AB5840 /* DropDown.swift */; };
 		193BB088293D33BF00AB5840 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193BB087293D33BF00AB5840 /* HomeVM.swift */; };
 		193BB08A293D42A100AB5840 /* SettingsReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193BB089293D42A000AB5840 /* SettingsReminderView.swift */; };
@@ -70,6 +72,8 @@
 		19277CEB29463119006BFE64 /* NotificationCenterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterManager.swift; sourceTree = "<group>"; };
 		1937D46F293761490041FFCF /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		1937D471293773400041FFCF /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		1938E92829587813003F8390 /* AwardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardListView.swift; sourceTree = "<group>"; };
+		1938E92A29587F3E003F8390 /* AwardListViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardListViewVM.swift; sourceTree = "<group>"; };
 		193BB085293D315F00AB5840 /* DropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDown.swift; sourceTree = "<group>"; };
 		193BB087293D33BF00AB5840 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
 		193BB089293D42A000AB5840 /* SettingsReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsReminderView.swift; sourceTree = "<group>"; };
@@ -199,6 +203,7 @@
 				191BB21C293805EA00F99A26 /* SettingsView.swift */,
 				193BB089293D42A000AB5840 /* SettingsReminderView.swift */,
 				19F87C752940D8B600816561 /* testView.swift */,
+				1938E92829587813003F8390 /* AwardListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -208,6 +213,7 @@
 			children = (
 				193BB087293D33BF00AB5840 /* HomeVM.swift */,
 				193BB08B293DF25B00AB5840 /* SettingsVM.swift */,
+				1938E92A29587F3E003F8390 /* AwardListViewVM.swift */,
 			);
 			path = ViewModle;
 			sourceTree = "<group>";
@@ -386,6 +392,7 @@
 				191BB221293806A300F99A26 /* CustomButtonStyle.swift in Sources */,
 				19C72CDD29545AFD009662FF /* WorkoutInfoBarView.swift in Sources */,
 				191BB21F2938063000F99A26 /* CustomButton.swift in Sources */,
+				1938E92B29587F3E003F8390 /* AwardListViewVM.swift in Sources */,
 				191BB21B2937FDC200F99A26 /* DateExtension.swift in Sources */,
 				19C72CDF29545EB5009662FF /* HealthKitDataStore.swift in Sources */,
 				19C72CD9295456A3009662FF /* WorkoutView.swift in Sources */,
@@ -406,6 +413,7 @@
 				190745EC293F30DC00C6B5BF /* Pie.swift in Sources */,
 				19C72CDB2954597A009662FF /* NewWorkoutInfoBarView.swift in Sources */,
 				197A4548293C00B3008B33DA /* DayItem.swift in Sources */,
+				1938E92929587813003F8390 /* AwardListView.swift in Sources */,
 				19FB055D29493FB90085709A /* GeneralExtensions.swift in Sources */,
 				193BB086293D315F00AB5840 /* DropDown.swift in Sources */,
 				197A454D293C0B9F008B33DA /* ContinueRing.swift in Sources */,

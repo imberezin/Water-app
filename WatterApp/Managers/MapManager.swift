@@ -135,7 +135,7 @@ extension MapManager: MKMapViewDelegate {
         
         let renderer = MKPolylineRenderer(polyline: polyline)
         renderer.strokeColor = colour
-        renderer.lineWidth = 2
+        renderer.lineWidth = 4
         return renderer
     }
     
