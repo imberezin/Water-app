@@ -20,7 +20,7 @@ struct DayItem: Identifiable{
     
     
     init(date: Date, drink: NSSet?) {
-        print("date = \(date)")
+//        print("date = \(date)")
         self.date = date
         self.animation = false
         self.drink = nil
@@ -38,7 +38,7 @@ struct DayItem: Identifiable{
             
         }
 
-        print("self.date = \(self.date)")
+//        print("self.date = \(self.date)")
 
         
     }
