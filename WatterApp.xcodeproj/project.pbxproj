@@ -30,6 +30,9 @@
 		193BB094293DF3FF00AB5840 /* CustomTextStringFiled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193BB092293DF3FF00AB5840 /* CustomTextStringFiled.swift */; };
 		193BB095293DF3FF00AB5840 /* CustomTextTapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193BB093293DF3FF00AB5840 /* CustomTextTapView.swift */; };
 		193BB097293DF45400AB5840 /* AddWaterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193BB096293DF45400AB5840 /* AddWaterButton.swift */; };
+		1949679A295997B90014BA4F /* GenericPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19496799295997B90014BA4F /* GenericPopupView.swift */; };
+		1949679C2959A36D0014BA4F /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1949679B2959A36D0014BA4F /* ViewExtensions.swift */; };
+		1949679E2959A8630014BA4F /* BackgroundPopupCaption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1949679D2959A8630014BA4F /* BackgroundPopupCaption.swift */; };
 		1959016629407BEE008AE6D5 /* WaterTypesListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1959016529407BEE008AE6D5 /* WaterTypesListManager.swift */; };
 		196109942938B9EB00D505B2 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196109932938B9EB00D505B2 /* StatisticsView.swift */; };
 		1969C9D829375A070032AED5 /* WatterAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1969C9D729375A070032AED5 /* WatterAppApp.swift */; };
@@ -83,6 +86,9 @@
 		193BB092293DF3FF00AB5840 /* CustomTextStringFiled.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextStringFiled.swift; sourceTree = "<group>"; };
 		193BB093293DF3FF00AB5840 /* CustomTextTapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextTapView.swift; sourceTree = "<group>"; };
 		193BB096293DF45400AB5840 /* AddWaterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWaterButton.swift; sourceTree = "<group>"; };
+		19496799295997B90014BA4F /* GenericPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericPopupView.swift; sourceTree = "<group>"; };
+		1949679B2959A36D0014BA4F /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
+		1949679D2959A8630014BA4F /* BackgroundPopupCaption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundPopupCaption.swift; sourceTree = "<group>"; };
 		1959016529407BEE008AE6D5 /* WaterTypesListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterTypesListManager.swift; sourceTree = "<group>"; };
 		1961097E2938B3CF00D505B2 /* Day+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Day+CoreDataClass.swift"; sourceTree = "<group>"; };
 		1961097F2938B3CF00D505B2 /* Day+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Day+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -152,6 +158,7 @@
 				193BB096293DF45400AB5840 /* AddWaterButton.swift */,
 				191BB21E2938063000F99A26 /* CustomButton.swift */,
 				191BB220293806A300F99A26 /* CustomButtonStyle.swift */,
+				19496799295997B90014BA4F /* GenericPopupView.swift */,
 			);
 			path = CusomeViews;
 			sourceTree = "<group>";
@@ -160,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				193BB08E293DF39000AB5840 /* BackgroundGroupCaption.swift */,
+				1949679D2959A8630014BA4F /* BackgroundPopupCaption.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -281,6 +289,7 @@
 			children = (
 				191BB21A2937FDC200F99A26 /* DateExtension.swift */,
 				19FB055C29493FB90085709A /* GeneralExtensions.swift */,
+				1949679B2959A36D0014BA4F /* ViewExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -387,6 +396,7 @@
 				193BB08A293D42A100AB5840 /* SettingsReminderView.swift in Sources */,
 				19F87C762940D8B600816561 /* testView.swift in Sources */,
 				197A4546293C0098008B33DA /* DrinkItem.swift in Sources */,
+				1949679C2959A36D0014BA4F /* ViewExtensions.swift in Sources */,
 				1969C9D829375A070032AED5 /* WatterAppApp.swift in Sources */,
 				190A72A32941FF6C009E79C7 /* PieDateVM.swift in Sources */,
 				191BB221293806A300F99A26 /* CustomButtonStyle.swift in Sources */,
@@ -400,6 +410,7 @@
 				1969C9DF29375A070032AED5 /* ContentView.swift in Sources */,
 				1959016629407BEE008AE6D5 /* WaterTypesListManager.swift in Sources */,
 				19C72CCF2954526E009662FF /* MapManager.swift in Sources */,
+				1949679E2959A8630014BA4F /* BackgroundPopupCaption.swift in Sources */,
 				190A72A12941FF41009E79C7 /* PieDateUnit.swift in Sources */,
 				193BB094293DF3FF00AB5840 /* CustomTextStringFiled.swift in Sources */,
 				19726A8229474E63001A9A21 /* AppDelegate.swift in Sources */,
@@ -419,6 +430,7 @@
 				197A454D293C0B9F008B33DA /* ContinueRing.swift in Sources */,
 				19C72CD129545299009662FF /* NewWorkoutManager.swift in Sources */,
 				197A454B293C0B7D008B33DA /* WaveShape.swift in Sources */,
+				1949679A295997B90014BA4F /* GenericPopupView.swift in Sources */,
 				193BB08C293DF25B00AB5840 /* SettingsVM.swift in Sources */,
 				193BB097293DF45400AB5840 /* AddWaterButton.swift in Sources */,
 				193BB095293DF3FF00AB5840 /* CustomTextTapView.swift in Sources */,

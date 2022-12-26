@@ -81,6 +81,7 @@ struct SettingsView: View {
                         DropDown(title: "Gender", systemName: "figure.dress.line.vertical.figure", data: Gander.allCases.map({$0.rawValue}), selected: $settingsVM.userPrivateinfo.gender)
                                 .padding(.top,8)
                         }
+                       
                     
                         Spacer(minLength: 100)
                     
@@ -101,12 +102,8 @@ struct SettingsView: View {
             Spacer()
             
         }
-        .overlay(alignment: .center){
-            if self.showReminder {
-                SettingsReminderView(settingsVM: settingsVM, showReminder: $showReminder)
-            }else{
-                EmptyView()
-            }
+        .popup(isPresented: $showReminder) { // 3
+            SettingsRemindeViewV2(settingsVM: settingsVM, showReminder: $showReminder)
         }
         .ignoresSafeArea(.container, edges: .top)
         

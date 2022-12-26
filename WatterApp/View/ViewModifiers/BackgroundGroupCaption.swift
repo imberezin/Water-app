@@ -22,8 +22,3 @@ struct BackgroundGroupCaption: ViewModifier {
 }
 
 
-extension View {
-    func backgroundCaption() -> some View {
-        modifier(BackgroundGroupCaption())
-    }
-}
