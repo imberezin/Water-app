@@ -29,7 +29,7 @@ struct Home: View {
     @State var showReminderView: Bool = false
     
     @StateObject var settingsVM = SettingsVM()
-
+    
     
     let gradientView: Gradient = Gradient(colors: bgWaweColors)
     
@@ -57,7 +57,7 @@ struct Home: View {
         .popup(isPresented: $showReminderView) { // 3
             SettingsRemindeViewV2(settingsVM: settingsVM, showReminder: $showReminderView)
         }
-
+        
         .ignoresSafeArea(.container, edges: .top)
         .onAppear{
             self.waterTypesListManager.loadPropertyList()
@@ -99,7 +99,6 @@ struct Home: View {
                         Text("Welcome **\(homeVM.userPrivateinfoSaved?.fullName ?? "")**")
                             .font(.headline)
                             .fontWeight(.medium)
-//                            .frame(maxWidth: .infinity, alignment: .leading)
                         Spacer()
                         Button {
                             withAnimation{
@@ -113,9 +112,6 @@ struct Home: View {
                                 .rotationEffect(.degrees(self.showReminderView ? -15 : 30), anchor: .top)
                                 .animation(.interpolatingSpring(mass: 0.5, stiffness: 150, damping: 2.5), value: self.showReminderView)
                         }
-
-
-
                     }
                     .padding(.horizontal)
                     Text(Date().getGregorianDate())
