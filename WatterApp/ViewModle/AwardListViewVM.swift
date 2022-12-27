@@ -7,19 +7,20 @@
 
 import SwiftUI
 
-let awardItemNames: [String] = ["First cup","First Day","First 7 days","30 days", "3 months",  "6 months", " 1 year"]
+let awardItemNames: [String] = ["First cup","First Day","7 days","30 days", "3 months",  "6 months", " 1 year"]
+let awardDayssNumbers: [Int] = [0,1,7,30,90,180,365]
 
 class AwardListViewVM: ObservableObject {
     
     @Published var awardslist = [AwardItem]()
     
-    @Published var awardsIndexs = [Bool]()
+    @Published var moreDaysToAward: Int = -1
+    @Published var moreLitersToAward: Int = -1
     
     @AppStorage("userPrivateinfo") var userPrivateinfoSaved: UserPrivateinfo?
     
     
     init(){
-        self.awardsIndexs = Array(repeating: false, count: awardItemNames.count)
         
     }
     
@@ -27,7 +28,7 @@ class AwardListViewVM: ObservableObject {
         var tempList = [AwardItem]()
         
         for index in 0..<awardItemNames.count{
-            let awardItem = AwardItem(imageName: "award\(index)", awardName: awardItemNames[index])
+            let awardItem = AwardItem(imageName: "award\(index)", awardName: awardItemNames[index],daysNumber: awardDayssNumbers[index])
             tempList.append(awardItem)
             
         }
@@ -42,20 +43,69 @@ class AwardListViewVM: ObservableObject {
         
         Task{
             var tempAwardsIndexs = Array(repeating: false, count: awardItemNames.count)
-            let daysList: [DayItem] =  await PersistenceController.shared.fetchAllDaysItemsInBg()!
-            print("daysList.count = \(daysList.count)")
-            if daysList.count > 0 {
-                tempAwardsIndexs[0] = self.checkFirstCupAward(daysList: daysList)
-                tempAwardsIndexs[1] = self.checkdaysToAward(numberOfDays: 1, daysList: daysList)
-                tempAwardsIndexs[2] = self.checkdaysToAward(numberOfDays: 7, daysList: daysList)
-                tempAwardsIndexs[3] = self.checkdaysToAward(numberOfDays: 30, daysList: daysList)
-                tempAwardsIndexs[4] = self.checkdaysToAward(numberOfDays: 90, daysList: daysList)
-                tempAwardsIndexs[5] = self.checkdaysToAward(numberOfDays: 180, daysList: daysList)
-                tempAwardsIndexs[6] = self.checkdaysToAward(numberOfDays: 365, daysList: daysList)
+            let daysItemList: [DayItem] =  await PersistenceController.shared.fetchAllDaysItemsInBg()!
+            print("daysList.count = \(daysItemList.count)")
+            if daysItemList.count > 0 {
+                tempAwardsIndexs[0] = self.checkFirstCupAward(daysList: daysItemList)
+                tempAwardsIndexs[1] = self.checkdaysToAward(numberOfDays: 1, daysList: daysItemList)
+                tempAwardsIndexs[2] = self.checkdaysToAward(numberOfDays: 7, daysList: daysItemList)
+                tempAwardsIndexs[3] = self.checkdaysToAward(numberOfDays: 30, daysList: daysItemList)
+                tempAwardsIndexs[4] = self.checkdaysToAward(numberOfDays: 90, daysList: daysItemList)
+                tempAwardsIndexs[5] = self.checkdaysToAward(numberOfDays: 180, daysList: daysItemList)
+                tempAwardsIndexs[6] = self.checkdaysToAward(numberOfDays: 365, daysList: daysItemList)
             }
-            self.awardsIndexs =  tempAwardsIndexs
+            var tempList = self.awardslist.map({$0})
+            for index in 0 ..< tempList.count{
+                
+                tempList[index].active = tempAwardsIndexs[index]
+            }
+            self.awardslist = tempList//.map({$0})
+            print(self.awardslist.map({$0.active}))
+            
         }
     }
+    
+    @MainActor
+    func checkhowMoreDaysNeedToGetAward(numberOfDays:Int) {
+        Task{
+            let daysList: [DayItem] =  await PersistenceController.shared.fetchAllDaysItemsInBg()!
+            print("daysList.count = \(daysList.count)")
+            if daysList.count > 0{
+                
+                if numberOfDays > 0 {
+                    
+                    let testArray = daysList.count >= numberOfDays ? daysList.suffix(numberOfDays) : daysList
+                    
+                    var customTotalCount = 0;
+                    for item in testArray.reversed(){
+                        if item.total >= (userPrivateinfoSaved?.customTotal ?? 3000){
+                            customTotalCount += 1
+                        }else{
+                            if item.date != daysList.last?.date{
+                                break
+                            }
+                        }
+                    }
+                    print("customTotalCount = \(customTotalCount)")
+                    self.moreDaysToAward = numberOfDays - customTotalCount
+                    print("moreDaysToAward = \(moreDaysToAward)")
+                    
+                    
+                }else{ // to First cup Award
+                    if let item = daysList.last{
+                        let diff = (userPrivateinfoSaved?.customTotal ?? 3000) - item.total
+                        self.moreLitersToAward = diff
+                    }
+                }
+                
+            }else{
+                if numberOfDays == 0{ // to First cup Award
+                    self.moreLitersToAward = userPrivateinfoSaved?.customTotal ?? 3000
+                }
+            }
+        }
+    }
+    
     
     
     func checkFirstCupAward(daysList:[DayItem])->Bool{
