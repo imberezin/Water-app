@@ -14,12 +14,14 @@ class SettingsVM: ObservableObject {
     @Published var drinkTypesList: [DrinkType] = [DrinkType]()
     @AppStorage("userPrivateinfo") var userPrivateinfoSaved: UserPrivateinfo?
     
-    @Published var userPrivateinfo: UserPrivateinfo =  UserPrivateinfo(fullName: "", height: 0, weight: 0, age: 0, customTotal: 3000, gender: Gander.male.rawValue, slectedRimniderHour: 3, enabledReminde: false){
+    var awardListViewVM = AwardListViewVM()
+
+    @Published var userPrivateinfo: UserPrivateinfo =  UserPrivateinfo(fullName: "", height: 0, weight: 0, age: 0, customTotal: 3000, gender: Gander.male.rawValue, slectedRimniderHour: 3, enabledReminde: false, awardsWins: [Bool]()){
         willSet {
             if newValue == self.userPrivateinfoSaved{
                 //print("no change")
             }else{
-                self.userPrivateinfoSaved = UserPrivateinfo(fullName: newValue.fullName, height: newValue.height, weight: newValue.weight, age: newValue.age, customTotal: newValue.customTotal, gender: newValue.gender, slectedRimniderHour: newValue.slectedRimniderHour, enabledReminde: newValue.enabledReminde)
+                self.userPrivateinfoSaved = UserPrivateinfo(fullName: newValue.fullName, height: newValue.height, weight: newValue.weight, age: newValue.age, customTotal: newValue.customTotal, gender: newValue.gender, slectedRimniderHour: newValue.slectedRimniderHour, enabledReminde: newValue.enabledReminde, awardsWins: newValue.awardsWins)
                 //print(self.userPrivateinfoSaved)
             }
             objectWillChange.send()  // Will be automagically consumed by `Views`.
@@ -32,6 +34,7 @@ class SettingsVM: ObservableObject {
     
     init(){
         print("init")
+        
         if userPrivateinfoSaved != nil{
             self.userPrivateinfo = userPrivateinfoSaved!
         }

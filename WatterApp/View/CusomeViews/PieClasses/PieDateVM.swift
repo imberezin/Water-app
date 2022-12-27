@@ -16,7 +16,7 @@ class PieDateVM : ObservableObject{
     let colors = [Color.cyan,Color.green,Color.yellow,Color.orange, Color.brown,Color.pink,Color.red]
     var progress: Double = 0.0
     
-    @AppStorage("userPrivateinfo") var userPrivateinfoSaved: UserPrivateinfo = UserPrivateinfo(fullName: "", height: 0, weight: 0, age: 0, customTotal: 3000, gender: Gander.male.rawValue, slectedRimniderHour: 3, enabledReminde: false)
+    @AppStorage("userPrivateinfo") var userPrivateinfoSaved: UserPrivateinfo? // = UserPrivateinfo(fullName: "", height: 0, weight: 0, age: 0, customTotal: 3000, gender: Gander.male.rawValue, slectedRimniderHour: 3, enabledReminde: false, awardsWins: [Bool]())
 
     init( ){
         self.data = [PieDateUnit(name: "", amount: 0)]
@@ -25,7 +25,7 @@ class PieDateVM : ObservableObject{
         self.total = Double(d.sum(for: \.amount))
         self.mumberOfPieces = self.data.count
         
-        self.progress = Double(self.total)/Double(userPrivateinfoSaved.customTotal)
+        self.progress = Double(self.total)/Double(userPrivateinfoSaved?.customTotal ?? 3000)
 
     }
     
@@ -58,7 +58,7 @@ class PieDateVM : ObservableObject{
         self.total = Double(d.sum(for: \.amount))
         self.mumberOfPieces = tempData.count
         
-        self.progress = Double(self.total)/Double(userPrivateinfoSaved.customTotal)
+        self.progress = Double(self.total)/Double(userPrivateinfoSaved?.customTotal ?? 3000)
         print(self.data)
         print(self.total)
         print(self.progress)
@@ -106,7 +106,7 @@ class PieDateVM : ObservableObject{
             self.total = Double(tempData.sum(for: \.amount))
             self.mumberOfPieces = tempData.count
             
-            self.progress = Double(self.total)/Double(self.userPrivateinfoSaved.customTotal)
+        self.progress = Double(self.total)/Double(self.userPrivateinfoSaved?.customTotal ?? 3000)
             print(tempData)
             print(self.total)
             print(self.progress)

@@ -33,6 +33,7 @@
 		1949679A295997B90014BA4F /* GenericPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19496799295997B90014BA4F /* GenericPopupView.swift */; };
 		1949679C2959A36D0014BA4F /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1949679B2959A36D0014BA4F /* ViewExtensions.swift */; };
 		1949679E2959A8630014BA4F /* BackgroundPopupCaption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1949679D2959A8630014BA4F /* BackgroundPopupCaption.swift */; };
+		1957957F295B1C1B005E7BA4 /* AwardWinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1957957E295B1C1B005E7BA4 /* AwardWinView.swift */; };
 		1959016629407BEE008AE6D5 /* WaterTypesListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1959016529407BEE008AE6D5 /* WaterTypesListManager.swift */; };
 		196109942938B9EB00D505B2 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196109932938B9EB00D505B2 /* StatisticsView.swift */; };
 		1969C9D829375A070032AED5 /* WatterAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1969C9D729375A070032AED5 /* WatterAppApp.swift */; };
@@ -90,6 +91,7 @@
 		19496799295997B90014BA4F /* GenericPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericPopupView.swift; sourceTree = "<group>"; };
 		1949679B2959A36D0014BA4F /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		1949679D2959A8630014BA4F /* BackgroundPopupCaption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundPopupCaption.swift; sourceTree = "<group>"; };
+		1957957E295B1C1B005E7BA4 /* AwardWinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardWinView.swift; sourceTree = "<group>"; };
 		1959016529407BEE008AE6D5 /* WaterTypesListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterTypesListManager.swift; sourceTree = "<group>"; };
 		1961097E2938B3CF00D505B2 /* Day+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Day+CoreDataClass.swift"; sourceTree = "<group>"; };
 		1961097F2938B3CF00D505B2 /* Day+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Day+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				193BB084293D312700AB5840 /* CusomeViews */,
 				197A4549293C0B61008B33DA /* Shapes */,
 				1937D46F293761490041FFCF /* MainView.swift */,
+				1957957E295B1C1B005E7BA4 /* AwardWinView.swift */,
 				1937D471293773400041FFCF /* Home.swift */,
 				196109932938B9EB00D505B2 /* StatisticsView.swift */,
 				19F8707F2938F18000500178 /* ChartsView.swift */,
@@ -407,6 +410,7 @@
 				191BB21F2938063000F99A26 /* CustomButton.swift in Sources */,
 				1938E92B29587F3E003F8390 /* AwardListViewVM.swift in Sources */,
 				191BB21B2937FDC200F99A26 /* DateExtension.swift in Sources */,
+				1957957F295B1C1B005E7BA4 /* AwardWinView.swift in Sources */,
 				19C72CDF29545EB5009662FF /* HealthKitDataStore.swift in Sources */,
 				19C72CD9295456A3009662FF /* WorkoutView.swift in Sources */,
 				1969C9DD29375A070032AED5 /* WatterApp.xcdatamodeld in Sources */,

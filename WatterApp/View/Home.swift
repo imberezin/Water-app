@@ -47,27 +47,33 @@ struct Home: View {
                 .frame(maxWidth: .infinity, maxHeight: 100)
             
         }
+        .popup(isPresented: $homeVM.isNeedsToShowAwardView) {
+            AwardWinView(selectedAward: homeVM.slectedAwardItem)
+        }
         .ignoresSafeArea(.container, edges: .top)
         .onAppear{
             self.waterTypesListManager.loadPropertyList()
             self.todayWaterInfo()
+            DispatchQueue.main.asyncAfter(deadline: .now()+0.5){
+                self.homeVM.checkAndUpadteIfUserNeedToGetNewAwardMedal()
+            }
         }
         .onChange(of: scenePhase) { newValue in
             switch newValue {
-                case .active:
-                    print("Home - active")
-                    if let shortcutItem = self.notificationCenterManager.shortcutItem{
-                        self.userAddWaterByShortcutItem(shortcutItem: shortcutItem)
-                    }
-                    if let actionIdentifier = self.notificationCenterManager.actionIdentifier{
-                        self.userAddWaterByNotifcationAction(actionIdentifier: actionIdentifier)
-                    }
-                case .background:
-                    print("Home - background")
-                    
-                    // 3
-                default:
-                    break
+            case .active:
+                print("Home - active")
+                if let shortcutItem = self.notificationCenterManager.shortcutItem{
+                    self.userAddWaterByShortcutItem(shortcutItem: shortcutItem)
+                }
+                if let actionIdentifier = self.notificationCenterManager.actionIdentifier{
+                    self.userAddWaterByNotifcationAction(actionIdentifier: actionIdentifier)
+                }
+            case .background:
+                print("Home - background")
+                
+                // 3
+            default:
+                break
             }
         }
     }
@@ -120,9 +126,9 @@ struct Home: View {
                         .padding(.horizontal)
                     }
                 }
-                
             }
     }
+    
     
     func todayWaterInfo(){
         if daysItems.count > 0 {
@@ -147,23 +153,23 @@ struct Home: View {
         }
     }
     
-     func userAddWaterByNotifcationAction( actionIdentifier: String){
-         if let drink: DrinkType = waterTypesListManager.drinkTypesList.first(where: {$0.id == actionIdentifier}){
-                print("=========")
-                print ("\(drink.id)")
-                print ("\(drink.name)")
-                print("=========")
-                DispatchQueue.main.asyncAfter(deadline:  .now() + 0.3){
-                    self.updateDrinkAndUI(drink: drink)
-                    self.notificationCenterManager.actionIdentifier = nil
-             }
+    func userAddWaterByNotifcationAction( actionIdentifier: String){
+        if let drink: DrinkType = waterTypesListManager.drinkTypesList.first(where: {$0.id == actionIdentifier}){
+            print("=========")
+            print ("\(drink.id)")
+            print ("\(drink.name)")
+            print("=========")
+            DispatchQueue.main.asyncAfter(deadline:  .now() + 0.3){
+                self.updateDrinkAndUI(drink: drink)
+                self.notificationCenterManager.actionIdentifier = nil
+            }
         }
     }
     
     func updateDrinkAndUI(drink: DrinkType){
         self.numberOfWoter += drink.amount
         self.homeVM.addWaterToCureentDay(waterType: drink, daysItems: self.daysItems)
-
+        
     }
 }
 

@@ -19,6 +19,7 @@ struct UserPrivateinfo: Codable, Identifiable{
     var gender: String
     var slectedRimniderHour: Int
     var enabledReminde: Bool
+    var awardsWins: [Bool]
     
     
     //    init(){
@@ -42,7 +43,7 @@ struct UserPrivateinfo: Codable, Identifiable{
         case gender
         case slectedRimniderHour
         case enabledReminde
-        
+        case awardsWins
     }
     
     
@@ -63,6 +64,7 @@ extension UserPrivateinfo: RawRepresentable {
         gender = try values.decode(String.self, forKey: .gender)
         slectedRimniderHour = try values.decode(Int.self, forKey: .slectedRimniderHour)
         enabledReminde = try values.decode(Bool.self, forKey: .enabledReminde)
+        awardsWins = try values.decode([Bool].self, forKey: .awardsWins)
     }
     
     func encode(to encoder: Encoder) throws {
@@ -77,6 +79,8 @@ extension UserPrivateinfo: RawRepresentable {
         try container.encode(gender, forKey: .gender)
         try container.encode(slectedRimniderHour, forKey: .slectedRimniderHour)
         try container.encode(enabledReminde, forKey: .enabledReminde)
+        try container.encode(awardsWins, forKey: .awardsWins)
+
         
     }
     
@@ -129,7 +133,9 @@ extension UserPrivateinfo: Equatable{
                 (lhs.customTotal == rhs.customTotal) &&
                 (lhs.gender == rhs.gender) &&
                 (lhs.slectedRimniderHour == rhs.slectedRimniderHour) &&
-                (lhs.enabledReminde == rhs.enabledReminde)
+                (lhs.enabledReminde == rhs.enabledReminde) &&
+                (lhs.awardsWins == rhs.awardsWins)
+
         )
     }
 

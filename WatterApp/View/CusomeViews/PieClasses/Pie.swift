@@ -43,7 +43,7 @@ struct Pie : View {
                     VStack(alignment: .center, spacing: 4.0) {
                         Text(pieDateVM.progress.round(to: 2).formatted(.percent))
                         Text("From")
-                        Text("\(pieDateVM.userPrivateinfoSaved.customTotal) Ml")
+                        Text("\(pieDateVM.userPrivateinfoSaved?.customTotal ?? 3000) Ml")
                     }
                     .font(.headline)
                     .foregroundColor(Color.blue)

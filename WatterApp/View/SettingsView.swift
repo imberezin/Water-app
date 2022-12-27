@@ -124,7 +124,7 @@ struct SettingsView: View {
             SettingsRemindeViewV2(settingsVM: settingsVM, showReminder: $showReminder)
         }
         .popup(isPresented: $showAwardView) { // 3
-            AwardView()
+            AwardViews()
         }
         .ignoresSafeArea(.container, edges: .top)
         .onAppear{
@@ -191,28 +191,11 @@ struct SettingsView: View {
     }
     
     @ViewBuilder
-    func AwardView() -> some View{
+    func AwardViews() -> some View{
         
         VStack{
             if selectedAward.active {
-                selectedAward.photo.image
-                    .resizable()
-                    .clipShape(Circle())
-                    .frame(width: 150,height: 150)
-                
-                Text(selectedAward.awardName)
-                    .frame(width: 140,height: 30,alignment: .center)
-                    .background(.blue)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                
-                
-                ShareLink(item: selectedAward.photo, preview: SharePreview(selectedAward.photo.caption, image: selectedAward.photo.image),label: {
-                    Label("Share with your friends", systemImage:  "square.and.arrow.up")
-                        .font(.headline).fontWeight(.bold)
-                        .foregroundColor(.black)
-                    
-                })
-                .padding(.top)
+                AwardWinView(selectedAward: selectedAward)
             }else{
                 
                 ZStack(alignment: .bottom){
@@ -250,6 +233,8 @@ struct SettingsView: View {
 //        }
     }
 
+    
+    
     
 }
 

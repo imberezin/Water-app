@@ -11,16 +11,59 @@ import SwiftUI
 class HomeVM: ObservableObject {
     
     @AppStorage("userPrivateinfo") var userPrivateinfoSaved: UserPrivateinfo?
-
+    
+    @Published var awardListViewVM = AwardListViewVM()
+    
+    @Published var isNeedsToShowAwardView: Bool = false
+    
+    var slectedAwardItem: AwardItem? = nil
     
     init(){
         if userPrivateinfoSaved == nil{
-            self.userPrivateinfoSaved = UserPrivateinfo(fullName: "", height: 0, weight: 0, age: 0, customTotal: 3000, gender: Gander.male.rawValue, slectedRimniderHour: 3, enabledReminde: false)
+            self.userPrivateinfoSaved = UserPrivateinfo(fullName: "", height: 0, weight: 0, age: 0, customTotal: 3000, gender: Gander.male.rawValue, slectedRimniderHour: 3, enabledReminde: false, awardsWins: Array(repeating: false, count: awardItemNames.count))
         }
-//        Task{
-//            let a =  await PersistenceController.shared.fetchAllDaysItemsInBg()
-//            print(a?.count ?? 0)
-//        }
+    }
+    
+    @MainActor
+    func checkAndUpadteIfUserNeedToGetNewAwardMedal(){
+        self.awardListViewVM.updateAwardslist(checkAlsoListAwards: false)
+        Task{
+            self.isNeedsToShowAwardView = false
+            self.slectedAwardItem = nil
+            
+            if var tempAwardsWins = userPrivateinfoSaved?.awardsWins  {
+                print(tempAwardsWins)
+                if tempAwardsWins.isEmpty{
+                    tempAwardsWins = Array(repeating: false, count: awardItemNames.count)
+                    userPrivateinfoSaved?.awardsWins = tempAwardsWins
+                }
+                for index in 0 ..< tempAwardsWins.count{
+                    
+                    var flag = false
+                    
+                    if tempAwardsWins[index] == false{
+                        
+                        let awaedItem = awardListViewVM.awardslist[index]
+                        let list = await awardListViewVM.getFulldaysList()
+                        
+                        if index == 0 {
+                            flag = awardListViewVM.checkFirstCupAward(daysList: list)
+                        }else{
+                            flag = awardListViewVM.checkdaysToAward(numberOfDays: awaedItem.daysNumber, daysList: list)
+                        }
+                        
+                        if flag {
+                            print(index)
+                            print(awaedItem.awardName)
+                            userPrivateinfoSaved?.awardsWins[index] = true
+                            slectedAwardItem = awaedItem
+                            self.isNeedsToShowAwardView = true
+                            break
+                        }
+                    }
+                }
+            }
+        }
     }
     
     func addWaterToCureentDay(waterType : DrinkType, daysItems: FetchedResults<Day>){
@@ -35,7 +78,11 @@ class HomeVM: ObservableObject {
         }else{
             PersistenceController.shared.createNewDay(date: Date(), drinkItem: drinkItem)
         }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.5){
+            self.checkAndUpadteIfUserNeedToGetNewAwardMedal()
+        }
     }
-
+    
 }
 

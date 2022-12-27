@@ -9,7 +9,7 @@ import SwiftUI
 
 struct StatisticsDetailsView: View {
     
-    @AppStorage("userPrivateinfo") var userPrivateinfoSaved: UserPrivateinfo = UserPrivateinfo(fullName: "", height: 0, weight: 0, age: 0, customTotal: 3000, gender: Gander.male.rawValue, slectedRimniderHour: 3, enabledReminde: false)
+    @AppStorage("userPrivateinfo") var userPrivateinfoSaved: UserPrivateinfo? //= UserPrivateinfo(fullName: "", height: 0, weight: 0, age: 0, customTotal: 3000, gender: Gander.male.rawValue, slectedRimniderHour: 3, enabledReminde: false, awardsWins: [Bool]())
 
     @State var item: Day
     @State var UpdateUI: Bool = false

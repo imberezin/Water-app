@@ -24,7 +24,7 @@ class AwardListViewVM: ObservableObject {
         
     }
     
-    func updateAwardslist(){
+    func updateAwardslist(checkAlsoListAwards: Bool = true){
         var tempList = [AwardItem]()
         
         for index in 0..<awardItemNames.count{
@@ -34,7 +34,9 @@ class AwardListViewVM: ObservableObject {
         }
         DispatchQueue.main.async {
             self.awardslist = tempList
-            self.checkIfTheUserHaveAwards()
+            if checkAlsoListAwards {
+                self.checkIfTheUserHaveAwards()
+            }
         }
     }
     
@@ -63,6 +65,10 @@ class AwardListViewVM: ObservableObject {
             print(self.awardslist.map({$0.active}))
             
         }
+    }
+    
+    func getFulldaysList() async -> [DayItem]{
+        return await PersistenceController.shared.fetchAllDaysItemsInBg()!
     }
     
     @MainActor
