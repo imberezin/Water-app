@@ -12,8 +12,9 @@ class SettingsVM: ObservableObject {
     
     
     @Published var drinkTypesList: [DrinkType] = [DrinkType]()
-    @AppStorage("userPrivateinfo") var userPrivateinfoSaved: UserPrivateinfo?
-    
+    //@AppStorage("userPrivateinfo") var userPrivateinfoSaved: UserPrivateinfo?
+    @AppStorage("userPrivateinfo", store: UserDefaults(suiteName: "group.com.kaltura.waterapp")) var userPrivateinfoSaved: UserPrivateinfo?
+
     var awardListViewVM = AwardListViewVM()
 
     @Published var userPrivateinfo: UserPrivateinfo =  UserPrivateinfo(fullName: "", height: 0, weight: 0, age: 0, customTotal: 3000, gender: Gander.male.rawValue, slectedRimniderHour: 3, enabledReminde: false, awardsWins: [Bool]()){

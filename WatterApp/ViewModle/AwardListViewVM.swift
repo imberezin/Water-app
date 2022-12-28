@@ -17,8 +17,9 @@ class AwardListViewVM: ObservableObject {
     @Published var moreDaysToAward: Int = -1
     @Published var moreLitersToAward: Int = -1
     
-    @AppStorage("userPrivateinfo") var userPrivateinfoSaved: UserPrivateinfo?
-    
+    //@AppStorage("userPrivateinfo") var userPrivateinfoSaved: UserPrivateinfo?
+    @AppStorage("userPrivateinfo", store: UserDefaults(suiteName: "group.com.kaltura.waterapp")) var userPrivateinfoSaved: UserPrivateinfo?
+
     
     init(){
         

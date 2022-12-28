@@ -8,6 +8,14 @@
 import Foundation
 
 
+enum Gander: String, CaseIterable{
+    case male = "Male"
+    case fmale = "Fmale"
+    case other = "Other"
+    
+}
+
+
 struct UserPrivateinfo: Codable, Identifiable{
     
     var id: String = UUID().uuidString

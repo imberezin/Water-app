@@ -45,6 +45,13 @@ struct PersistenceController {
     
     var oneDay: Day?
 
+    lazy var applicationDocumentDirectory: URL = {
+        let containerUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.kaltura.waterapp")!
+        return containerUrl
+    }()
+    
+    
+    
     func getOneDay()-> Day{
 //        let result = PersistenceController(inMemory: true)
 //        let viewContext = result.container.viewContext
@@ -165,7 +172,13 @@ struct PersistenceController {
     var drinksTypes = [DrinkItem]()
 
     init(inMemory: Bool = false) {
+        
+        //based: https://medium.com/@pietromessineo/ios-share-coredata-with-extension-and-app-groups-69f135628736
+        let storeURL = URL.storeURL(for: "group.com.kaltura.waterapp", databaseName: "WatterApp")
+        let storeDescription = NSPersistentStoreDescription(url: storeURL)
         container = NSPersistentContainer(name: "WatterApp")
+        container.persistentStoreDescriptions = [storeDescription]
+
         if inMemory {
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
         }
@@ -188,9 +201,8 @@ struct PersistenceController {
         })
         container.viewContext.automaticallyMergesChangesFromParent = true
         self.buildDrinks()
-        //self.AddTempData()
+        // self.AddTempData()
        // self.deleteAllData("Day")
-
     }
     
     
@@ -284,7 +296,7 @@ struct PersistenceController {
             newItem.date = Date().addingTimeInterval(TimeInterval(-DayTimeInterval*daysToAdd))
             
             var drinksList:Set = Set<Drink>()
-            let randomNumber: Int = Int.random(in: 10...20)
+            let randomNumber: Int = Int.random(in: 12...20)
             
             for _ in 0..<randomNumber {
                 

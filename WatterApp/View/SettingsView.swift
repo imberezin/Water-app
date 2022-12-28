@@ -19,12 +19,6 @@ enum CheckoutFocusable: Int, Hashable {
 
 //    let genderArray: [String] = ["Male", "Fmale", "Other"]
 
-enum Gander: String, CaseIterable{
-    case male = "Male"
-    case fmale = "Fmale"
-    case other = "Other"
-    
-}
 let bgWaweColors = [Color("azureColor").opacity(1),Color("azureColor").opacity(0.8),Color("azureColor").opacity(0.4),Color("azureColor").opacity(0.2)]
 
 

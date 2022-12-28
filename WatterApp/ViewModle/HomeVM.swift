@@ -10,8 +10,9 @@ import SwiftUI
 
 class HomeVM: ObservableObject {
     
-    @AppStorage("userPrivateinfo") var userPrivateinfoSaved: UserPrivateinfo?
-    
+//    @AppStorage("userPrivateinfo") var userPrivateinfoSaved: UserPrivateinfo?
+    @AppStorage("userPrivateinfo", store: UserDefaults(suiteName: "group.com.kaltura.waterapp")) var userPrivateinfoSaved: UserPrivateinfo?
+
     @Published var awardListViewVM = AwardListViewVM()
     
     @Published var isNeedsToShowAwardView: Bool = false

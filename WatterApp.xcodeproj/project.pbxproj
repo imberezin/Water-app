@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		190745EC293F30DC00C6B5BF /* Pie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190745EB293F30DC00C6B5BF /* Pie.swift */; };
+		1909FA81295C2FCA00D73F9E /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191BB21A2937FDC200F99A26 /* DateExtension.swift */; };
+		1909FA82295C2FD300D73F9E /* GeneralExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FB055C29493FB90085709A /* GeneralExtensions.swift */; };
+		1909FA83295C2FDD00D73F9E /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1969C9D929375A070032AED5 /* Persistence.swift */; };
+		1909FA84295C2FE500D73F9E /* WaterTypesListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1959016529407BEE008AE6D5 /* WaterTypesListManager.swift */; };
+		1909FA85295C300100D73F9E /* WatterApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1969C9DB29375A070032AED5 /* WatterApp.xcdatamodeld */; };
+		1909FA86295C300900D73F9E /* UserPrivateinfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190A72A629421998009E79C7 /* UserPrivateinfo.swift */; };
+		1909FA87295C300900D73F9E /* DrinkItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197A4545293C0098008B33DA /* DrinkItem.swift */; };
+		1909FA88295C300900D73F9E /* DayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197A4547293C00B3008B33DA /* DayItem.swift */; };
+		1909FA89295C300E00D73F9E /* AwardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196F6D45295A4751009D444F /* AwardItem.swift */; };
 		190A72A12941FF41009E79C7 /* PieDateUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190A72A02941FF41009E79C7 /* PieDateUnit.swift */; };
 		190A72A32941FF6C009E79C7 /* PieDateVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190A72A22941FF6C009E79C7 /* PieDateVM.swift */; };
 		190A72A52941FFB9009E79C7 /* PieSliceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190A72A42941FFB9009E79C7 /* PieSliceView.swift */; };
@@ -34,6 +43,15 @@
 		1949679C2959A36D0014BA4F /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1949679B2959A36D0014BA4F /* ViewExtensions.swift */; };
 		1949679E2959A8630014BA4F /* BackgroundPopupCaption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1949679D2959A8630014BA4F /* BackgroundPopupCaption.swift */; };
 		1957957F295B1C1B005E7BA4 /* AwardWinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1957957E295B1C1B005E7BA4 /* AwardWinView.swift */; };
+		19579587295C2CB4005E7BA4 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19579586295C2CB4005E7BA4 /* WidgetKit.framework */; };
+		19579589295C2CB4005E7BA4 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19579588295C2CB4005E7BA4 /* SwiftUI.framework */; };
+		1957958C295C2CB4005E7BA4 /* watterAppWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1957958B295C2CB4005E7BA4 /* watterAppWidgetBundle.swift */; };
+		1957958E295C2CB4005E7BA4 /* watterAppWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1957958D295C2CB4005E7BA4 /* watterAppWidgetLiveActivity.swift */; };
+		19579590295C2CB4005E7BA4 /* watterAppWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1957958F295C2CB4005E7BA4 /* watterAppWidget.swift */; };
+		19579593295C2CB9005E7BA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19579592295C2CB9005E7BA4 /* Assets.xcassets */; };
+		19579595295C2CB9005E7BA4 /* watterAppWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 19579591295C2CB4005E7BA4 /* watterAppWidget.intentdefinition */; };
+		19579596295C2CB9005E7BA4 /* watterAppWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 19579591295C2CB4005E7BA4 /* watterAppWidget.intentdefinition */; };
+		19579599295C2CB9005E7BA4 /* watterAppWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 19579584295C2CB4005E7BA4 /* watterAppWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		1959016629407BEE008AE6D5 /* WaterTypesListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1959016529407BEE008AE6D5 /* WaterTypesListManager.swift */; };
 		196109942938B9EB00D505B2 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196109932938B9EB00D505B2 /* StatisticsView.swift */; };
 		1969C9D829375A070032AED5 /* WatterAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1969C9D729375A070032AED5 /* WatterAppApp.swift */; };
@@ -64,8 +82,33 @@
 		19FB055D29493FB90085709A /* GeneralExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FB055C29493FB90085709A /* GeneralExtensions.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		19579597295C2CB9005E7BA4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1969C9CC29375A070032AED5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 19579583295C2CB4005E7BA4;
+			remoteInfo = watterAppWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1957959A295C2CB9005E7BA4 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				19579599295C2CB9005E7BA4 /* watterAppWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		190745EB293F30DC00C6B5BF /* Pie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pie.swift; sourceTree = "<group>"; };
+		1909FA8A295C3F4100D73F9E /* watterAppWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = watterAppWidgetExtension.entitlements; sourceTree = "<group>"; };
 		190A72A02941FF41009E79C7 /* PieDateUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieDateUnit.swift; sourceTree = "<group>"; };
 		190A72A22941FF6C009E79C7 /* PieDateVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieDateVM.swift; sourceTree = "<group>"; };
 		190A72A42941FFB9009E79C7 /* PieSliceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieSliceView.swift; sourceTree = "<group>"; };
@@ -92,6 +135,15 @@
 		1949679B2959A36D0014BA4F /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		1949679D2959A8630014BA4F /* BackgroundPopupCaption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundPopupCaption.swift; sourceTree = "<group>"; };
 		1957957E295B1C1B005E7BA4 /* AwardWinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardWinView.swift; sourceTree = "<group>"; };
+		19579584295C2CB4005E7BA4 /* watterAppWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = watterAppWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		19579586295C2CB4005E7BA4 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		19579588295C2CB4005E7BA4 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		1957958B295C2CB4005E7BA4 /* watterAppWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = watterAppWidgetBundle.swift; sourceTree = "<group>"; };
+		1957958D295C2CB4005E7BA4 /* watterAppWidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = watterAppWidgetLiveActivity.swift; sourceTree = "<group>"; };
+		1957958F295C2CB4005E7BA4 /* watterAppWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = watterAppWidget.swift; sourceTree = "<group>"; };
+		19579591295C2CB4005E7BA4 /* watterAppWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = watterAppWidget.intentdefinition; sourceTree = "<group>"; };
+		19579592295C2CB9005E7BA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		19579594295C2CB9005E7BA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1959016529407BEE008AE6D5 /* WaterTypesListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterTypesListManager.swift; sourceTree = "<group>"; };
 		1961097E2938B3CF00D505B2 /* Day+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Day+CoreDataClass.swift"; sourceTree = "<group>"; };
 		1961097F2938B3CF00D505B2 /* Day+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Day+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -130,6 +182,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		19579581295C2CB4005E7BA4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				19579589295C2CB4005E7BA4 /* SwiftUI.framework in Frameworks */,
+				19579587295C2CB4005E7BA4 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1969C9D129375A070032AED5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -174,6 +235,28 @@
 				1949679D2959A8630014BA4F /* BackgroundPopupCaption.swift */,
 			);
 			path = ViewModifiers;
+			sourceTree = "<group>";
+		};
+		19579585295C2CB4005E7BA4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				19579586295C2CB4005E7BA4 /* WidgetKit.framework */,
+				19579588295C2CB4005E7BA4 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1957958A295C2CB4005E7BA4 /* watterAppWidget */ = {
+			isa = PBXGroup;
+			children = (
+				1957958B295C2CB4005E7BA4 /* watterAppWidgetBundle.swift */,
+				1957958D295C2CB4005E7BA4 /* watterAppWidgetLiveActivity.swift */,
+				1957958F295C2CB4005E7BA4 /* watterAppWidget.swift */,
+				19579591295C2CB4005E7BA4 /* watterAppWidget.intentdefinition */,
+				19579592295C2CB9005E7BA4 /* Assets.xcassets */,
+				19579594295C2CB9005E7BA4 /* Info.plist */,
+			);
+			path = watterAppWidget;
 			sourceTree = "<group>";
 		};
 		1961098E2938B5DE00D505B2 /* Modle */ = {
@@ -248,7 +331,10 @@
 		1969C9CB29375A070032AED5 = {
 			isa = PBXGroup;
 			children = (
+				1909FA8A295C3F4100D73F9E /* watterAppWidgetExtension.entitlements */,
 				1969C9D629375A070032AED5 /* WatterApp */,
+				1957958A295C2CB4005E7BA4 /* watterAppWidget */,
+				19579585295C2CB4005E7BA4 /* Frameworks */,
 				1969C9D529375A070032AED5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -257,6 +343,7 @@
 			isa = PBXGroup;
 			children = (
 				1969C9D429375A070032AED5 /* WatterApp.app */,
+				19579584295C2CB4005E7BA4 /* watterAppWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -323,6 +410,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		19579583295C2CB4005E7BA4 /* watterAppWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1957959D295C2CB9005E7BA4 /* Build configuration list for PBXNativeTarget "watterAppWidgetExtension" */;
+			buildPhases = (
+				19579580295C2CB4005E7BA4 /* Sources */,
+				19579581295C2CB4005E7BA4 /* Frameworks */,
+				19579582295C2CB4005E7BA4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = watterAppWidgetExtension;
+			productName = watterAppWidgetExtension;
+			productReference = 19579584295C2CB4005E7BA4 /* watterAppWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		1969C9D329375A070032AED5 /* WatterApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1969C9E829375A090032AED5 /* Build configuration list for PBXNativeTarget "WatterApp" */;
@@ -330,10 +434,12 @@
 				1969C9D029375A070032AED5 /* Sources */,
 				1969C9D129375A070032AED5 /* Frameworks */,
 				1969C9D229375A070032AED5 /* Resources */,
+				1957959A295C2CB9005E7BA4 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				19579598295C2CB9005E7BA4 /* PBXTargetDependency */,
 			);
 			name = WatterApp;
 			productName = WatterApp;
@@ -350,6 +456,9 @@
 				LastSwiftUpdateCheck = 1410;
 				LastUpgradeCheck = 1410;
 				TargetAttributes = {
+					19579583295C2CB4005E7BA4 = {
+						CreatedOnToolsVersion = 14.1;
+					};
 					1969C9D329375A070032AED5 = {
 						CreatedOnToolsVersion = 14.1;
 					};
@@ -369,11 +478,20 @@
 			projectRoot = "";
 			targets = (
 				1969C9D329375A070032AED5 /* WatterApp */,
+				19579583295C2CB4005E7BA4 /* watterAppWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		19579582295C2CB4005E7BA4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				19579593295C2CB9005E7BA4 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1969C9D229375A070032AED5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -388,6 +506,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		19579580295C2CB4005E7BA4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1909FA86295C300900D73F9E /* UserPrivateinfo.swift in Sources */,
+				1909FA88295C300900D73F9E /* DayItem.swift in Sources */,
+				1909FA89295C300E00D73F9E /* AwardItem.swift in Sources */,
+				1957958C295C2CB4005E7BA4 /* watterAppWidgetBundle.swift in Sources */,
+				1909FA85295C300100D73F9E /* WatterApp.xcdatamodeld in Sources */,
+				1909FA81295C2FCA00D73F9E /* DateExtension.swift in Sources */,
+				1957958E295C2CB4005E7BA4 /* watterAppWidgetLiveActivity.swift in Sources */,
+				1909FA83295C2FDD00D73F9E /* Persistence.swift in Sources */,
+				19579595295C2CB9005E7BA4 /* watterAppWidget.intentdefinition in Sources */,
+				1909FA87295C300900D73F9E /* DrinkItem.swift in Sources */,
+				1909FA84295C2FE500D73F9E /* WaterTypesListManager.swift in Sources */,
+				1909FA82295C2FD300D73F9E /* GeneralExtensions.swift in Sources */,
+				19579590295C2CB4005E7BA4 /* watterAppWidget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1969C9D029375A070032AED5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -426,6 +564,7 @@
 				193BB088293D33BF00AB5840 /* HomeVM.swift in Sources */,
 				190A72A729421998009E79C7 /* UserPrivateinfo.swift in Sources */,
 				1937D472293773400041FFCF /* Home.swift in Sources */,
+				19579596295C2CB9005E7BA4 /* watterAppWidget.intentdefinition in Sources */,
 				1969C9DA29375A070032AED5 /* Persistence.swift in Sources */,
 				196F6D46295A4751009D444F /* AwardItem.swift in Sources */,
 				190A72A52941FFB9009E79C7 /* PieSliceView.swift in Sources */,
@@ -448,7 +587,76 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		19579598295C2CB9005E7BA4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 19579583295C2CB4005E7BA4 /* watterAppWidgetExtension */;
+			targetProxy = 19579597295C2CB9005E7BA4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		1957959B295C2CB9005E7BA4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = watterAppWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X8RDCFJK95;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = watterAppWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = watterAppWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kaltura.mediaWaApp.WatterApp.watterAppWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1957959C295C2CB9005E7BA4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = watterAppWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X8RDCFJK95;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = watterAppWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = watterAppWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kaltura.mediaWaApp.WatterApp.watterAppWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		1969C9E629375A090032AED5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -561,6 +769,7 @@
 		1969C9E929375A090032AED5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = WatterApp/WatterApp.entitlements;
@@ -606,6 +815,7 @@
 		1969C9EA29375A090032AED5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = WatterApp/WatterApp.entitlements;
@@ -651,6 +861,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1957959D295C2CB9005E7BA4 /* Build configuration list for PBXNativeTarget "watterAppWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1957959B295C2CB9005E7BA4 /* Debug */,
+				1957959C295C2CB9005E7BA4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		1969C9CF29375A070032AED5 /* Build configuration list for PBXProject "WatterApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
