@@ -12,8 +12,9 @@ import SwiftUI
 public struct Popup<PopupContent>: ViewModifier where PopupContent: View {
     
     init(isPresented: Binding<Bool>,
-         view: @escaping () -> PopupContent) {
+         view: @escaping () -> PopupContent, onClose: @escaping  ()->Void = {}) {
         self._isPresented = isPresented
+        self.onClose = onClose
         self.view = view
     }
     
@@ -23,6 +24,7 @@ public struct Popup<PopupContent>: ViewModifier where PopupContent: View {
     /// The content to present
     var view: () -> PopupContent
     
+    var onClose: ()->Void
     // MARK: - Private Properties
     /// The rect of the hosting controller
     @State private var presenterContentRect: CGRect = .zero
@@ -81,6 +83,7 @@ public struct Popup<PopupContent>: ViewModifier where PopupContent: View {
 
     private func dismiss() {
         isPresented = false
+        onClose()
     }
     
 }

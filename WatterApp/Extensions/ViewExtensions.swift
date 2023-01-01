@@ -17,11 +17,11 @@ extension View {
 
     public func popup<PopupContent: View>(
         isPresented: Binding<Bool>,
-        view: @escaping () -> PopupContent) -> some View {
+        view: @escaping () -> PopupContent, onClose:  @escaping ()->Void = {}) -> some View {
         self.modifier(
             Popup(
                 isPresented: isPresented,
-                view: view)
+                view: view, onClose: onClose)
         )
     }
 

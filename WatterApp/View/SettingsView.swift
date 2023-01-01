@@ -19,7 +19,6 @@ enum CheckoutFocusable: Int, Hashable {
 
 //    let genderArray: [String] = ["Male", "Fmale", "Other"]
 
-let bgWaweColors = [Color("azureColor").opacity(1),Color("azureColor").opacity(0.8),Color("azureColor").opacity(0.4),Color("azureColor").opacity(0.2)]
 
 
 struct SettingsView: View {
@@ -31,6 +30,8 @@ struct SettingsView: View {
     @FocusState private var checkoutInFocus: CheckoutFocusable?
     
     @State var showReminder: Bool = false
+    
+    @State var editWaterList: Bool = false
     
     @StateObject var awardListViewVM = AwardListViewVM()
 
@@ -64,7 +65,7 @@ struct SettingsView: View {
                                     if newValue.active == false {
                                         self.awardListViewVM.checkhowMoreDaysNeedToGetAward(numberOfDays: newValue.daysNumber)
                                     }
-
+                                    
                                 }
                             }
                             .onChange(of: showAwardView){ newValue in
@@ -73,6 +74,16 @@ struct SettingsView: View {
                                     
                                 }
                             }
+                        
+                        CustomTextTapView(title: "Drink List", systemName: "list.bullet", subTitleLeading: "", subTitleTrailing: "Show & Edit "){
+                            self.editWaterList.toggle()
+                        }
+                        .padding(.vertical,8)
+                        .fullScreenCover(isPresented: $editWaterList, onDismiss: {
+                            saveListIfNeded(isNeded: self.waterTypesListManager.needToUpdateListWaterList)
+                        }, content: {
+                            WaterTypesListView()
+                        })
                         
                         CustomTextStringFiled(title: "Full Name", systemName: "person", keyboardType: .default, value: $settingsVM.userPrivateinfo.fullName)
                             .focused($checkoutInFocus, equals: .fullNameType)
@@ -114,6 +125,7 @@ struct SettingsView: View {
             Spacer()
             
         }
+        
         .popup(isPresented: $showReminder) { // 3
             SettingsRemindeViewV2(settingsVM: settingsVM, showReminder: $showReminder)
         }
@@ -138,6 +150,16 @@ struct SettingsView: View {
         }else{
             checkoutInFocus = .none
         }
+    }
+    
+    func saveListIfNeded(isNeded: Bool){
+        if isNeded{
+            print("save list in Plist file")
+            self.waterTypesListManager.savePropertyList(for: self.waterTypesListManager.drinkTypesList)
+        }else{
+            self.waterTypesListManager.loadPropertyList(forceUpdate: true)
+        }
+        self.waterTypesListManager.needToUpdateListWaterList = false
     }
     
     @ViewBuilder

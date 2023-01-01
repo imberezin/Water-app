@@ -44,7 +44,7 @@ struct Home: View {
             HeaderView(gradient: gradientView)
                 .frame(maxWidth: .infinity, maxHeight: 100)
             
-            ContinueRing(cureentNumber: numberOfWoter, total: Float(homeVM.userPrivateinfoSaved?.customTotal ?? 1000))
+            ContinueRing(cureentNumber: numberOfWoter, total: Float(homeVM.userPrivateinfoSaved?.customTotal ?? 1000), ringFrame: CGSize(width: 250.0, height: 250.0))
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
             
             FooterView(gradient: gradientView)
@@ -84,9 +84,27 @@ struct Home: View {
                 break
             }
         }
+        .onOpenURL{ url in
+            print(url)
+            guard
+                url.scheme == "watterBerezinApp",
+                url.host == "actionIdentifier",
+                let actionIdentifier = String(url.pathComponents[1]) as? String
+            else{
+                print("worng url")
+                return
+            }
+            print("good url, actionIdentifier = \(actionIdentifier)")
+            
+            self.userAddWaterByNotifcationAction(actionIdentifier: actionIdentifier)
+
+        }
     }
     
-    
+    /*
+     Link(destination: URL(string: "watterBerezinApp://actionIdentifier/\(entry.drinkTypesList[index].id)")!){
+
+     */
     @ViewBuilder
     func HeaderView(gradient: Gradient)-> some View{
         WaveShape()

@@ -17,6 +17,18 @@
 		1909FA87295C300900D73F9E /* DrinkItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197A4545293C0098008B33DA /* DrinkItem.swift */; };
 		1909FA88295C300900D73F9E /* DayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197A4547293C00B3008B33DA /* DayItem.swift */; };
 		1909FA89295C300E00D73F9E /* AwardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196F6D45295A4751009D444F /* AwardItem.swift */; };
+		1909FA8F295C936000D73F9E /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1909FA8E295C936000D73F9E /* Provider.swift */; };
+		1909FA91295C955000D73F9E /* WatterAppWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1909FA90295C955000D73F9E /* WatterAppWidgetView.swift */; };
+		1909FA96295D7C1E00D73F9E /* WaterEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1909FA92295D7C0500D73F9E /* WaterEntry.swift */; };
+		1909FA97295D7FF500D73F9E /* WaveShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197A454A293C0B7D008B33DA /* WaveShape.swift */; };
+		1909FA99295D803E00D73F9E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1909FA98295D803E00D73F9E /* Constants.swift */; };
+		1909FA9A295D804E00D73F9E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1909FA98295D803E00D73F9E /* Constants.swift */; };
+		1909FA9D295DB24A00D73F9E /* WatterAppWidgetMediumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1909FA9C295DB24A00D73F9E /* WatterAppWidgetMediumView.swift */; };
+		1909FA9F295DB33900D73F9E /* WatterAppWidgetSmallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1909FA9E295DB33900D73F9E /* WatterAppWidgetSmallView.swift */; };
+		1909FAA0295DB5CA00D73F9E /* WaterTypesList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 19F87C732940C59E00816561 /* WaterTypesList.plist */; };
+		1909FAA1295DB61D00D73F9E /* AddWaterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193BB096293DF45400AB5840 /* AddWaterButton.swift */; };
+		1909FAA3295DD53600D73F9E /* SpeedometerGaugeStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1909FAA2295DD53600D73F9E /* SpeedometerGaugeStyle.swift */; };
+		1909FAA4295DD54100D73F9E /* SpeedometerGaugeStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1909FAA2295DD53600D73F9E /* SpeedometerGaugeStyle.swift */; };
 		190A72A12941FF41009E79C7 /* PieDateUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190A72A02941FF41009E79C7 /* PieDateUnit.swift */; };
 		190A72A32941FF6C009E79C7 /* PieDateVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190A72A22941FF6C009E79C7 /* PieDateVM.swift */; };
 		190A72A52941FFB9009E79C7 /* PieSliceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190A72A42941FFB9009E79C7 /* PieSliceView.swift */; };
@@ -54,6 +66,7 @@
 		19579599295C2CB9005E7BA4 /* watterAppWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 19579584295C2CB4005E7BA4 /* watterAppWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		1959016629407BEE008AE6D5 /* WaterTypesListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1959016529407BEE008AE6D5 /* WaterTypesListManager.swift */; };
 		196109942938B9EB00D505B2 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196109932938B9EB00D505B2 /* StatisticsView.swift */; };
+		1965CF9B29618E250049BAC6 /* WaterTypesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1965CF9A29618E250049BAC6 /* WaterTypesListView.swift */; };
 		1969C9D829375A070032AED5 /* WatterAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1969C9D729375A070032AED5 /* WatterAppApp.swift */; };
 		1969C9DA29375A070032AED5 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1969C9D929375A070032AED5 /* Persistence.swift */; };
 		1969C9DD29375A070032AED5 /* WatterApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1969C9DB29375A070032AED5 /* WatterApp.xcdatamodeld */; };
@@ -109,6 +122,13 @@
 /* Begin PBXFileReference section */
 		190745EB293F30DC00C6B5BF /* Pie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pie.swift; sourceTree = "<group>"; };
 		1909FA8A295C3F4100D73F9E /* watterAppWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = watterAppWidgetExtension.entitlements; sourceTree = "<group>"; };
+		1909FA8E295C936000D73F9E /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
+		1909FA90295C955000D73F9E /* WatterAppWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatterAppWidgetView.swift; sourceTree = "<group>"; };
+		1909FA92295D7C0500D73F9E /* WaterEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterEntry.swift; sourceTree = "<group>"; };
+		1909FA98295D803E00D73F9E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		1909FA9C295DB24A00D73F9E /* WatterAppWidgetMediumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatterAppWidgetMediumView.swift; sourceTree = "<group>"; };
+		1909FA9E295DB33900D73F9E /* WatterAppWidgetSmallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatterAppWidgetSmallView.swift; sourceTree = "<group>"; };
+		1909FAA2295DD53600D73F9E /* SpeedometerGaugeStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedometerGaugeStyle.swift; sourceTree = "<group>"; };
 		190A72A02941FF41009E79C7 /* PieDateUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieDateUnit.swift; sourceTree = "<group>"; };
 		190A72A22941FF6C009E79C7 /* PieDateVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieDateVM.swift; sourceTree = "<group>"; };
 		190A72A42941FFB9009E79C7 /* PieSliceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieSliceView.swift; sourceTree = "<group>"; };
@@ -150,6 +170,7 @@
 		196109802938B3CF00D505B2 /* Drink+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Drink+CoreDataClass.swift"; sourceTree = "<group>"; };
 		196109812938B3CF00D505B2 /* Drink+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Drink+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		196109932938B9EB00D505B2 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
+		1965CF9A29618E250049BAC6 /* WaterTypesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterTypesListView.swift; sourceTree = "<group>"; };
 		1969C9D429375A070032AED5 /* WatterApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatterApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1969C9D729375A070032AED5 /* WatterAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatterAppApp.swift; sourceTree = "<group>"; };
 		1969C9D929375A070032AED5 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -224,6 +245,7 @@
 				191BB21E2938063000F99A26 /* CustomButton.swift */,
 				191BB220293806A300F99A26 /* CustomButtonStyle.swift */,
 				19496799295997B90014BA4F /* GenericPopupView.swift */,
+				1909FAA2295DD53600D73F9E /* SpeedometerGaugeStyle.swift */,
 			);
 			path = CusomeViews;
 			sourceTree = "<group>";
@@ -249,9 +271,14 @@
 		1957958A295C2CB4005E7BA4 /* watterAppWidget */ = {
 			isa = PBXGroup;
 			children = (
+				1957958F295C2CB4005E7BA4 /* watterAppWidget.swift */,
+				1909FA92295D7C0500D73F9E /* WaterEntry.swift */,
+				1909FA8E295C936000D73F9E /* Provider.swift */,
+				1909FA90295C955000D73F9E /* WatterAppWidgetView.swift */,
+				1909FA9E295DB33900D73F9E /* WatterAppWidgetSmallView.swift */,
+				1909FA9C295DB24A00D73F9E /* WatterAppWidgetMediumView.swift */,
 				1957958B295C2CB4005E7BA4 /* watterAppWidgetBundle.swift */,
 				1957958D295C2CB4005E7BA4 /* watterAppWidgetLiveActivity.swift */,
-				1957958F295C2CB4005E7BA4 /* watterAppWidget.swift */,
 				19579591295C2CB4005E7BA4 /* watterAppWidget.intentdefinition */,
 				19579592295C2CB9005E7BA4 /* Assets.xcassets */,
 				19579594295C2CB9005E7BA4 /* Info.plist */,
@@ -301,6 +328,7 @@
 				193BB089293D42A000AB5840 /* SettingsReminderView.swift */,
 				19F87C752940D8B600816561 /* testView.swift */,
 				1938E92829587813003F8390 /* AwardListView.swift */,
+				1965CF9A29618E250049BAC6 /* WaterTypesListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -360,6 +388,7 @@
 				1969C9D729375A070032AED5 /* WatterAppApp.swift */,
 				19726A8129474E63001A9A21 /* AppDelegate.swift */,
 				1969C9DE29375A070032AED5 /* ContentView.swift */,
+				1909FA98295D803E00D73F9E /* Constants.swift */,
 				1969C9E029375A090032AED5 /* Assets.xcassets */,
 				19726A7F29466496001A9A21 /* water3.png */,
 				1969C9E229375A090032AED5 /* WatterApp.entitlements */,
@@ -488,6 +517,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1909FAA0295DB5CA00D73F9E /* WaterTypesList.plist in Resources */,
 				19579593295C2CB9005E7BA4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -510,19 +540,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1909FA96295D7C1E00D73F9E /* WaterEntry.swift in Sources */,
+				1909FA91295C955000D73F9E /* WatterAppWidgetView.swift in Sources */,
+				1909FA97295D7FF500D73F9E /* WaveShape.swift in Sources */,
 				1909FA86295C300900D73F9E /* UserPrivateinfo.swift in Sources */,
 				1909FA88295C300900D73F9E /* DayItem.swift in Sources */,
+				1909FA8F295C936000D73F9E /* Provider.swift in Sources */,
+				1909FAA1295DB61D00D73F9E /* AddWaterButton.swift in Sources */,
 				1909FA89295C300E00D73F9E /* AwardItem.swift in Sources */,
 				1957958C295C2CB4005E7BA4 /* watterAppWidgetBundle.swift in Sources */,
 				1909FA85295C300100D73F9E /* WatterApp.xcdatamodeld in Sources */,
 				1909FA81295C2FCA00D73F9E /* DateExtension.swift in Sources */,
+				1909FAA4295DD54100D73F9E /* SpeedometerGaugeStyle.swift in Sources */,
 				1957958E295C2CB4005E7BA4 /* watterAppWidgetLiveActivity.swift in Sources */,
 				1909FA83295C2FDD00D73F9E /* Persistence.swift in Sources */,
 				19579595295C2CB9005E7BA4 /* watterAppWidget.intentdefinition in Sources */,
+				1909FA9F295DB33900D73F9E /* WatterAppWidgetSmallView.swift in Sources */,
 				1909FA87295C300900D73F9E /* DrinkItem.swift in Sources */,
 				1909FA84295C2FE500D73F9E /* WaterTypesListManager.swift in Sources */,
 				1909FA82295C2FD300D73F9E /* GeneralExtensions.swift in Sources */,
 				19579590295C2CB4005E7BA4 /* watterAppWidget.swift in Sources */,
+				1909FA9A295D804E00D73F9E /* Constants.swift in Sources */,
+				1909FA9D295DB24A00D73F9E /* WatterAppWidgetMediumView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,6 +588,7 @@
 				1938E92B29587F3E003F8390 /* AwardListViewVM.swift in Sources */,
 				191BB21B2937FDC200F99A26 /* DateExtension.swift in Sources */,
 				1957957F295B1C1B005E7BA4 /* AwardWinView.swift in Sources */,
+				1909FAA3295DD53600D73F9E /* SpeedometerGaugeStyle.swift in Sources */,
 				19C72CDF29545EB5009662FF /* HealthKitDataStore.swift in Sources */,
 				19C72CD9295456A3009662FF /* WorkoutView.swift in Sources */,
 				1969C9DD29375A070032AED5 /* WatterApp.xcdatamodeld in Sources */,
@@ -579,7 +619,9 @@
 				197A454B293C0B7D008B33DA /* WaveShape.swift in Sources */,
 				1949679A295997B90014BA4F /* GenericPopupView.swift in Sources */,
 				193BB08C293DF25B00AB5840 /* SettingsVM.swift in Sources */,
+				1965CF9B29618E250049BAC6 /* WaterTypesListView.swift in Sources */,
 				193BB097293DF45400AB5840 /* AddWaterButton.swift in Sources */,
+				1909FA99295D803E00D73F9E /* Constants.swift in Sources */,
 				193BB095293DF3FF00AB5840 /* CustomTextTapView.swift in Sources */,
 				19F870802938F18000500178 /* ChartsView.swift in Sources */,
 			);

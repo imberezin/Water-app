@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 struct StatisticsDetailsView: View {
     
@@ -102,6 +103,11 @@ struct StatisticsDetailsView: View {
             withAnimation(.linear(duration: 0.7)){
                 self.pieDateVM.update(dayInfo: DayItem(date: updateedItem.date ?? Date(), drink: updateedItem.drink))
             }
+            DispatchQueue.main.asyncAfter(deadline: .now()+0.5){
+                WidgetCenter.shared.reloadAllTimelines()
+
+            }
+
 //            self.UpdateUI.toggle()
 
         }

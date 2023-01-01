@@ -20,6 +20,8 @@ struct ContinueRing: View{
     
     let colors1 = [Color.blue.opacity(0.25),Color.blue.opacity(1.0)]//,Color.blue.opacity(0.60),Color.blue.opacity(0.80)]
 
+    let ringFrame: CGSize
+    
     var body: some View {
         
         let progressValue:Double = Double(cureentNumber) / Double(total)
@@ -29,7 +31,8 @@ struct ContinueRing: View{
             GeometryReader{ geo in
                 ActivityRing(progress: progressValue, lineWidth: geo.size.width/10, gradient: Gradient(colors: colors1))
             }
-                .frame(width: 250.0, height: 250.0)
+//                .frame(width: 250.0, height: 250.0)
+            .frame(width: ringFrame.width, height: ringFrame.height)
                 .padding(40.0)
             VStack(alignment: .center, spacing: 8.0){
                 Text("You drank")

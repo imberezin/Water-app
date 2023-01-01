@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import WidgetKit
 
 class HomeVM: ObservableObject {
     
@@ -81,6 +82,8 @@ class HomeVM: ObservableObject {
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now()+0.5){
+            WidgetCenter.shared.reloadAllTimelines()
+
             self.checkAndUpadteIfUserNeedToGetNewAwardMedal()
         }
     }

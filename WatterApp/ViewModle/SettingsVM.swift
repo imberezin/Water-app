@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import WidgetKit
 
 class SettingsVM: ObservableObject {
     
@@ -23,6 +24,8 @@ class SettingsVM: ObservableObject {
                 //print("no change")
             }else{
                 self.userPrivateinfoSaved = UserPrivateinfo(fullName: newValue.fullName, height: newValue.height, weight: newValue.weight, age: newValue.age, customTotal: newValue.customTotal, gender: newValue.gender, slectedRimniderHour: newValue.slectedRimniderHour, enabledReminde: newValue.enabledReminde, awardsWins: newValue.awardsWins)
+                self.reloadAllWidgetTimelines()
+
                 //print(self.userPrivateinfoSaved)
             }
             objectWillChange.send()  // Will be automagically consumed by `Views`.
@@ -31,6 +34,9 @@ class SettingsVM: ObservableObject {
         
     }
     
+    func reloadAllWidgetTimelines(){
+        WidgetCenter.shared.reloadAllTimelines()
+    }
     let noteficationid = "abcderfghigberezinAppWater12345678"
     
     init(){

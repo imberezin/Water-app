@@ -8,16 +8,17 @@
 import Foundation
 import SwiftUI
 
-struct DrinkType : Codable,Identifiable {
+struct DrinkType : Codable,Identifiable{
     
-    let id: String  //= UUID().uuidString
-    let name : String
-    let amount : Int
-    let calories : Int
-    let orederNumber : Int
-    let imageMame : String
-    
+    let id : String
+    var name : String
+    var amount : Int
+    var calories : Int
+    var orederNumber : Int
+    var imageMame : String
+
     enum CodingKeys: String, CodingKey {
+
         case id = "id"
         case name = "name"
         case amount = "amount"
@@ -25,17 +26,39 @@ struct DrinkType : Codable,Identifiable {
         case orederNumber = "orederNumber"
         case imageMame = "imageMame"
     }
-    
+
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         id = try values.decodeIfPresent(String.self, forKey: .id)!
         name = try values.decodeIfPresent(String.self, forKey: .name)!
         amount = try values.decodeIfPresent(Int.self, forKey: .amount)!
-        calories = try values.decodeIfPresent(Int.self, forKey: .calories)  ?? 0
-        orederNumber = try values.decodeIfPresent(Int.self, forKey: .orederNumber) ?? 0
+        calories = try values.decodeIfPresent(Int.self, forKey: .calories)!
+        orederNumber = try values.decodeIfPresent(Int.self, forKey: .orederNumber)!
         imageMame = try values.decodeIfPresent(String.self, forKey: .imageMame)!
     }
+
     
+    init(name:String, amount: Int, imageMame : String ) {
+        self.id = UUID().uuidString
+        self.name = name
+        self.amount = amount
+        self.calories = 0
+        self.orederNumber = 100
+        self.imageMame = imageMame
+
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: .id)
+        try container.encode(name, forKey: .name)
+        try container.encode(amount, forKey: .amount)
+        try container.encode(calories, forKey: .calories)
+        try container.encode(orederNumber, forKey: .orederNumber)
+        try container.encode(imageMame, forKey: .imageMame)
+
+    }
+
 }
 
 
@@ -49,30 +72,56 @@ class WaterTypesListManager: ObservableObject {
 
     let fileName =  "waterTypesList"
     
+    @Published var needToUpdateListWaterList: Bool = false
     
     init(){
         //self.readPropertyList()
     }
     
-    func loadPropertyList() {
-        
-        let fileURL1 = Bundle.main.url(forResource: "WaterTypesList", withExtension: "plist")!
-        
-        DispatchQueue.global().async { [weak self] in
+    func loadPropertyList(forceUpdate: Bool = false) {
+        if (drinkTypesList.count == 0 || forceUpdate == true){
             
-            if let data = try? Data(contentsOf: fileURL1) {
+            let fileURL1 = Bundle.main.url(forResource: "WaterTypesList", withExtension: "plist")!
+            
+            DispatchQueue.global().async { [weak self] in
                 
-                let decoder = PropertyListDecoder()
-                let list = try? decoder.decode([DrinkType].self, from: data)
-                //print(list as Any)
-                if let list = list {
-                    DispatchQueue.main.async {
-                        self!.drinkTypesList = list
+                if let data = try? Data(contentsOf: fileURL1) {
+                    
+                    let decoder = PropertyListDecoder()
+                    let list = try? decoder.decode([DrinkType].self, from: data)
+                    //print(list as Any)
+                    if let list = list {
+                        DispatchQueue.main.async {
+                            self!.drinkTypesList = list
+                        }
                     }
                 }
             }
+        }else{
+            print("loadPropertyList => list exist => \(self.drinkTypesList.count)")
+            
         }
     }
+    
+    
+    func savePropertyList(for drinkTypesList: [DrinkType]) {
+        let plistURL = Bundle.main.url(forResource: "WaterTypesList", withExtension: "plist")!
+        
+        let encoder = PropertyListEncoder()
+
+        if let data = try? encoder.encode(drinkTypesList) {
+          if FileManager.default.fileExists(atPath: plistURL.path) {
+            // Update an existing plist
+            try? data.write(to: plistURL)
+          } else {
+            // Create a new plist
+            FileManager.default.createFile(atPath: plistURL.path, contents: data, attributes: nil)
+          }
+        }
+
+    }
+
+    
     
     func asyncGetData(url: URL) async throws -> Data {
         
@@ -134,11 +183,20 @@ class WaterTypesListManager: ObservableObject {
     }
     
     @MainActor
-    func buildDrinkList() async{
-        if drinkTypesList.count == 0{
+    func buildDrinkList(forceUpdate: Bool = false) async{
+        if (drinkTypesList.count == 0 || forceUpdate == true){
             let fileURL = Bundle.main.url(forResource: "WaterTypesList", withExtension: "plist")!
             self.drinkTypesList = await fetchAndUpdateUI(from: fileURL)
+        }else{
+            print("buildDrinkList => list exist => \(self.drinkTypesList.count)")
+
         }
+
+    }
+    
+    func getAsyncDrinkList() async -> [DrinkType] {
+            let fileURL = Bundle.main.url(forResource: "WaterTypesList", withExtension: "plist")!
+            return await fetchAndUpdateUI(from: fileURL)
 
     }
     

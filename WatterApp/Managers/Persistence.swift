@@ -201,7 +201,7 @@ struct PersistenceController {
         })
         container.viewContext.automaticallyMergesChangesFromParent = true
         self.buildDrinks()
-        // self.AddTempData()
+//         self.AddTempData()
        // self.deleteAllData("Day")
     }
     
@@ -290,7 +290,7 @@ struct PersistenceController {
         let viewContext = container.viewContext
         
         
-        for daysToAdd in 0..<20 {
+        for daysToAdd in 0..<25 {
             let newItem = Day(context: viewContext)
             newItem.id = UUID()
             newItem.date = Date().addingTimeInterval(TimeInterval(-DayTimeInterval*daysToAdd))
@@ -419,6 +419,31 @@ struct PersistenceController {
     }
         
     
+    func fatchTodayDrinkInfo() async -> [DayItem]?{
+//        @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Day.date, ascending: true)],predicate: NSPredicate(format : "date < %@ AND  date > %@", Date().daysAfter(number: 1) as CVarArg, Date().daysBefore(number: 1) as CVarArg))
+//        private var daysItems: FetchedResults<Day>
+
+        let fetchRequest: NSFetchRequest<Day> = Day.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format : "date < %@ AND  date > %@", Date().daysAfter(number: 1) as CVarArg, Date().daysBefore(number: 1) as CVarArg)
+        let taskContext = container.newBackgroundContext()
+        var results:  [Day] = [Day]()
+        do {
+        
+            try await taskContext.perform({
+               results = try taskContext.fetch(fetchRequest)
+            })
+            
+        } catch {
+            print("error :", error)
+        }
+        
+        let arr: [DayItem] = covertToDayItemArray(daysList: results)
+        
+        return arr.sorted(by:{
+            $0.date.compare($1.date) == .orderedAscending})
+    }
+
+    
     func fetchAllDaysItemsInBg() async-> [DayItem]?{
         
         
@@ -437,6 +462,9 @@ struct PersistenceController {
         }
         
         let arr: [DayItem] = covertToDayItemArray(daysList: results)
+        
+        print(arr.first?.total ?? 0)
+        print(arr.last?.total ?? 0)
         
         return arr.sorted(by:{
             $0.date.compare($1.date) == .orderedAscending})
