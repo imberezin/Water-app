@@ -7,197 +7,167 @@
 
 import Foundation
 import SwiftUI
+import WidgetKit
 
-struct DrinkType : Codable,Identifiable{
-    
-    let id : String
-    var name : String
-    var amount : Int
-    var calories : Int
-    var orederNumber : Int
-    var imageMame : String
 
-    enum CodingKeys: String, CodingKey {
-
-        case id = "id"
-        case name = "name"
-        case amount = "amount"
-        case calories = "calories"
-        case orederNumber = "orederNumber"
-        case imageMame = "imageMame"
-    }
-
-    init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        id = try values.decodeIfPresent(String.self, forKey: .id)!
-        name = try values.decodeIfPresent(String.self, forKey: .name)!
-        amount = try values.decodeIfPresent(Int.self, forKey: .amount)!
-        calories = try values.decodeIfPresent(Int.self, forKey: .calories)!
-        orederNumber = try values.decodeIfPresent(Int.self, forKey: .orederNumber)!
-        imageMame = try values.decodeIfPresent(String.self, forKey: .imageMame)!
-    }
-
-    
-    init(name:String, amount: Int, imageMame : String ) {
-        self.id = UUID().uuidString
-        self.name = name
-        self.amount = amount
-        self.calories = 0
-        self.orederNumber = 100
-        self.imageMame = imageMame
-
-    }
-    
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(id, forKey: .id)
-        try container.encode(name, forKey: .name)
-        try container.encode(amount, forKey: .amount)
-        try container.encode(calories, forKey: .calories)
-        try container.encode(orederNumber, forKey: .orederNumber)
-        try container.encode(imageMame, forKey: .imageMame)
-
-    }
-
+enum PlistUrlType{
+    case local
+    case group
 }
-
 
 
 class WaterTypesListManager: ObservableObject {
     
-        
     static let shared = WaterTypesListManager()
-
+    
     @Published var drinkTypesList: [DrinkType] = [DrinkType]()
-
-    let fileName =  "waterTypesList"
     
     @Published var needToUpdateListWaterList: Bool = false
     
-    init(){
-        //self.readPropertyList()
+    var plistLocalURL: URL {
+        let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        return documents.appendingPathComponent("WaterTypesList.plist")
     }
     
+    var plistGroupURL: URL {
+        guard let groupURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.kaltura.waterapp") else {
+            fatalError("could not get shared app group directory.")
+        }
+        return groupURL.appendingPathComponent("WaterTypesList.plist")
+    }
+    
+    var localRadeUrl: URL{
+        return Bundle.main.url(forResource: "WaterTypesList", withExtension: "plist")!
+        
+    }
+    
+    @MainActor
     func loadPropertyList(forceUpdate: Bool = false) {
         if (drinkTypesList.count == 0 || forceUpdate == true){
-            
-            let fileURL1 = Bundle.main.url(forResource: "WaterTypesList", withExtension: "plist")!
-            
-            DispatchQueue.global().async { [weak self] in
-                
-                if let data = try? Data(contentsOf: fileURL1) {
-                    
-                    let decoder = PropertyListDecoder()
-                    let list = try? decoder.decode([DrinkType].self, from: data)
-                    //print(list as Any)
-                    if let list = list {
-                        DispatchQueue.main.async {
-                            self!.drinkTypesList = list
-                        }
-                    }
+                        
+            if FileManager.default.fileExists(atPath: plistGroupURL.path) {
+                Task{
+                    self.drinkTypesList = await self.buildDrinkList(urlType: .group)
                 }
+                
+            } else {
+                Task{
+                     let list = await  buildDrinkList(urlType: .local)
+                    print(self.drinkTypesList)
+                    self.savePropertyList(for: list)
+                    self.drinkTypesList = list
+                    
+                    // Delay the task by 1 second:
+//                    try await Task.sleep(nanoseconds: 1_000_000_00080)
+//                    self.savePropertyList(for: list)
+
+                   // self.drinkTypesList =  await  buildDrinkList(urlType: .group)
+                    print(self.drinkTypesList)
+
+                    WidgetCenter.shared.reloadAllTimelines()
+                    print("===End loadPropertyList ====")
+
+
+                }
+                
+            
             }
         }else{
             print("loadPropertyList => list exist => \(self.drinkTypesList.count)")
-            
         }
     }
     
+//    func loadDrinks(from url:URL){
+//
+//        DispatchQueue.global().async { [weak self] in
+//
+//            if let data = try? Data(contentsOf: url) {
+//
+//                let decoder = PropertyListDecoder()
+//                let list = try? decoder.decode([DrinkType].self, from: data)
+//                //print(list as Any)
+//                if let list = list {
+//                    DispatchQueue.main.async {
+//                        self!.drinkTypesList = list
+//                    }
+//                }
+//            }
+//        }
+//    }
+  
     
     func savePropertyList(for drinkTypesList: [DrinkType]) {
-        let plistURL = Bundle.main.url(forResource: "WaterTypesList", withExtension: "plist")!
         
         let encoder = PropertyListEncoder()
-
+        
         if let data = try? encoder.encode(drinkTypesList) {
-          if FileManager.default.fileExists(atPath: plistURL.path) {
-            // Update an existing plist
-            try? data.write(to: plistURL)
-          } else {
-            // Create a new plist
-            FileManager.default.createFile(atPath: plistURL.path, contents: data, attributes: nil)
-          }
+            do {
+                if FileManager.default.fileExists(atPath: plistGroupURL.path) {
+                    // Update an existing plist
+                    try FileManager.default.removeItem(atPath: plistGroupURL.path)
+                    FileManager.default.createFile(atPath: plistGroupURL.path, contents: data, attributes: nil)
+                    
+                    //                    try data.write(to: plistURL1)
+                } else {
+                    // Create a new plist
+                    FileManager.default.createFile(atPath: plistGroupURL.path, contents: data, attributes: nil)
+                }
+                DispatchQueue.main.asyncAfter(deadline: .now()+0.3){
+                    WidgetCenter.shared.reloadAllTimelines()
+                }
+            }catch{
+                print("savePropertyList error")
+                print(error.localizedDescription)
+            }
         }
-
+        
     }
-
     
     
     func asyncGetData(url: URL) async throws -> Data {
-        
-        
         try await Task.detached {
             try Data(contentsOf: url)
         }.value
-    
-        
     }
-
     
     func fetchAndUpdateUI(from url: URL) async  ->  [DrinkType]{ //async -> Task<[DrinkType]?, any Error> {
-        if let data = try? await asyncGetData(url: url){
+        do{
+             let data = try await asyncGetData(url: url)
             let decoder = PropertyListDecoder()
             let list = try? decoder.decode([DrinkType].self, from: data)
             print(list as Any)
             if let list = list {
                 return list
             }
-
+                
+            
+        }catch{
+            print(error.localizedDescription)
         }
         return[DrinkType]()
     }
-
-
     
     
     
-    //        func chipsOperationPropertyList(operation: chipsOperation) {
-    
-    func chipsOperationPropertyList() {
-        //chipOperation is enum for add, edit and update
-        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
-        let path = paths.appending("/StoreData.plist")
-        let fileManager = FileManager.default
-        if (!(fileManager.fileExists(atPath: path)))
-        {
-            do {
-                let bundlePath : NSString = Bundle.main.path(forResource: fileName, ofType: "plist")! as NSString
-                try fileManager.copyItem(atPath: bundlePath as String, toPath: path)
-            }catch {
-                print(error)
-            }
-        }
-        var plistDict:NSMutableDictionary = NSMutableDictionary(contentsOfFile: path)!
-        //        switch operation {
-        //           case chipsOperation.add:
-        //                plistDict.setValue("Value", forKey: "Key")
-        //                break
-        //           case chipsOperation.edit:
-        //                plistDict["Key"] = "Value1"
-        //                break
-        //           case chipsOperation.delete:
-        //                plistDict.removeObject(forKey: "Key")
-        //                break
-        //        }
-        //        plistDict.write(toFile: path, atomically: true)
-    }
     
     @MainActor
-    func buildDrinkList(forceUpdate: Bool = false) async{
+    func buildDrinkList(urlType:PlistUrlType = .group ,forceUpdate: Bool = false) async -> [DrinkType] {
         if (drinkTypesList.count == 0 || forceUpdate == true){
-            let fileURL = Bundle.main.url(forResource: "WaterTypesList", withExtension: "plist")!
-            self.drinkTypesList = await fetchAndUpdateUI(from: fileURL)
+//            let plistUrl = urlType == .group ? self.plistGroupURL : self.localRadeUrl
+            return await fetchAndUpdateUI(from: urlType == .group ? self.plistGroupURL : self.localRadeUrl)
         }else{
             print("buildDrinkList => list exist => \(self.drinkTypesList.count)")
-
+            return  self.drinkTypesList
         }
-
+        
     }
     
-    func getAsyncDrinkList() async -> [DrinkType] {
-            let fileURL = Bundle.main.url(forResource: "WaterTypesList", withExtension: "plist")!
-            return await fetchAndUpdateUI(from: fileURL)
-
+    func getAsyncDrinkList(urlType:PlistUrlType = .group) async -> [DrinkType] {
+        
+        return await self.buildDrinkList(urlType:urlType)
+        
+       // return await fetchAndUpdateUI(from: self.plistGroupURL)
+        
     }
     
     func buildNotificationDrinkActions(maxNumber: Int) -> [UNNotificationAction] {
@@ -208,7 +178,7 @@ class WaterTypesListManager: ObservableObject {
         for index in 0 ..< endIndex {
             let acceptAction = UNNotificationAction(identifier: drinkTypesList[index].id,
                                                     title: "Add \(drinkTypesList[index].name) - \(drinkTypesList[index].amount)Ml",
-                                                    options: [], icon: UNNotificationActionIcon(templateImageName: drinkTypesList[index].imageMame))
+                                                    options: [], icon: UNNotificationActionIcon(templateImageName: drinkTypesList[index].imageName))
             notificationActionArray.append(acceptAction)
         }
         return notificationActionArray
@@ -218,19 +188,19 @@ class WaterTypesListManager: ObservableObject {
     func buildHomeScreenQuickDrinkActions(maxNumber: Int) async -> [UIApplicationShortcutItem] {
         
         if drinkTypesList.count == 0{
-            let fileURL = Bundle.main.url(forResource: "WaterTypesList", withExtension: "plist")!
-            self.drinkTypesList = await fetchAndUpdateUI(from: fileURL)
+            //                let fileURL = Bundle.main.url(forResource: fileName, withExtension: "plist")!
+            self.drinkTypesList = await fetchAndUpdateUI(from: plistGroupURL)
         }
         var notificationActionArray: [UIApplicationShortcutItem] = [UIApplicationShortcutItem]()
         let endIndex = drinkTypesList.count < maxNumber ? drinkTypesList.count : maxNumber
         for index in 0 ..< endIndex {
-            let acceptAction = UIApplicationShortcutItem(type: drinkTypesList[index].id, localizedTitle: "Add \(drinkTypesList[index].name) - \(drinkTypesList[index].amount)Ml", localizedSubtitle: nil, icon: UIApplicationShortcutIcon(templateImageName: drinkTypesList[index].imageMame), userInfo: nil)
+            let acceptAction = UIApplicationShortcutItem(type: drinkTypesList[index].id, localizedTitle: "Add \(drinkTypesList[index].name) - \(drinkTypesList[index].amount)Ml", localizedSubtitle: nil, icon: UIApplicationShortcutIcon(templateImageName: drinkTypesList[index].imageName), userInfo: nil)
             
-                notificationActionArray.append(acceptAction)
+            notificationActionArray.append(acceptAction)
         }
         return notificationActionArray.reversed()
     }
-
+    
     
 }
 
@@ -238,11 +208,11 @@ class WaterTypesListManager: ObservableObject {
 
 /*
  UIApplicationShortcutItem(
-     type: "newMessage",
-     localizedTitle: "New Message",
-     localizedSubtitle: nil,
-     icon: UIApplicationShortcutIcon(type: .compose),
-     userInfo: nil
+ type: "newMessage",
+ localizedTitle: "New Message",
+ localizedSubtitle: nil,
+ icon: UIApplicationShortcutIcon(type: .compose),
+ userInfo: nil
  )
  */
 
