@@ -15,18 +15,25 @@ struct WaterTypesListView: View {
     @State var showEditPopup: Bool = false
     @State var disclosureGroupIsExpanded: Bool = false
     
+   //Based: https://onmyway133.com/posts/how-to-pass-focusstate-binding-in-swiftui/
+    var checkoutInFocus: FocusState<CheckoutFocusable?>.Binding
+
     var items: [GridItem] {
         return Array(repeating: .init(.adaptive(minimum: 50)), count: 4)
     }
     
     
     var body: some View {
+        
         NavigationView{
+            
             VStack{
+                
                 Text("Edit Drink List")
                     .font(.title2)
                     .fontWeight(.bold)
                     .foregroundColor(Color.blue)
+                
                 List{
                     ForEach ( waterTypesListManager.drinkTypesList, id: \.id){ waterItem in
                         WatterCellView(for: waterItem)
@@ -53,7 +60,7 @@ struct WaterTypesListView: View {
                 }
                 
                 .toolbar {
-#if os(iOS)
+                #if os(iOS)
                     ToolbarItem(placement: .navigationBarTrailing) {
                         EditButton()
                     }
@@ -62,8 +69,7 @@ struct WaterTypesListView: View {
                             Label("Add Item", systemImage: "plus")
                         }
                     }
-                    
-#endif
+                #endif
                 }
                 
                 
@@ -73,19 +79,21 @@ struct WaterTypesListView: View {
         .popup(isPresented: $showEditPopup, view: {
             WaterTypeEditPopupView()
         }, onClose:{
+            self.checkoutInFocus.wrappedValue = .none
             self.updateWaterList()
         })
         .ignoresSafeArea(.container, edges: .bottom)
 
         .onAppear{
-            
             Task{
                 await self.waterTypesListManager.buildDrinkList()
             }
         }
     }
     
+    
     func updateWaterList(){
+
         if let index = self.waterTypesListManager.drinkTypesList.firstIndex(where: {type in type.id == selectedItem.id}){
             self.waterTypesListManager.drinkTypesList[index].name = selectedItem.name
             self.waterTypesListManager.drinkTypesList[index].amount = selectedItem.amount
@@ -94,8 +102,8 @@ struct WaterTypesListView: View {
         }
         selectedItem = DrinkType(name: "fake", amount: 0, imageMame: "fake")
 
-
     }
+    
     
     @ViewBuilder
     func WaterTypeEditPopupView() -> some View{
@@ -111,43 +119,17 @@ struct WaterTypesListView: View {
             }
             
             .frame(maxWidth: .infinity, alignment: .center)
-
-        
             
             HStackDropDown(title: "Drink Name", systemName: "mug", data: waterTypesListManager.drinkTypesList.map({$0.name}), selected: $selectedItem.name)
                 .padding(.top,8)
                 .padding(.trailing,-8)
 
             
-            CustomHStackNumberFiled(title: "Amount", systemName: "sum", keyboardType: .numberPad, checkoutFocusableId: CheckoutFocusable.weightType, value: $selectedItem.amount)
-            
+            CustomHStackNumberFiled(title: "Amount", systemName: "sum", keyboardType: .numberPad, checkoutFocusableId: CheckoutFocusable.amountType, value: $selectedItem.amount)
+                .focused(checkoutInFocus, equals: .amountType)
             
             DisclosureGroup(isExpanded: $disclosureGroupIsExpanded) {
-                VStack(alignment: .center){
-                    ScrollView{
-                        Spacer(minLength: 10)
-                        LazyVGrid(columns: items, spacing: 10) {
-                            
-                            ForEach(  0 ..< watterIconNumber, id: \.self) { index in
-                                let imageName = watterIconPrefix + "\(index)"
-                                Button {
-                                    print("index = \(index), imageName =\(imageName)")
-                                    self.selectedItem.imageName = imageName
-                                    self.disclosureGroupIsExpanded.toggle()
-                                } label: {
-                                    WaterTypeImageView(imageName: imageName, frame: CGSize(width: 50, height: 50))
-
-                                }
-
-
-                            }
-                        }
-                        Spacer(minLength: 30)
-
-                    }
-                    .frame(height: 180)
-                    
-                }
+                GroupImagesGroupView()
                 
                 
             } label: {
@@ -168,6 +150,37 @@ struct WaterTypesListView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
     
+    
+    @ViewBuilder
+    func GroupImagesGroupView() -> some View{
+        VStack(alignment: .center){
+            ScrollView{
+                Spacer(minLength: 10)
+                LazyVGrid(columns: items, spacing: 10) {
+                    
+                    ForEach(  0 ..< watterIconNumber, id: \.self) { index in
+                        let imageName = watterIconPrefix + "\(index)"
+                        Button {
+                            print("index = \(index), imageName =\(imageName)")
+                            self.selectedItem.imageName = imageName
+                            DispatchQueue.main.asyncAfter(deadline: .now()+0.1){
+                                withAnimation{
+                                    self.disclosureGroupIsExpanded.toggle()
+                                }
+                            }
+                        } label: {
+                            WaterTypeImageView(imageName: imageName, frame: CGSize(width: 50, height: 50))
+
+                        }
+                    }
+                }
+                Spacer(minLength: 30)
+
+            }
+            .frame(height: 180)
+            
+        }
+    }
     
     
     @ViewBuilder
@@ -221,28 +234,14 @@ struct WaterTypesListView: View {
 }
 
 struct WaterTypesListView_Previews: PreviewProvider {
+    
+    @FocusState static var checkoutInFocus: CheckoutFocusable?
+
     static var previews: some View {
-        WaterTypesListView()
+        
+        WaterTypesListView(checkoutInFocus: $checkoutInFocus)
             .environmentObject(WaterTypesListManager())
     }
 }
 
-struct WaterTypeImageView: View {
-    
-    let imageName: String
-    let frame: CGSize
-    
-    var body: some View {
-        Image(imageName)
-            .resizable()
-            .padding(8)
-            .foregroundColor(.white)
-            .frame(width: frame.width, height: frame.height)
-            .background(Color("azureColor").opacity(0.9))
-            .overlay(
-                Circle()
-                    .stroke(Color.blue, lineWidth: 3)
-            )
-            .clipShape(Circle())
-    }
-}
+

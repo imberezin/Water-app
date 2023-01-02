@@ -15,6 +15,7 @@ enum CheckoutFocusable: Int, Hashable {
     case ageType
     case customTotalType
     case genderType
+    case amountType
 }
 
 //    let genderArray: [String] = ["Male", "Fmale", "Other"]
@@ -82,7 +83,7 @@ struct SettingsView: View {
                         .fullScreenCover(isPresented: $editWaterList, onDismiss: {
                             saveListIfNeded(isNeded: self.waterTypesListManager.needToUpdateListWaterList)
                         }, content: {
-                            WaterTypesListView()
+                            WaterTypesListView(checkoutInFocus: $checkoutInFocus)
                         })
                         
                         CustomTextStringFiled(title: "Full Name", systemName: "person", keyboardType: .default, value: $settingsVM.userPrivateinfo.fullName)
@@ -110,13 +111,13 @@ struct SettingsView: View {
                     
                     
                         .toolbar {
-                            ToolbarItemGroup(placement: .keyboard) {
-                                CustomeToolbarItemGroup(){ checkoutInFocus in
-                                    withAnimation{
-                                        value.scrollTo(checkoutInFocus.rawValue, anchor: .center)
+                                ToolbarItemGroup(placement: .keyboard) {
+                                    CustomeToolbarItemGroup(){ checkoutInFocus in
+                                        withAnimation{
+                                            value.scrollTo(checkoutInFocus.rawValue, anchor: .center)
+                                        }
                                     }
                                 }
-                            }
                         }
                 }
             }
@@ -186,20 +187,31 @@ struct SettingsView: View {
     func CustomeToolbarItemGroup(completion: @escaping(CheckoutFocusable)->()) -> some View{
         
         HStack {
-            Button("Close") {
-                print("close Keybord")
-                checkoutInFocus = .none
-            }
-            
-            Spacer()
-            
-            Button(checkoutInFocus == .customTotalType ? "Done" : "Next") {
-                print("Next Keybord")
-                toggleFocus()
-                print(self.checkoutInFocus!.rawValue)
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                    if let checkoutInFocus = self.checkoutInFocus {
-                        completion(checkoutInFocus)
+            if self.checkoutInFocus == .amountType{
+                Spacer()
+
+                Button("Close") {
+                    print("close Keybord")
+                    checkoutInFocus = .none
+                }
+                
+            }else{
+                Button("Close") {
+                    print("close Keybord")
+                    checkoutInFocus = .none
+                }
+                
+                Spacer()
+                
+                Button(checkoutInFocus == .customTotalType ? "Done" : "Next") {
+                    print("Next Keybord")
+                    toggleFocus()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                        if let checkoutInFocus = self.checkoutInFocus {
+                            // print(self.checkoutInFocus!.rawValue)
+                            completion(checkoutInFocus)
+                        }
+                        
                     }
                 }
             }

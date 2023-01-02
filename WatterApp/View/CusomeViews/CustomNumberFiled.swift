@@ -41,7 +41,7 @@ struct CustomHStackNumberFiled: View{
     let title:String
     let systemName: String
     let keyboardType: UIKeyboardType
-    let checkoutFocusableId: CheckoutFocusable
+    let checkoutFocusableId: CheckoutFocusable?
     @Binding var value: Int
     
     var body: some View {
@@ -54,7 +54,7 @@ struct CustomHStackNumberFiled: View{
             TextField(title, value: $value, formatter: NumberFormatter())
                 .backgroundCaption()
                 .keyboardType(keyboardType)
-                .id(checkoutFocusableId.rawValue)
+                .id(checkoutFocusableId?.rawValue)
                 .frame(width: 50)
         }
         .padding(.vertical,8)

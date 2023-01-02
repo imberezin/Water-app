@@ -95,6 +95,8 @@
 		19F87C742940C59E00816561 /* WaterTypesList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 19F87C732940C59E00816561 /* WaterTypesList.plist */; };
 		19F87C762940D8B600816561 /* testView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F87C752940D8B600816561 /* testView.swift */; };
 		19FB055D29493FB90085709A /* GeneralExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FB055C29493FB90085709A /* GeneralExtensions.swift */; };
+		19FC0D0D2962EE260017F16B /* WaterTypeImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FC0D0C2962EE260017F16B /* WaterTypeImageView.swift */; };
+		19FC0D0E2962EFDA0017F16B /* WaterTypeImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FC0D0C2962EE260017F16B /* WaterTypeImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -203,6 +205,7 @@
 		19F87C732940C59E00816561 /* WaterTypesList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WaterTypesList.plist; sourceTree = "<group>"; };
 		19F87C752940D8B600816561 /* testView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testView.swift; sourceTree = "<group>"; };
 		19FB055C29493FB90085709A /* GeneralExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralExtensions.swift; sourceTree = "<group>"; };
+		19FC0D0C2962EE260017F16B /* WaterTypeImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterTypeImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +252,7 @@
 				191BB220293806A300F99A26 /* CustomButtonStyle.swift */,
 				19496799295997B90014BA4F /* GenericPopupView.swift */,
 				1909FAA2295DD53600D73F9E /* SpeedometerGaugeStyle.swift */,
+				19FC0D0C2962EE260017F16B /* WaterTypeImageView.swift */,
 			);
 			path = CusomeViews;
 			sourceTree = "<group>";
@@ -558,6 +562,7 @@
 				1909FA81295C2FCA00D73F9E /* DateExtension.swift in Sources */,
 				1909FAA4295DD54100D73F9E /* SpeedometerGaugeStyle.swift in Sources */,
 				1957958E295C2CB4005E7BA4 /* watterAppWidgetLiveActivity.swift in Sources */,
+				19FC0D0E2962EFDA0017F16B /* WaterTypeImageView.swift in Sources */,
 				1909FA83295C2FDD00D73F9E /* Persistence.swift in Sources */,
 				19579595295C2CB9005E7BA4 /* watterAppWidget.intentdefinition in Sources */,
 				1909FA9F295DB33900D73F9E /* WatterAppWidgetSmallView.swift in Sources */,
@@ -627,6 +632,7 @@
 				193BB08C293DF25B00AB5840 /* SettingsVM.swift in Sources */,
 				1965CF9B29618E250049BAC6 /* WaterTypesListView.swift in Sources */,
 				193BB097293DF45400AB5840 /* AddWaterButton.swift in Sources */,
+				19FC0D0D2962EE260017F16B /* WaterTypeImageView.swift in Sources */,
 				1909FA99295D803E00D73F9E /* Constants.swift in Sources */,
 				193BB095293DF3FF00AB5840 /* CustomTextTapView.swift in Sources */,
 				19F870802938F18000500178 /* ChartsView.swift in Sources */,
