@@ -28,7 +28,7 @@ struct AddWaterButton: View{
         }) {
             VStack{
                 
-                Image(waterType.imageMame)
+                Image(waterType.imageName)
                     .resizable()
                     .frame(width: 30, height: 30)
                 Text("\(waterType.amount)")

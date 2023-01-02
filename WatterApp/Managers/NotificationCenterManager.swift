@@ -126,7 +126,7 @@ class NotificationCenterManager: NSObject, ObservableObject{
         for index in 0 ..< endIndex {
             let acceptAction = UNNotificationAction(identifier: waterTypesListManager.drinkTypesList[index].id,
                                                     title: "Add \(waterTypesListManager.drinkTypesList[index].name) - \(waterTypesListManager.drinkTypesList[index].amount)Ml",
-                                                    options: [], icon: UNNotificationActionIcon(templateImageName: waterTypesListManager.drinkTypesList[index].imageMame))
+                                                    options: [], icon: UNNotificationActionIcon(templateImageName: waterTypesListManager.drinkTypesList[index].imageName))
             notificationActionArray.append(acceptAction)
         }
         let meetingInviteCategory =
@@ -187,7 +187,7 @@ class NotificationCenterManager: NSObject, ObservableObject{
         for index in 0 ..< endIndex {
             let acceptAction = UNNotificationAction(identifier: waterTypesListManager.drinkTypesList[index].id,
                                                     title: "Add \(waterTypesListManager.drinkTypesList[index].name) - \(waterTypesListManager.drinkTypesList[index].amount)Ml",
-                                                    options: [], icon: UNNotificationActionIcon(templateImageName: waterTypesListManager.drinkTypesList[index].imageMame))
+                                                    options: [], icon: UNNotificationActionIcon(templateImageName: waterTypesListManager.drinkTypesList[index].imageName))
             notificationActionArray.append(acceptAction)
         }
         let meetingInviteCategory =

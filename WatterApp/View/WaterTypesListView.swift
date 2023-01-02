@@ -78,6 +78,7 @@ struct WaterTypesListView: View {
         .ignoresSafeArea(.container, edges: .bottom)
 
         .onAppear{
+            
             Task{
                 await self.waterTypesListManager.buildDrinkList()
             }
@@ -88,7 +89,7 @@ struct WaterTypesListView: View {
         if let index = self.waterTypesListManager.drinkTypesList.firstIndex(where: {type in type.id == selectedItem.id}){
             self.waterTypesListManager.drinkTypesList[index].name = selectedItem.name
             self.waterTypesListManager.drinkTypesList[index].amount = selectedItem.amount
-            self.waterTypesListManager.drinkTypesList[index].imageMame = selectedItem.imageMame
+            self.waterTypesListManager.drinkTypesList[index].imageName = selectedItem.imageName
 
         }
         selectedItem = DrinkType(name: "fake", amount: 0, imageMame: "fake")
@@ -131,7 +132,7 @@ struct WaterTypesListView: View {
                                 let imageName = watterIconPrefix + "\(index)"
                                 Button {
                                     print("index = \(index), imageName =\(imageName)")
-                                    self.selectedItem.imageMame = imageName
+                                    self.selectedItem.imageName = imageName
                                     self.disclosureGroupIsExpanded.toggle()
                                 } label: {
                                     WaterTypeImageView(imageName: imageName, frame: CGSize(width: 50, height: 50))
@@ -151,7 +152,7 @@ struct WaterTypesListView: View {
                 
             } label: {
                 HStack(alignment: .center){
-                    WaterTypeImageView(imageName: self.selectedItem.imageMame, frame: CGSize(width: 40, height: 40))
+                    WaterTypeImageView(imageName: self.selectedItem.imageName, frame: CGSize(width: 40, height: 40))
                     Spacer()
                     Text("Image name")
                 }
@@ -177,7 +178,7 @@ struct WaterTypesListView: View {
                 Text("\(waterItem.amount)")
             }
             Spacer()
-            WaterTypeImageView(imageName: waterItem.imageMame, frame: CGSize(width: 50, height: 50))
+            WaterTypeImageView(imageName: waterItem.imageName, frame: CGSize(width: 50, height: 50))
             
         }
         .frame(maxWidth: .infinity)

@@ -76,7 +76,7 @@ struct WatterAppWidgetMediumView: View {
     @ViewBuilder
     func AddWaterWidgetButton(waterType: DrinkType) -> some View{
         VStack{
-            Image(waterType.imageMame)
+            Image(waterType.imageName)
                 .resizable()
                 .frame(width: 20, height: 20)
                 .padding(.bottom,-4)

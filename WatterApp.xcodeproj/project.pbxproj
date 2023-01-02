@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		190516C52962CB19004E3A1E /* DrinkType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190516C42962CB19004E3A1E /* DrinkType.swift */; };
+		190516C62962CB19004E3A1E /* DrinkType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190516C42962CB19004E3A1E /* DrinkType.swift */; };
 		190745EC293F30DC00C6B5BF /* Pie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190745EB293F30DC00C6B5BF /* Pie.swift */; };
 		1909FA81295C2FCA00D73F9E /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191BB21A2937FDC200F99A26 /* DateExtension.swift */; };
 		1909FA82295C2FD300D73F9E /* GeneralExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FB055C29493FB90085709A /* GeneralExtensions.swift */; };
@@ -120,6 +122,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		190516C42962CB19004E3A1E /* DrinkType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkType.swift; sourceTree = "<group>"; };
 		190745EB293F30DC00C6B5BF /* Pie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pie.swift; sourceTree = "<group>"; };
 		1909FA8A295C3F4100D73F9E /* watterAppWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = watterAppWidgetExtension.entitlements; sourceTree = "<group>"; };
 		1909FA8E295C936000D73F9E /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
@@ -296,6 +299,7 @@
 				190A72A629421998009E79C7 /* UserPrivateinfo.swift */,
 				19C72CD629545605009662FF /* Workout.swift */,
 				196F6D45295A4751009D444F /* AwardItem.swift */,
+				190516C42962CB19004E3A1E /* DrinkType.swift */,
 			);
 			path = Modle;
 			sourceTree = "<group>";
@@ -544,6 +548,7 @@
 				1909FA91295C955000D73F9E /* WatterAppWidgetView.swift in Sources */,
 				1909FA97295D7FF500D73F9E /* WaveShape.swift in Sources */,
 				1909FA86295C300900D73F9E /* UserPrivateinfo.swift in Sources */,
+				190516C62962CB19004E3A1E /* DrinkType.swift in Sources */,
 				1909FA88295C300900D73F9E /* DayItem.swift in Sources */,
 				1909FA8F295C936000D73F9E /* Provider.swift in Sources */,
 				1909FAA1295DB61D00D73F9E /* AddWaterButton.swift in Sources */,
@@ -573,6 +578,7 @@
 				196109942938B9EB00D505B2 /* StatisticsView.swift in Sources */,
 				193BB091293DF3EB00AB5840 /* CustomNumberFiled.swift in Sources */,
 				19C72CD729545605009662FF /* Workout.swift in Sources */,
+				190516C52962CB19004E3A1E /* DrinkType.swift in Sources */,
 				19277CEC29463119006BFE64 /* NotificationCenterManager.swift in Sources */,
 				19C72CD5295455A3009662FF /* MapView.swift in Sources */,
 				197A4544293C0010008B33DA /* StatisticsDetailsView.swift in Sources */,
