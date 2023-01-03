@@ -43,7 +43,8 @@ struct CustomHStackNumberFiled: View{
     let keyboardType: UIKeyboardType
     let checkoutFocusableId: CheckoutFocusable?
     @Binding var value: Int
-    
+    let proxy: GeometryProxy
+
     var body: some View {
         
         
@@ -52,12 +53,14 @@ struct CustomHStackNumberFiled: View{
             Text(title)
             Spacer()
             TextField(title, value: $value, formatter: NumberFormatter())
+                .multilineTextAlignment(.trailing)
+                .padding(.trailing, 10)
                 .backgroundCaption()
                 .keyboardType(keyboardType)
                 .id(checkoutFocusableId?.rawValue)
-                .frame(width: 50)
+                .frame(width: proxy.size.width*0.4)
         }
-        .padding(.vertical,8)
+       // .padding(.vertical,8)
     }
 }
 

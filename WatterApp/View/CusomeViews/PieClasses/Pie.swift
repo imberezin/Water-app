@@ -73,7 +73,7 @@ struct Pie : View {
             }
             Circle().fill(pieDateVM.data[index].color)
                 .frame(width: 12)
-            Text(pieDateVM.data[index].name)
+            Text(pieDateVM.data[index].name.capitalizedSentence)
                 .foregroundColor(Color.black)
             if ((index + 1) % 3) !=  0{
                 Spacer()

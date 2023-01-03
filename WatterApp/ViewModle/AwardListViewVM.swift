@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-let awardItemNames: [String] = ["First cup","First Day","7 days","30 days", "3 months",  "6 months", " 1 year"]
-let awardDayssNumbers: [Int] = [0,1,7,30,90,180,365]
+let awardItemNames: [String] = ["First cup","First Day","7 days","30 days", "3 months",  "6 months", " 1 year","Full daily quota"]
+let awardDayssNumbers: [Int] = [0,1,7,30,90,180,365,1]
 
 class AwardListViewVM: ObservableObject {
     
@@ -20,7 +20,7 @@ class AwardListViewVM: ObservableObject {
     //@AppStorage("userPrivateinfo") var userPrivateinfoSaved: UserPrivateinfo?
     @AppStorage("userPrivateinfo", store: UserDefaults(suiteName: "group.com.kaltura.waterapp")) var userPrivateinfoSaved: UserPrivateinfo?
 
-    
+
     init(){
         
     }
@@ -57,6 +57,7 @@ class AwardListViewVM: ObservableObject {
                 tempAwardsIndexs[5] = self.checkdaysToAward(numberOfDays: 180, daysList: daysItemList)
                 tempAwardsIndexs[6] = self.checkdaysToAward(numberOfDays: 365, daysList: daysItemList)
             }
+
             var tempList = self.awardslist.map({$0})
             for index in 0 ..< tempList.count{
                 
@@ -125,6 +126,16 @@ class AwardListViewVM: ObservableObject {
         return false
     }
     
+    func checkFullDailyQuota(daysList:[DayItem]) -> Bool{
+        if let todayDayItem = daysList.last{
+            if todayDayItem.drink != nil && todayDayItem.drink!.count > 0{
+                if todayDayItem.total >= (userPrivateinfoSaved?.customTotal ?? -1){
+                    return true
+                }
+            }
+        }
+        return false
+    }
     
     func checkdaysToAward(numberOfDays:Int, daysList:[DayItem])->Bool{
         

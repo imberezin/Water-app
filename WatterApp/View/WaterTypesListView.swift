@@ -86,13 +86,14 @@ struct WaterTypesListView: View {
 
         .onAppear{
             Task{
-                await self.waterTypesListManager.buildDrinkList()
+               // await self.waterTypesListManager.buildDrinkList()
+                self.waterTypesListManager.loadPropertyList()
             }
         }
     }
     
     
-    func updateWaterList(){
+    func updateWaterList() {
 
         if let index = self.waterTypesListManager.drinkTypesList.firstIndex(where: {type in type.id == selectedItem.id}){
             self.waterTypesListManager.drinkTypesList[index].name = selectedItem.name
@@ -107,44 +108,51 @@ struct WaterTypesListView: View {
     
     @ViewBuilder
     func WaterTypeEditPopupView() -> some View{
-        VStack(alignment: .leading, spacing: 16.0){
-            VStack(alignment: .center, spacing:8.0) {
-                    Text("**\(self.selectedItem.name)** Drink Type")
-                        .font(.headline)
-                        .fontWeight(.semibold)
-                                        Spacer()
+        
+        GroupBox("**\(self.selectedItem.name.capitalizedSentence)** Drink Type") {
+            GeometryReader{ proxy in
+                VStack(alignment: .leading){
+                  
                     Text("Edit and update properties")
                         .font(.subheadline)
                         .fontWeight(.regular)
-            }
-            
-            .frame(maxWidth: .infinity, alignment: .center)
-            
-            HStackDropDown(title: "Drink Name", systemName: "mug", data: waterTypesListManager.drinkTypesList.map({$0.name}), selected: $selectedItem.name)
-                .padding(.top,8)
-                .padding(.trailing,-8)
+                        .frame(maxWidth: .infinity, alignment: .center)
+                    
+                    HStackDropDown(title: "Drink Name", systemName: "mug", data: waterTypesListManager.drinkTypesList.map({$0.name}), selected: $selectedItem.name, proxy: proxy)
+                        .padding(.top,8)
+                    
+                    CustomHStackNumberFiled(title: "Amount", systemName: "sum", keyboardType: .numberPad, checkoutFocusableId: CheckoutFocusable.amountType, value: $selectedItem.amount, proxy: proxy)
+                        .focused(checkoutInFocus, equals: .amountType)
 
-            
-            CustomHStackNumberFiled(title: "Amount", systemName: "sum", keyboardType: .numberPad, checkoutFocusableId: CheckoutFocusable.amountType, value: $selectedItem.amount)
-                .focused(checkoutInFocus, equals: .amountType)
-            
-            DisclosureGroup(isExpanded: $disclosureGroupIsExpanded) {
-                GroupImagesGroupView()
-                
-                
-            } label: {
-                HStack(alignment: .center){
-                    WaterTypeImageView(imageName: self.selectedItem.imageName, frame: CGSize(width: 40, height: 40))
-                    Spacer()
-                    Text("Image name")
+                        .padding(.trailing,-4)
+                    
+                    DisclosureGroup(isExpanded: $disclosureGroupIsExpanded) {
+                        GroupImagesGroupView()
+                    } label: {
+                        HStack(alignment: .center){
+                            Image(systemName: "photo")
+                                .foregroundColor(.black)
+                            Text("Image")
+                                .foregroundColor(.black)
+                            Spacer()
+                            WaterTypeImageView(imageName: self.selectedItem.imageName, frame: CGSize(width: 40, height: 40))
+                        }
+                    }
+                    
+                    CustomButton(text: "Close") {
+                        self.checkoutInFocus.wrappedValue = .none
+                        withAnimation{
+                            self.showEditPopup = false
+                        }
+                    }
+
                 }
-                
             }
-            Spacer()
         }
+        .groupBoxStyle(CardGroupBoxStyle())
         .padding(.vertical)
         .padding()
-        .frame(width:300, height: 350)
+        .frame(width:300, height: 400, alignment: .center)
         .background(Color("azureColor"))
         .cornerRadius(20).shadow(radius: 20)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -174,7 +182,7 @@ struct WaterTypesListView: View {
                         }
                     }
                 }
-                Spacer(minLength: 30)
+                Spacer(minLength: 100)
 
             }
             .frame(height: 180)
@@ -187,7 +195,7 @@ struct WaterTypesListView: View {
     func WatterCellView(for waterItem: DrinkType) -> some View{
         HStack{
             VStack(alignment: .leading, spacing: 8.0){
-                Text(waterItem.name)
+                Text(waterItem.name.capitalizedSentence)
                 Text("\(waterItem.amount)")
             }
             Spacer()
@@ -245,3 +253,17 @@ struct WaterTypesListView_Previews: PreviewProvider {
 }
 
 
+
+
+struct CardGroupBoxStyle: GroupBoxStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        VStack(alignment: .center) {
+            configuration.label
+                .font(.title3)
+            configuration.content
+        }
+        .padding()
+        .background(Color(.systemGroupedBackground))
+        .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+    }
+}

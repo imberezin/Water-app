@@ -73,7 +73,7 @@ struct StatisticsDetailsView: View {
     func DrinkListRow(drink: Drink) -> some View{
         HStack{
             VStack(alignment: .leading){
-                Text("\(drink.name ?? "") ")
+                Text("\(drink.name?.capitalizedSentence ?? "") ")
                 Text("\(drink.time ?? Date(), formatter: timeFormatter)")
                     .font(.caption)
                     .fontWeight(.light)

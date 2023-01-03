@@ -20,6 +20,15 @@ class HomeVM: ObservableObject {
     
     var slectedAwardItem: AwardItem? = nil
     
+    @AppStorage("TodayQuota\(Calendar.gregorian.startOfDay(for: Date.now))", store: UserDefaults(suiteName: "group.com.kaltura.waterapp")) var todayQuotaaAward: Bool = false{
+        willSet{
+            if newValue != todayQuotaaAward{
+                self.showTodayQuota = true
+            }
+        }
+    }
+    @Published var showTodayQuota: Bool = false
+
     init(){
         if userPrivateinfoSaved == nil{
             self.userPrivateinfoSaved = UserPrivateinfo(fullName: "", height: 0, weight: 0, age: 0, customTotal: 3000, gender: Gander.male.rawValue, slectedRimniderHour: 3, enabledReminde: false, awardsWins: Array(repeating: false, count: awardItemNames.count))
@@ -33,13 +42,22 @@ class HomeVM: ObservableObject {
             self.isNeedsToShowAwardView = false
             self.slectedAwardItem = nil
             
+            if self.todayQuotaaAward == false{
+                let list = await awardListViewVM.getFulldaysList()
+                let flag = awardListViewVM.checkFullDailyQuota(daysList: list)
+                if flag{
+                    self.showTodayQuota = true
+                    return
+                }
+            }
+            
             if var tempAwardsWins = userPrivateinfoSaved?.awardsWins  {
                 print(tempAwardsWins)
                 if tempAwardsWins.isEmpty{
                     tempAwardsWins = Array(repeating: false, count: awardItemNames.count)
                     userPrivateinfoSaved?.awardsWins = tempAwardsWins
                 }
-                for index in 0 ..< tempAwardsWins.count{
+                for index in 0 ..< tempAwardsWins.count-1{
                     
                     var flag = false
                     
