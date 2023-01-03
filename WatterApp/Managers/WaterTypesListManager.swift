@@ -41,6 +41,11 @@ class WaterTypesListManager: ObservableObject {
         
     }
     
+    var drinkNameList: [String]{
+       // return self.drinkTypesList.map({$0.name.capitalizedSentence}) .unique
+        return fullWaterList
+    }
+    
     @MainActor
     func loadPropertyList(forceUpdate: Bool = false) {
         if (drinkTypesList.count == 0 || forceUpdate == true){

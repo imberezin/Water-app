@@ -22,7 +22,6 @@ struct WaterTypesListView: View {
         return Array(repeating: .init(.adaptive(minimum: 50)), count: 4)
     }
     
-    
     var body: some View {
         
         NavigationView{
@@ -80,7 +79,8 @@ struct WaterTypesListView: View {
             WaterTypeEditPopupView()
         }, onClose:{
             self.checkoutInFocus.wrappedValue = .none
-            self.updateWaterList()
+            self.selectedItem = DrinkType(name: "fake", amount: 0, imageMame: "fake")
+          //  self.updateWaterList()
         })
         .ignoresSafeArea(.container, edges: .bottom)
 
@@ -100,6 +100,8 @@ struct WaterTypesListView: View {
             self.waterTypesListManager.drinkTypesList[index].amount = selectedItem.amount
             self.waterTypesListManager.drinkTypesList[index].imageName = selectedItem.imageName
 
+        }else{
+            self.waterTypesListManager.drinkTypesList.append(selectedItem)
         }
         selectedItem = DrinkType(name: "fake", amount: 0, imageMame: "fake")
 
@@ -113,12 +115,12 @@ struct WaterTypesListView: View {
             GeometryReader{ proxy in
                 VStack(alignment: .leading){
                   
-                    Text("Edit and update properties")
+                    Text("Edit and update drink properties")
                         .font(.subheadline)
                         .fontWeight(.regular)
                         .frame(maxWidth: .infinity, alignment: .center)
                     
-                    HStackDropDown(title: "Drink Name", systemName: "mug", data: waterTypesListManager.drinkTypesList.map({$0.name}), selected: $selectedItem.name, proxy: proxy)
+                    HStackDropDown(title: "Drink Name", systemName: "mug", data: waterTypesListManager.drinkNameList, selected: $selectedItem.name, proxy: proxy)
                         .padding(.top,8)
                     
                     CustomHStackNumberFiled(title: "Amount", systemName: "sum", keyboardType: .numberPad, checkoutFocusableId: CheckoutFocusable.amountType, value: $selectedItem.amount, proxy: proxy)
@@ -141,6 +143,7 @@ struct WaterTypesListView: View {
                     
                     CustomButton(text: "Close") {
                         self.checkoutInFocus.wrappedValue = .none
+                        self.updateWaterList()
                         withAnimation{
                             self.showEditPopup = false
                         }
@@ -208,35 +211,18 @@ struct WaterTypesListView: View {
     
     
     private func addItem() {
-        //        withAnimation {
-        //            let newItem = Day(context: viewContext)
-        //            newItem.date = Date()
-        //
-        //            do {
-        //                try viewContext.save()
-        //            } catch {
-        //                // Replace this implementation with code to handle the error appropriately.
-        //                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-        //                let nsError = error as NSError
-        //                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-        //            }
-        //        }
+        self.selectedItem = DrinkType(name: "Water", amount: 0, imageMame: "other")
+        withAnimation {
+            self.showEditPopup.toggle()
+        }
+        
     }
     
     private func deleteItems(offsets: IndexSet) {
         
-        //        withAnimation {
-        //            offsets.map { items[$0] }.forEach(viewContext.delete)
-        //
-        //            do {
-        //                try viewContext.save()
-        //            } catch {
-        //                // Replace this implementation with code to handle the error appropriately.
-        //                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-        //                let nsError = error as NSError
-        //                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-        //            }
-        //        }
+        withAnimation{
+            self.waterTypesListManager.drinkTypesList.remove(atOffsets: offsets)
+        }
     }
     
 }
