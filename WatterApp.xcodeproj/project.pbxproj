@@ -40,6 +40,7 @@
 		191BB21F2938063000F99A26 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191BB21E2938063000F99A26 /* CustomButton.swift */; };
 		191BB221293806A300F99A26 /* CustomButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191BB220293806A300F99A26 /* CustomButtonStyle.swift */; };
 		19277CEC29463119006BFE64 /* NotificationCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19277CEB29463119006BFE64 /* NotificationCenterManager.swift */; };
+		1932257D2964CA7600BBEE66 /* CustomeToolbarItemGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1932257C2964CA7600BBEE66 /* CustomeToolbarItemGroupView.swift */; };
 		1937D470293761490041FFCF /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1937D46F293761490041FFCF /* MainView.swift */; };
 		1937D472293773400041FFCF /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1937D471293773400041FFCF /* Home.swift */; };
 		1938E92929587813003F8390 /* AwardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1938E92829587813003F8390 /* AwardListView.swift */; };
@@ -143,6 +144,7 @@
 		191BB21E2938063000F99A26 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		191BB220293806A300F99A26 /* CustomButtonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButtonStyle.swift; sourceTree = "<group>"; };
 		19277CEB29463119006BFE64 /* NotificationCenterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterManager.swift; sourceTree = "<group>"; };
+		1932257C2964CA7600BBEE66 /* CustomeToolbarItemGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomeToolbarItemGroupView.swift; sourceTree = "<group>"; };
 		1937D46F293761490041FFCF /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		1937D471293773400041FFCF /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		1938E92829587813003F8390 /* AwardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardListView.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 				19496799295997B90014BA4F /* GenericPopupView.swift */,
 				1909FAA2295DD53600D73F9E /* SpeedometerGaugeStyle.swift */,
 				19FC0D0C2962EE260017F16B /* WaterTypeImageView.swift */,
+				1932257C2964CA7600BBEE66 /* CustomeToolbarItemGroupView.swift */,
 			);
 			path = CusomeViews;
 			sourceTree = "<group>";
@@ -607,6 +610,7 @@
 				1959016629407BEE008AE6D5 /* WaterTypesListManager.swift in Sources */,
 				19C72CCF2954526E009662FF /* MapManager.swift in Sources */,
 				1949679E2959A8630014BA4F /* BackgroundPopupCaption.swift in Sources */,
+				1932257D2964CA7600BBEE66 /* CustomeToolbarItemGroupView.swift in Sources */,
 				190A72A12941FF41009E79C7 /* PieDateUnit.swift in Sources */,
 				193BB094293DF3FF00AB5840 /* CustomTextStringFiled.swift in Sources */,
 				19726A8229474E63001A9A21 /* AppDelegate.swift in Sources */,

@@ -35,7 +35,7 @@ struct SettingsView: View {
     @State var editWaterList: Bool = false
     
     @StateObject var awardListViewVM = AwardListViewVM()
-
+    
     let genderArray: [String] = ["Male", "Fmale", "Other"]
     
     @State var selectedAward: AwardItem = AwardItem(imageName: "award0", awardName: "fake", daysNumber:-1)
@@ -81,7 +81,7 @@ struct SettingsView: View {
                         }
                         .padding(.vertical,8)
                         .fullScreenCover(isPresented: $editWaterList, onDismiss: {
-                            saveListIfNeded(isNeded: self.waterTypesListManager.needToUpdateListWaterList)
+                            self.waterTypesListManager.saveListIfNeded(isNeded: self.waterTypesListManager.needToUpdateListWaterList)
                         }, content: {
                             WaterTypesListView(checkoutInFocus: $checkoutInFocus)
                         })
@@ -104,6 +104,7 @@ struct SettingsView: View {
                         
                         DropDown(title: "Gender", systemName: "figure.dress.line.vertical.figure", data: Gander.allCases.map({$0.rawValue}), selected: $settingsVM.userPrivateinfo.gender)
                             .padding(.top,8)
+                            .id(CheckoutFocusable.amountType.rawValue)
                     }
                     
                     
@@ -111,13 +112,13 @@ struct SettingsView: View {
                     
                     
                         .toolbar {
-                                ToolbarItemGroup(placement: .keyboard) {
-                                    CustomeToolbarItemGroup(){ checkoutInFocus in
-                                        withAnimation{
-                                            value.scrollTo(checkoutInFocus.rawValue, anchor: .center)
-                                        }
+                            ToolbarItemGroup(placement: .keyboard) {
+                                CustomeToolbarItemGroupView(checkoutInFocus: $checkoutInFocus){ checkoutInFocus in
+                                    withAnimation{
+                                        value.scrollTo(checkoutInFocus.rawValue+3, anchor: .center)
                                     }
                                 }
+                            }
                         }
                 }
             }
@@ -139,30 +140,6 @@ struct SettingsView: View {
         }
     }
     
-    func toggleFocus(){
-        if checkoutInFocus == .fullNameType {
-            checkoutInFocus = .heightType
-        } else if checkoutInFocus == .heightType {
-            checkoutInFocus = .weightType
-        } else if checkoutInFocus == .weightType {
-            checkoutInFocus = .ageType
-        }else if checkoutInFocus == .ageType {
-            checkoutInFocus = .customTotalType
-        }else{
-            checkoutInFocus = .none
-        }
-    }
-    
-    func saveListIfNeded(isNeded: Bool){
-        if isNeded{
-            print("save list in Plist file")
-            self.waterTypesListManager.savePropertyList(for: self.waterTypesListManager.drinkTypesList)
-        }else{
-            self.waterTypesListManager.loadPropertyList(forceUpdate: true)
-        }
-        self.waterTypesListManager.needToUpdateListWaterList = false
-    }
-    
     @ViewBuilder
     func HeaderView() -> some View{
         let gr1 = Gradient(colors: bgWaweColors)
@@ -180,42 +157,6 @@ struct SettingsView: View {
                 .padding(.top,54)
                 
             }
-        
-    }
-    
-    @ViewBuilder
-    func CustomeToolbarItemGroup(completion: @escaping(CheckoutFocusable)->()) -> some View{
-        
-        HStack {
-            if self.checkoutInFocus == .amountType{
-                Spacer()
-
-                Button("Close") {
-                    print("close Keybord")
-                    checkoutInFocus = .none
-                }
-                
-            }else{
-                Button("Close") {
-                    print("close Keybord")
-                    checkoutInFocus = .none
-                }
-                
-                Spacer()
-                
-                Button(checkoutInFocus == .customTotalType ? "Done" : "Next") {
-                    print("Next Keybord")
-                    toggleFocus()
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                        if let checkoutInFocus = self.checkoutInFocus {
-                            // print(self.checkoutInFocus!.rawValue)
-                            completion(checkoutInFocus)
-                        }
-                        
-                    }
-                }
-            }
-        }
     }
     
     @ViewBuilder
@@ -228,7 +169,7 @@ struct SettingsView: View {
                 
                 ZStack(alignment: .bottom){
                     
-                                    
+                    
                     Image(selectedAward.imageName)
                         .resizable()
                         .clipShape(Circle())
@@ -254,13 +195,13 @@ struct SettingsView: View {
         .background(Color("azureColor"))
         .cornerRadius(20).shadow(radius: 20)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-//        .onAppear{
-//            if selectedAward.active == false {
-//                self.awardListViewVM.checkhowMoreDaysNeedToGetAward(numberOfDays: selectedAward.daysNumber)
-//            }
-//        }
+        //        .onAppear{
+        //            if selectedAward.active == false {
+        //                self.awardListViewVM.checkhowMoreDaysNeedToGetAward(numberOfDays: selectedAward.daysNumber)
+        //            }
+        //        }
     }
-
+    
     
     
     

@@ -12,7 +12,11 @@ import SwiftUI
 struct AddWaterButton: View{
     
     var waterType: DrinkType
+    let imageFrame: CGSize
+    let viewFrame:  CGSize
+
     var onClick: (DrinkType)->()
+    
     
     @State private var angle = 0.0
 
@@ -27,18 +31,19 @@ struct AddWaterButton: View{
                 
         }) {
             VStack{
-                
                 Image(waterType.imageName)
                     .resizable()
-                    .frame(width: 30, height: 30)
-                Text("\(waterType.amount)")
-                    .font(.system(size: 14))
+                    .frame(width: imageFrame.width, height: imageFrame.height)
+                if waterType.amount > 0{
+                    Text("\(waterType.amount)")
+                        .font(.system(size: 14))
+                }
                 
             }
             .padding(8)
             .foregroundColor(.white)
         }
-        .frame(width: 80, height: 80)
+        .frame(width: viewFrame.width, height: viewFrame.height)
         .background(Color("azureColor").opacity(0.9))
         .overlay(
             Circle()

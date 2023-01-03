@@ -207,6 +207,17 @@ class WaterTypesListManager: ObservableObject {
     }
     
     
+    @MainActor
+    func saveListIfNeded(isNeded: Bool){
+        if isNeded{
+            print("save list in Plist file")
+            self.savePropertyList(for: self.drinkTypesList)
+        }else{
+            self.loadPropertyList(forceUpdate: true)
+        }
+        self.needToUpdateListWaterList = false
+    }
+    
 }
 
 

@@ -13,42 +13,44 @@ import SwiftUI
 struct Home: View {
     
     @Environment(\.managedObjectContext) private var viewContext
-    
     @Environment(\.scenePhase) var scenePhase
     
     @EnvironmentObject var waterTypesListManager: WaterTypesListManager
-    
     @EnvironmentObject var notificationCenterManager: NotificationCenterManager
     
     
     @StateObject var homeVM = HomeVM()
-    //    @FetchRequest var daysItems: FetchedResults<Day>
+    @StateObject var settingsVM = SettingsVM()
     
+    @FocusState private var checkoutInFocus: CheckoutFocusable?
+
     @State var todayInfo: Day? = nil
     @State var numberOfWoter: Int = 0
     @State var showReminderView: Bool = false
-    
-    @StateObject var settingsVM = SettingsVM()
-    
-    
-    let gradientView: Gradient = Gradient(colors: bgWaweColors)
-    
-    
+    @State var editWaterList: Bool = false
+
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Day.date, ascending: true)],predicate: NSPredicate(format : "date < %@ AND  date > %@", Date().daysAfter(number: 1) as CVarArg, Date().daysBefore(number: 1) as CVarArg))
     private var daysItems: FetchedResults<Day>
     
+    let gradientView: Gradient = Gradient(colors: bgWaweColors)
+    
     var body: some View {
         
-        VStack{
+        VStack(spacing: 0.0){
             
             HeaderView(gradient: gradientView)
-                .frame(maxWidth: .infinity, maxHeight: 100)
-            
-            ContinueRing(cureentNumber: numberOfWoter, total: Float(homeVM.userPrivateinfoSaved?.customTotal ?? 1000), ringFrame: CGSize(width: 250.0, height: 250.0))
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-            
+                .frame(maxWidth: .infinity, maxHeight: 110)
+            VStack{
+                ContinueRing(cureentNumber: numberOfWoter, total: Float(homeVM.userPrivateinfoSaved?.customTotal ?? 1000), ringFrame: CGSize(width: 250.0, height: 250.0))
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                
+                AddDrinkItemToList()
+
+                
+            }
             FooterView(gradient: gradientView)
-                .frame(maxWidth: .infinity, maxHeight: 100)
+                //.background(.red)
+                .frame(maxWidth: .infinity, maxHeight: 110)
             
         }
         .popup(isPresented: $homeVM.isNeedsToShowAwardView) {
@@ -154,7 +156,7 @@ struct Home: View {
                         HStack(spacing: 16.0){
                             ForEach(  waterTypesListManager.drinkTypesList.indices, id: \.self) { index in
                                 
-                                AddWaterButton(waterType: waterTypesListManager.drinkTypesList[index]){ number in
+                                AddWaterButton(waterType: waterTypesListManager.drinkTypesList[index], imageFrame: CGSize(width: 30, height: 30), viewFrame: CGSize(width: 80, height: 80)){ number in
                                     self.numberOfWoter += number.amount
                                     self.homeVM.addWaterToCureentDay(waterType: waterTypesListManager.drinkTypesList[index], daysItems: self.daysItems)
                                 }
@@ -168,6 +170,30 @@ struct Home: View {
             }
     }
     
+    @ViewBuilder
+    func AddDrinkItemToList() -> some View{
+        AddWaterButton(waterType: DrinkType(name: "Edit", amount: 0, imageMame: "plus1"),imageFrame: CGSize(width: 30, height: 30),viewFrame: CGSize(width: 50, height: 50)){ number in
+            withAnimation{
+                self.editWaterList.toggle()
+            }
+        }
+        .frame(maxWidth: .infinity, alignment: .trailing)
+        .padding(.trailing,8)
+        .padding(.bottom,-8)
+        .fullScreenCover(isPresented: $editWaterList, onDismiss: {
+            self.waterTypesListManager.saveListIfNeded(isNeded: self.waterTypesListManager.needToUpdateListWaterList)
+        }, content: {
+            WaterTypesListView(checkoutInFocus: $checkoutInFocus)
+        })
+        .toolbar {
+                ToolbarItemGroup(placement: .keyboard) {
+                    CustomeToolbarItemGroupView(checkoutInFocus: $checkoutInFocus){ checkoutInFocus in
+                        print("checkoutInFocus = \(checkoutInFocus)")
+                    }
+                }
+        }
+
+    }
     
     func todayWaterInfo(){
         if daysItems.count > 0 {

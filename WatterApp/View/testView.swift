@@ -17,7 +17,7 @@ struct testView: View {
                     
                     ForEach( waterTypesListManager.drinkTypesList, id: \.id){ type in
                         
-                        AddWaterButton(waterType: type){ number in
+                        AddWaterButton(waterType: type, imageFrame: CGSize(width: 30, height: 30), viewFrame: CGSize(width: 80, height: 80)){ number in
                             //                            self.numberOfWoter += number.amount
                             //                            self.homeVM.addWaterToCureentDay(waterType: type, daysItems: self.daysItems)
                         }
