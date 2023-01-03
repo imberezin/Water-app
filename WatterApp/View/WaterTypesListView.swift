@@ -42,6 +42,8 @@ struct WaterTypesListView: View {
                             }
                     }
                     .onDelete(perform: deleteItems)
+                    .onMove(perform: moveItem)
+
                 }
                 .scrollContentBackground(.hidden)
                 .padding(.horizontal,-16)
@@ -224,6 +226,12 @@ struct WaterTypesListView: View {
             self.waterTypesListManager.drinkTypesList.remove(atOffsets: offsets)
         }
     }
+    
+    private func moveItem(indexSet: IndexSet, destination: Int) {
+        let source = indexSet.first!
+        self.waterTypesListManager.drinkTypesList.swapAt(source, destination)
+    }
+
     
 }
 
