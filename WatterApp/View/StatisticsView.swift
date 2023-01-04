@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+
+    /*
+     
+     */
 struct StatisticsView: View {
     
     @Environment(\.managedObjectContext) private var viewContext
@@ -19,49 +23,52 @@ struct StatisticsView: View {
     var body: some View {
         
         NavigationView {
-            
-            VStack(spacing: 10) {
-                
-                let startWeek = Date().startOfWeek()
-                let endWeek = Date().endOfWeek()
-                let array = covertToArray()
-                
-                
-                Text("Week: \(startWeek.getGregorianDate(dateFormat: "d.MM")) - \(endWeek.getGregorianDate(dateFormat: "d.MM"))")
-                    .font(.headline)
-                if array.count > 0 {
-                    ChartsView(days: array)
-                        .padding(8)
+            let startWeek = Date().startOfWeek()
+            let endWeek = Date().endOfWeek()
+            let array = covertToArray()
+
+            ZStack (alignment: .top){
+                WaveBGHeaderView(){
+                    TitleHeaderView(title: "Week: \(startWeek.getGregorianDate(dateFormat: "d.MM")) - \(endWeek.getGregorianDate(dateFormat: "d.MM"))")
+                }
+                    .frame(maxWidth: .infinity, maxHeight: 100)
+                    .ignoresSafeArea()
+
+                VStack(spacing: 10) {
                     
-                    List {
-                        ForEach(items) { item in
-                            NavigationLink {
-                                StatisticsDetailsView(item: item)
-                            } label: {
-                                Text(item.date!, formatter: itemFormatter)
+                    Spacer(minLength: 60)
+                    
+                    if array.count > 0 {
+                        ChartsView(days: array)
+                            .padding(8)
+                        
+                        List {
+                            ForEach(items) { item in
+                                NavigationLink {
+                                    StatisticsDetailsView(item: item)
+                                } label: {
+                                    Text(item.date!, formatter: itemFormatter)
+                                }
                             }
+                            .onDelete(perform: deleteItems)
                         }
-                        .onDelete(perform: deleteItems)
-                    }
-                    .scrollContentBackground(.hidden)
-                    .toolbar {
-#if os(iOS)
-                        ToolbarItem(placement: .navigationBarTrailing) {
-                            EditButton()
+                        .scrollContentBackground(.hidden)
+                        .toolbar {
+    #if os(iOS)
+                            ToolbarItem(placement: .navigationBarTrailing) {
+                                EditButton()
+                            }
+    #endif
                         }
-#endif
-//                        ToolbarItem {
-//                            Button(action: addItem) {
-//                                Label("Add Item", systemImage: "plus")
-//                            }
-//                        }
+                        .padding(-8)
                     }
-                    .padding(-8)
                 }
             }
             Text("Select an item")
         }
     }
+    
+    
     
     private func addItem() {
         withAnimation {

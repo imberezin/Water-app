@@ -45,8 +45,10 @@ struct SettingsView: View {
     var body: some View {
         
         VStack(spacing: 20){
-            HeaderView()
-                .frame(maxWidth: .infinity, maxHeight: 100)
+            WaveBGHeaderView(){
+                TitleHeaderView(title: "Settinngs")
+            }
+            .frame(maxWidth: .infinity, maxHeight: 100)
             
             ScrollViewReader { value in
                 
@@ -140,24 +142,6 @@ struct SettingsView: View {
         }
     }
     
-    @ViewBuilder
-    func HeaderView() -> some View{
-        let gr1 = Gradient(colors: bgWaweColors)
-        WaveShape()
-            .fill(gr1)
-            .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
-            .overlay(alignment: .center){
-                HStack(alignment: .center, spacing: 16.0){
-                    Text("Settinngs")
-                        .font(.title3)
-                        .fontWeight(.semibold)
-                        .foregroundColor(Color.blue)
-                    
-                }
-                .padding(.top,54)
-                
-            }
-    }
     
     @ViewBuilder
     func AwardViews() -> some View{

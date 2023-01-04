@@ -23,12 +23,12 @@ struct Home: View {
     @StateObject var settingsVM = SettingsVM()
     
     @FocusState private var checkoutInFocus: CheckoutFocusable?
-
+    
     @State var todayInfo: Day? = nil
     @State var numberOfWoter: Int = 0
     @State var showReminderView: Bool = false
     @State var editWaterList: Bool = false
-
+    
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Day.date, ascending: true)],predicate: NSPredicate(format : "date < %@ AND  date > %@", Date().daysAfter(number: 1) as CVarArg, Date().daysBefore(number: 1) as CVarArg))
     private var daysItems: FetchedResults<Day>
     
@@ -38,18 +38,21 @@ struct Home: View {
         
         VStack(spacing: 0.0){
             
-            HeaderView(gradient: gradientView)
-                .frame(maxWidth: .infinity, maxHeight: 110)
+            WaveBGHeaderView(){
+                HeaderView()
+            }
+            .frame(maxWidth: .infinity, maxHeight: 100)
+            
             VStack{
                 ContinueRing(cureentNumber: numberOfWoter, total: Float(homeVM.userPrivateinfoSaved?.customTotal ?? 1000), ringFrame: CGSize(width: 250.0, height: 250.0))
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
                 
                 AddDrinkItemToList()
-
+                
                 
             }
             FooterView(gradient: gradientView)
-                //.background(.red)
+            //.background(.red)
                 .frame(maxWidth: .infinity, maxHeight: 110)
             
         }
@@ -99,49 +102,44 @@ struct Home: View {
             print("good url, actionIdentifier = \(actionIdentifier)")
             
             self.userAddWaterByNotifcationAction(actionIdentifier: actionIdentifier)
-
+            
         }
     }
     
     /*
      Link(destination: URL(string: "watterBerezinApp://actionIdentifier/\(entry.drinkTypesList[index].id)")!){
-
+     
      */
     @ViewBuilder
-    func HeaderView(gradient: Gradient)-> some View{
-        WaveShape()
-            .fill(gradient)
-            .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
-            .overlay(alignment: .center){
-                
-                VStack(alignment: .center, spacing: 10.0) {
-                    HStack{
-                        Text("Welcome **\(homeVM.userPrivateinfoSaved?.fullName ?? "")**")
-                            .font(.headline)
-                            .fontWeight(.medium)
-                        Spacer()
-                        Button {
-                            withAnimation{
-                                self.showReminderView.toggle()
-                            }
-                        } label: {
-                            Image(systemName: "bell.badge")
-                                .imageScale(.large)
-                                .symbolRenderingMode(.palette)
-                                .foregroundStyle(.red, .blue)
-                                .rotationEffect(.degrees(self.showReminderView ? -15 : 30), anchor: .top)
-                                .animation(.interpolatingSpring(mass: 0.5, stiffness: 150, damping: 2.5), value: self.showReminderView)
-                        }
+    func HeaderView()-> some View{
+        
+        VStack(alignment: .center, spacing: 10.0) {
+            HStack{
+                Text("Welcome **\(homeVM.userPrivateinfoSaved?.fullName ?? "")**")
+                    .font(.headline)
+                    .fontWeight(.medium)
+                Spacer()
+                Button {
+                    withAnimation{
+                        self.showReminderView.toggle()
                     }
-                    .padding(.horizontal)
-                    Text(Date().getGregorianDate())
-                        .font(.subheadline)
-                    
+                } label: {
+                    Image(systemName: "bell.badge")
+                        .imageScale(.large)
+                        .symbolRenderingMode(.palette)
+                        .foregroundStyle(.red, .blue)
+                        .rotationEffect(.degrees(self.showReminderView ? -15 : 30), anchor: .top)
+                        .animation(.interpolatingSpring(mass: 0.5, stiffness: 150, damping: 2.5), value: self.showReminderView)
                 }
-                .padding(.top,54)
-                .fontWeight(.semibold)
-                .foregroundColor(Color.blue)
             }
+            .padding(.horizontal)
+            Text(Date().getGregorianDate())
+                .font(.subheadline)
+            
+        }
+        .fontWeight(.semibold)
+        .foregroundColor(Color.blue)
+        
     }
     
     @ViewBuilder
@@ -186,13 +184,13 @@ struct Home: View {
             WaterTypesListView(checkoutInFocus: $checkoutInFocus)
         })
         .toolbar {
-                ToolbarItemGroup(placement: .keyboard) {
-                    CustomeToolbarItemGroupView(checkoutInFocus: $checkoutInFocus){ checkoutInFocus in
-                        print("checkoutInFocus = \(checkoutInFocus)")
-                    }
+            ToolbarItemGroup(placement: .keyboard) {
+                CustomeToolbarItemGroupView(checkoutInFocus: $checkoutInFocus){ checkoutInFocus in
+                    print("checkoutInFocus = \(checkoutInFocus)")
                 }
+            }
         }
-
+        
     }
     
     func todayWaterInfo(){

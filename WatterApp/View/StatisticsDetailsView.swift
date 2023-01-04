@@ -10,9 +10,6 @@ import WidgetKit
 
 struct StatisticsDetailsView: View {
     
-    //@AppStorage("userPrivateinfo") var userPrivateinfoSaved: UserPrivateinfo? //= UserPrivateinfo(fullName: "", height: 0, weight: 0, age: 0, customTotal: 3000, gender: Gander.male.rawValue, slectedRimniderHour: 3, enabledReminde: false, awardsWins: [Bool]())
-    @AppStorage("userPrivateinfo", store: UserDefaults(suiteName: "group.com.kaltura.waterapp")) var userPrivateinfoSaved: UserPrivateinfo?
-
     @State var item: Day
     @State var UpdateUI: Bool = false
     
@@ -32,42 +29,53 @@ struct StatisticsDetailsView: View {
 
 //           let _ = print(geometry.size)
             
-            VStack(alignment: .center, spacing: 16){
+            ZStack(alignment: .top) {
+                WaveBGHeaderView(){
+                    TitleHeaderView(title: "\(item.date?.formatted(date: .abbreviated, time: .omitted) ?? Date().formatted(date: .complete, time: .omitted))")
+                }
                 
-                Pie(pieDateVM: pieDateVM)
-                    .frame(width: 350,height: 300)
-                   .padding(.horizontal)
-                   .onAppear{
-                       withAnimation(.linear(duration: 0.7)){
-                           self.pieDateVM.update(dayInfo: DayItem(date: item.date ?? Date(), drink: item.drink))
+                    .frame(maxWidth: .infinity, maxHeight: 100)
+                    .ignoresSafeArea()
+
+                VStack(alignment: .center, spacing: 16){
+
+                    Pie(pieDateVM: pieDateVM)
+                        .frame(width: 350,height: 300)
+                       .padding(.horizontal)
+                       .onAppear{
+                           withAnimation(.linear(duration: 0.7)){
+                               self.pieDateVM.update(dayInfo: DayItem(date: item.date ?? Date(), drink: item.drink))
+                           }
                        }
-                   }
-                
-                List{
-                        ForEach(array, id: \.self) { drink in
-                            DrinkListRow(drink: drink)
+                       .padding(.top,36)
+                    
+                    List{
+                            ForEach(array, id: \.self) { drink in
+                                DrinkListRow(drink: drink)
+                            }
+                            .onDelete { onDelete(indexSet: $0) }
+
                         }
-                        .onDelete { onDelete(indexSet: $0) }
+                        .padding(.leading, -8)
+                        .padding(.trailing,8)
+                        .scrollContentBackground(.hidden)
+                        .zIndex(0)
 
-                    }
-                    .padding(.leading, -8)
-                    .padding(.trailing,8)
-                    .scrollContentBackground(.hidden)
-                    .zIndex(0)
+                    Text("Your total drink is **\(totalScore)**")
+                        .padding(.bottom)
 
-                Text("Your total drink is **\(totalScore)**")
-                    .padding(.bottom)
-
+                }
             }
         }
         
-        .navigationTitle("\(item.date ?? Date(), formatter: itemFormatter)")
+//        .navigationTitle("\(item.date ?? Date(), formatter: itemFormatter)")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             EditButton()
         }
 
     }
+    
     
     @ViewBuilder
     func DrinkListRow(drink: Drink) -> some View{

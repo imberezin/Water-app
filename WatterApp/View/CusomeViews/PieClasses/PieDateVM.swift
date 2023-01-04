@@ -16,7 +16,6 @@ class PieDateVM : ObservableObject{
     let colors = [Color.cyan,Color.green,Color.yellow,Color.orange, Color.brown,Color.pink,Color.red]
     var progress: Double = 0.0
     
-   // @AppStorage("userPrivateinfo") var userPrivateinfoSaved: UserPrivateinfo? // = UserPrivateinfo(fullName: "", height: 0, weight: 0, age: 0, customTotal: 3000, gender: Gander.male.rawValue, slectedRimniderHour: 3, enabledReminde: false, awardsWins: [Bool]())
     @AppStorage("userPrivateinfo", store: UserDefaults(suiteName: "group.com.kaltura.waterapp")) var userPrivateinfoSaved: UserPrivateinfo?
 
     init( ){

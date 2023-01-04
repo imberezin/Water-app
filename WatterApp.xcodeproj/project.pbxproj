@@ -84,6 +84,7 @@
 		197A4548293C00B3008B33DA /* DayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197A4547293C00B3008B33DA /* DayItem.swift */; };
 		197A454B293C0B7D008B33DA /* WaveShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197A454A293C0B7D008B33DA /* WaveShape.swift */; };
 		197A454D293C0B9F008B33DA /* ContinueRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197A454C293C0B9F008B33DA /* ContinueRing.swift */; };
+		19BC50072965677900386897 /* WaveBGHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BC50062965677900386897 /* WaveBGHeaderView.swift */; };
 		19C72CCF2954526E009662FF /* MapManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C72CCE2954526E009662FF /* MapManager.swift */; };
 		19C72CD129545299009662FF /* NewWorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C72CD029545299009662FF /* NewWorkoutManager.swift */; };
 		19C72CD5295455A3009662FF /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C72CD4295455A3009662FF /* MapView.swift */; };
@@ -194,6 +195,7 @@
 		197A4547293C00B3008B33DA /* DayItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayItem.swift; sourceTree = "<group>"; };
 		197A454A293C0B7D008B33DA /* WaveShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveShape.swift; sourceTree = "<group>"; };
 		197A454C293C0B9F008B33DA /* ContinueRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueRing.swift; sourceTree = "<group>"; };
+		19BC50062965677900386897 /* WaveBGHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveBGHeaderView.swift; sourceTree = "<group>"; };
 		19C72CCE2954526E009662FF /* MapManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapManager.swift; sourceTree = "<group>"; };
 		19C72CD029545299009662FF /* NewWorkoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWorkoutManager.swift; sourceTree = "<group>"; };
 		19C72CD2295452DA009662FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 				1909FAA2295DD53600D73F9E /* SpeedometerGaugeStyle.swift */,
 				19FC0D0C2962EE260017F16B /* WaterTypeImageView.swift */,
 				1932257C2964CA7600BBEE66 /* CustomeToolbarItemGroupView.swift */,
+				19BC50062965677900386897 /* WaveBGHeaderView.swift */,
 			);
 			path = CusomeViews;
 			sourceTree = "<group>";
@@ -604,6 +607,7 @@
 				1957957F295B1C1B005E7BA4 /* AwardWinView.swift in Sources */,
 				1909FAA3295DD53600D73F9E /* SpeedometerGaugeStyle.swift in Sources */,
 				19C72CDF29545EB5009662FF /* HealthKitDataStore.swift in Sources */,
+				19BC50072965677900386897 /* WaveBGHeaderView.swift in Sources */,
 				19C72CD9295456A3009662FF /* WorkoutView.swift in Sources */,
 				1969C9DD29375A070032AED5 /* WatterApp.xcdatamodeld in Sources */,
 				1969C9DF29375A070032AED5 /* ContentView.swift in Sources */,
