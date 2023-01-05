@@ -10,22 +10,12 @@ import WidgetKit
 import SwiftUI
 
 
-//Dynamic Island
-struct watterAppWidgetAttributes: ActivityAttributes {
-    public struct ContentState: Codable, Hashable {
-        // Dynamic stateful properties about your activity go here!
-        var value: Int
-    }
-
-    // Fixed non-changing properties about your activity go here!
-    var name: String
-}
 
 struct watterAppWidgetLiveActivity: Widget {
     @AppStorage("userPrivateinfo", store: UserDefaults(suiteName: "group.com.kaltura.waterapp")) var userPrivateinfoSaved: UserPrivateinfo?
 
     var body: some WidgetConfiguration {
-        ActivityConfiguration(for: watterAppWidgetAttributes.self) { context in
+        ActivityConfiguration(for: WatterWidgetAttributes.self) { context in
             // Lock screen/banner UI goes here
             VStack {
                 Text(userPrivateinfoSaved?.fullName ?? "Test")
