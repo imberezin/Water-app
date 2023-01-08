@@ -24,8 +24,9 @@ struct WatterWidgetAttributes: ActivityAttributes {
     }
 
     // Fixed non-changing properties about your activity go here!
-    var name: String
-    var totalAmount: String
+    var waterType : DrinkType
+    let amountUntilNow: Int
+    var totalAmount: Int
 
 }
 

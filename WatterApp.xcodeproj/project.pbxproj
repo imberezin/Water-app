@@ -35,6 +35,7 @@
 		190A72A32941FF6C009E79C7 /* PieDateVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190A72A22941FF6C009E79C7 /* PieDateVM.swift */; };
 		190A72A52941FFB9009E79C7 /* PieSliceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190A72A42941FFB9009E79C7 /* PieSliceView.swift */; };
 		190A72A729421998009E79C7 /* UserPrivateinfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190A72A629421998009E79C7 /* UserPrivateinfo.swift */; };
+		19132AE1296AAD8B0063B85F /* WatterLockScreenLiveActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19132ADF296AAD550063B85F /* WatterLockScreenLiveActivityView.swift */; };
 		191BB21B2937FDC200F99A26 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191BB21A2937FDC200F99A26 /* DateExtension.swift */; };
 		191BB21D293805EA00F99A26 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191BB21C293805EA00F99A26 /* SettingsView.swift */; };
 		191BB21F2938063000F99A26 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191BB21E2938063000F99A26 /* CustomButton.swift */; };
@@ -62,9 +63,9 @@
 		1957957F295B1C1B005E7BA4 /* AwardWinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1957957E295B1C1B005E7BA4 /* AwardWinView.swift */; };
 		19579587295C2CB4005E7BA4 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19579586295C2CB4005E7BA4 /* WidgetKit.framework */; };
 		19579589295C2CB4005E7BA4 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19579588295C2CB4005E7BA4 /* SwiftUI.framework */; };
-		1957958C295C2CB4005E7BA4 /* watterAppWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1957958B295C2CB4005E7BA4 /* watterAppWidgetBundle.swift */; };
-		1957958E295C2CB4005E7BA4 /* watterAppWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1957958D295C2CB4005E7BA4 /* watterAppWidgetLiveActivity.swift */; };
-		19579590295C2CB4005E7BA4 /* watterAppWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1957958F295C2CB4005E7BA4 /* watterAppWidget.swift */; };
+		1957958C295C2CB4005E7BA4 /* WatterAppWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1957958B295C2CB4005E7BA4 /* WatterAppWidgetBundle.swift */; };
+		1957958E295C2CB4005E7BA4 /* WatterAppWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1957958D295C2CB4005E7BA4 /* WatterAppWidgetLiveActivity.swift */; };
+		19579590295C2CB4005E7BA4 /* WatterAppWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1957958F295C2CB4005E7BA4 /* WatterAppWidget.swift */; };
 		19579593295C2CB9005E7BA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19579592295C2CB9005E7BA4 /* Assets.xcassets */; };
 		19579595295C2CB9005E7BA4 /* watterAppWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 19579591295C2CB4005E7BA4 /* watterAppWidget.intentdefinition */; };
 		19579596295C2CB9005E7BA4 /* watterAppWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 19579591295C2CB4005E7BA4 /* watterAppWidget.intentdefinition */; };
@@ -144,6 +145,7 @@
 		190A72A22941FF6C009E79C7 /* PieDateVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieDateVM.swift; sourceTree = "<group>"; };
 		190A72A42941FFB9009E79C7 /* PieSliceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieSliceView.swift; sourceTree = "<group>"; };
 		190A72A629421998009E79C7 /* UserPrivateinfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPrivateinfo.swift; sourceTree = "<group>"; };
+		19132ADF296AAD550063B85F /* WatterLockScreenLiveActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatterLockScreenLiveActivityView.swift; sourceTree = "<group>"; };
 		191BB21A2937FDC200F99A26 /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		191BB21C293805EA00F99A26 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		191BB21E2938063000F99A26 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
@@ -171,9 +173,9 @@
 		19579584295C2CB4005E7BA4 /* watterAppWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = watterAppWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		19579586295C2CB4005E7BA4 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		19579588295C2CB4005E7BA4 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		1957958B295C2CB4005E7BA4 /* watterAppWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = watterAppWidgetBundle.swift; sourceTree = "<group>"; };
-		1957958D295C2CB4005E7BA4 /* watterAppWidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = watterAppWidgetLiveActivity.swift; sourceTree = "<group>"; };
-		1957958F295C2CB4005E7BA4 /* watterAppWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = watterAppWidget.swift; sourceTree = "<group>"; };
+		1957958B295C2CB4005E7BA4 /* WatterAppWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatterAppWidgetBundle.swift; sourceTree = "<group>"; };
+		1957958D295C2CB4005E7BA4 /* WatterAppWidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatterAppWidgetLiveActivity.swift; sourceTree = "<group>"; };
+		1957958F295C2CB4005E7BA4 /* WatterAppWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatterAppWidget.swift; sourceTree = "<group>"; };
 		19579591295C2CB4005E7BA4 /* watterAppWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = watterAppWidget.intentdefinition; sourceTree = "<group>"; };
 		19579592295C2CB9005E7BA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		19579594295C2CB9005E7BA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -249,6 +251,19 @@
 			path = PieClasses;
 			sourceTree = "<group>";
 		};
+		19132AE2296AAF380063B85F /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				1957958F295C2CB4005E7BA4 /* WatterAppWidget.swift */,
+				1909FA92295D7C0500D73F9E /* WaterEntry.swift */,
+				1909FA8E295C936000D73F9E /* Provider.swift */,
+				1909FA90295C955000D73F9E /* WatterAppWidgetView.swift */,
+				1909FA9E295DB33900D73F9E /* WatterAppWidgetSmallView.swift */,
+				1909FA9C295DB24A00D73F9E /* WatterAppWidgetMediumView.swift */,
+			);
+			path = Widget;
+			sourceTree = "<group>";
+		};
 		193BB084293D312700AB5840 /* CusomeViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -290,15 +305,10 @@
 		1957958A295C2CB4005E7BA4 /* watterAppWidget */ = {
 			isa = PBXGroup;
 			children = (
-				19FAEA4D29657844003E1F0F /* LiveActivity */,
-				1957958F295C2CB4005E7BA4 /* watterAppWidget.swift */,
-				1909FA92295D7C0500D73F9E /* WaterEntry.swift */,
-				1909FA8E295C936000D73F9E /* Provider.swift */,
-				1909FA90295C955000D73F9E /* WatterAppWidgetView.swift */,
-				1909FA9E295DB33900D73F9E /* WatterAppWidgetSmallView.swift */,
-				1909FA9C295DB24A00D73F9E /* WatterAppWidgetMediumView.swift */,
-				1957958B295C2CB4005E7BA4 /* watterAppWidgetBundle.swift */,
 				19579591295C2CB4005E7BA4 /* watterAppWidget.intentdefinition */,
+				1957958B295C2CB4005E7BA4 /* WatterAppWidgetBundle.swift */,
+				19132AE2296AAF380063B85F /* Widget */,
+				19FAEA4D29657844003E1F0F /* LiveActivity */,
 				19579592295C2CB9005E7BA4 /* Assets.xcassets */,
 				19579594295C2CB9005E7BA4 /* Info.plist */,
 			);
@@ -460,8 +470,9 @@
 		19FAEA4D29657844003E1F0F /* LiveActivity */ = {
 			isa = PBXGroup;
 			children = (
-				1957958D295C2CB4005E7BA4 /* watterAppWidgetLiveActivity.swift */,
+				1957958D295C2CB4005E7BA4 /* WatterAppWidgetLiveActivity.swift */,
 				19FAEA4E2965788F003E1F0F /* WatterWidgetAttributes.swift */,
+				19132ADF296AAD550063B85F /* WatterLockScreenLiveActivityView.swift */,
 			);
 			path = LiveActivity;
 			sourceTree = "<group>";
@@ -581,11 +592,12 @@
 				19FAEA4F2965788F003E1F0F /* WatterWidgetAttributes.swift in Sources */,
 				1909FA89295C300E00D73F9E /* AwardItem.swift in Sources */,
 				1945CC312965917B005B82CF /* ActivityManager.swift in Sources */,
-				1957958C295C2CB4005E7BA4 /* watterAppWidgetBundle.swift in Sources */,
+				1957958C295C2CB4005E7BA4 /* WatterAppWidgetBundle.swift in Sources */,
 				1909FA85295C300100D73F9E /* WatterApp.xcdatamodeld in Sources */,
 				1909FA81295C2FCA00D73F9E /* DateExtension.swift in Sources */,
 				1909FAA4295DD54100D73F9E /* SpeedometerGaugeStyle.swift in Sources */,
-				1957958E295C2CB4005E7BA4 /* watterAppWidgetLiveActivity.swift in Sources */,
+				19132AE1296AAD8B0063B85F /* WatterLockScreenLiveActivityView.swift in Sources */,
+				1957958E295C2CB4005E7BA4 /* WatterAppWidgetLiveActivity.swift in Sources */,
 				19FC0D0E2962EFDA0017F16B /* WaterTypeImageView.swift in Sources */,
 				1909FA83295C2FDD00D73F9E /* Persistence.swift in Sources */,
 				19579595295C2CB9005E7BA4 /* watterAppWidget.intentdefinition in Sources */,
@@ -593,7 +605,7 @@
 				1909FA87295C300900D73F9E /* DrinkItem.swift in Sources */,
 				1909FA84295C2FE500D73F9E /* WaterTypesListManager.swift in Sources */,
 				1909FA82295C2FD300D73F9E /* GeneralExtensions.swift in Sources */,
-				19579590295C2CB4005E7BA4 /* watterAppWidget.swift in Sources */,
+				19579590295C2CB4005E7BA4 /* WatterAppWidget.swift in Sources */,
 				1909FA9A295D804E00D73F9E /* Constants.swift in Sources */,
 				1909FA9D295DB24A00D73F9E /* WatterAppWidgetMediumView.swift in Sources */,
 			);

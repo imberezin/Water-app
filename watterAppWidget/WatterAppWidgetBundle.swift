@@ -9,11 +9,11 @@ import WidgetKit
 import SwiftUI
 
 @main
-struct watterAppWidgetBundle: WidgetBundle {
+struct WatterAppWidgetBundle: WidgetBundle {
     
     
     var body: some Widget {
-        watterAppWidget()
-        watterAppWidgetLiveActivity()
+        WatterAppWidget()
+        WatterAppWidgetLiveActivity()
     }
 }

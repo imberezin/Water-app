@@ -11,7 +11,7 @@ import Intents
 import CoreData
 
 
-struct watterAppWidget: Widget {
+struct WatterAppWidget: Widget {
     let kind: String = "watterAppWidget"
 
     //based https://www.youtube.com/watch?v=q0t_NUpLMWo

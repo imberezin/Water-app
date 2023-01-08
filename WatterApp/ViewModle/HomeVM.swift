@@ -103,7 +103,7 @@ class HomeVM: ObservableObject {
         DispatchQueue.main.asyncAfter(deadline: .now()+0.5){
             WidgetCenter.shared.reloadAllTimelines()
             
-            ActivityManager.shared.sendRequest(drinkItem: drinkItem)
+            ActivityManager.shared.sendRequest(for : waterType, daysItems: daysItems)
 
             
             self.checkAndUpadteIfUserNeedToGetNewAwardMedal()
