@@ -302,7 +302,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		1957958A295C2CB4005E7BA4 /* watterAppWidget */ = {
+		1957958A295C2CB4005E7BA4 /* WatterAppWidget */ = {
 			isa = PBXGroup;
 			children = (
 				19579591295C2CB4005E7BA4 /* watterAppWidget.intentdefinition */,
@@ -312,7 +312,7 @@
 				19579592295C2CB9005E7BA4 /* Assets.xcassets */,
 				19579594295C2CB9005E7BA4 /* Info.plist */,
 			);
-			path = watterAppWidget;
+			path = WatterAppWidget;
 			sourceTree = "<group>";
 		};
 		1961098E2938B5DE00D505B2 /* Modle */ = {
@@ -392,7 +392,7 @@
 			children = (
 				1909FA8A295C3F4100D73F9E /* watterAppWidgetExtension.entitlements */,
 				1969C9D629375A070032AED5 /* WatterApp */,
-				1957958A295C2CB4005E7BA4 /* watterAppWidget */,
+				1957958A295C2CB4005E7BA4 /* WatterAppWidget */,
 				19579585295C2CB4005E7BA4 /* Frameworks */,
 				1969C9D529375A070032AED5 /* Products */,
 			);

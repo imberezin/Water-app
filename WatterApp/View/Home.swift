@@ -57,7 +57,7 @@ struct Home: View {
             
         }
         .popup(isPresented: $homeVM.isNeedsToShowAwardView) {
-            AwardWinView(selectedAward: homeVM.slectedAwardItem)
+            AwardWinView(selectedAward: homeVM.slectedAwardItem, isDallyPrize: homeVM.showTodayQuota)
         }
         .popup(isPresented: $showReminderView) { // 3
             SettingsRemindeViewV2(settingsVM: settingsVM, showReminder: $showReminderView)

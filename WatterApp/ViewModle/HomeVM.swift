@@ -25,6 +25,7 @@ class HomeVM: ObservableObject {
         willSet{
             if newValue != todayQuotaaAward{
                 self.showTodayQuota = true
+                self.isNeedsToShowAwardView = true
             }
         }
     }
@@ -47,7 +48,8 @@ class HomeVM: ObservableObject {
                 let list = await awardListViewVM.getFulldaysList()
                 let flag = awardListViewVM.checkFullDailyQuota(daysList: list)
                 if flag{
-                    self.showTodayQuota = true
+                    self.slectedAwardItem = AwardItem(imageName: "award9", awardName: "Full daily quota", daysNumber: 1)
+                    self.todayQuotaaAward = true
                     return
                 }
             }
