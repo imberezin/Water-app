@@ -9,14 +9,17 @@ import SwiftUI
 
 struct WaveBGHeaderView<Content: View>: View {
     
+    var axis: (x: CGFloat, y: CGFloat, z: CGFloat) = (x: 0, y: 1, z: 0)
+
     @ViewBuilder var content: Content
+    
     
     var body: some View {
     
             let gr1 = Gradient(colors: bgWaweColors)
             WaveShape()
                 .fill(gr1)
-                .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
+                .rotation3DEffect(.degrees(180), axis: axis)
                 .overlay(alignment: .center){
                     content
                     .padding(.top,54)

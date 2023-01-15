@@ -25,17 +25,25 @@ struct Home: View {
     @FocusState private var checkoutInFocus: CheckoutFocusable?
     
     @State var todayInfo: Day? = nil
-    @State var numberOfWoter: Int = 0
+//    @State var numberOfWoter: Int = 0
     @State var showReminderView: Bool = false
     @State var editWaterList: Bool = false
     
-    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Day.date, ascending: true)],predicate: NSPredicate(format : "date < %@ AND  date > %@", Date().daysAfter(number: 1) as CVarArg, Date().daysBefore(number: 1) as CVarArg))
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Day.date, ascending: true)],predicate: NSPredicate(format : "date < %@ AND  date > %@", Date().endOfDay as CVarArg, Date().startOfDay as CVarArg))
     private var daysItems: FetchedResults<Day>
     
     let gradientView: Gradient = Gradient(colors: bgWaweColors)
     
     var body: some View {
         
+        
+        let array =  daysItems.last?.drink  != nil ? Array(daysItems.last?.drink as! Set<Drink>) : [Drink(context: viewContext)]
+          let   waterAmountNumber = Int(array.sum(for: \.amount))
+        let _ = print("arrayCount = \(daysItems.count)")
+        let _ = print("date = \(daysItems.last?.date)")
+
+        let _ = print("waterAmountNumber = \(waterAmountNumber)")
+
         VStack(spacing: 0.0){
             
             WaveBGHeaderView(){
@@ -44,11 +52,10 @@ struct Home: View {
             .frame(maxWidth: .infinity, maxHeight: 100)
             
             VStack{
-                ContinueRing(cureentNumber: numberOfWoter, total: Float(homeVM.userPrivateinfoSaved?.customTotal ?? 1000), ringFrame: CGSize(width: 250.0, height: 250.0))
+                ContinueRing(cureentNumber: waterAmountNumber, total: Float(homeVM.userPrivateinfoSaved?.customTotal ?? 1000), ringFrame: CGSize(width: 250.0, height: 250.0))
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
                 
                 AddDrinkItemToList()
-                
                 
             }
             FooterView(gradient: gradientView)
@@ -66,7 +73,7 @@ struct Home: View {
         .ignoresSafeArea(.container, edges: .top)
         .onAppear{
             self.waterTypesListManager.loadPropertyList()
-            self.todayWaterInfo()
+           // self.todayWaterInfo()
             DispatchQueue.main.asyncAfter(deadline: .now()+0.5){
                 self.homeVM.checkAndUpadteIfUserNeedToGetNewAwardMedal()
             }
@@ -144,28 +151,26 @@ struct Home: View {
     
     @ViewBuilder
     func FooterView(gradient: Gradient)-> some View{
-        WaveShape()
-            .fill(gradient)
-            .rotation3DEffect(.degrees(180), axis: (x: 1, y: 0, z: 0))
-            .overlay(alignment: .center){
-                
-                HStack {
-                    ScrollView(.horizontal) {
-                        HStack(spacing: 16.0){
-                            ForEach(  waterTypesListManager.drinkTypesList.indices, id: \.self) { index in
-                                
-                                AddWaterButton(waterType: waterTypesListManager.drinkTypesList[index], imageFrame: CGSize(width: 30, height: 30), viewFrame: CGSize(width: 80, height: 80)){ number in
-                                    self.numberOfWoter += number.amount
-                                    self.homeVM.addWaterToCureentDay(waterType: waterTypesListManager.drinkTypesList[index], daysItems: self.daysItems)
-                                }
-                                
+        
+        WaveBGHeaderView(axis: (x: 1, y: 0, z: 0)){
+            HStack {
+                ScrollView(.horizontal) {
+                    HStack(spacing: 16.0){
+                        ForEach(  waterTypesListManager.drinkTypesList.indices, id: \.self) { index in
+                            
+                            AddWaterButton(waterType: waterTypesListManager.drinkTypesList[index], imageFrame: CGSize(width: 30, height: 30), viewFrame: CGSize(width: 80, height: 80)){ number in
+//                                    self.numberOfWoter += number.amount
+                                self.homeVM.addWaterToCureentDay(waterType: waterTypesListManager.drinkTypesList[index], daysItems: self.daysItems)
                             }
+                            
                         }
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.horizontal)
                     }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.horizontal)
                 }
             }
+            .offset(y:-20)
+        }
     }
     
     @ViewBuilder
@@ -192,21 +197,7 @@ struct Home: View {
         }
         
     }
-    
-    func todayWaterInfo(){
-        if daysItems.count > 0 {
-            print("daysItems.count = \(daysItems.count)")
-            if let today: Day = daysItems.first(where: {$0.date?.getGregorianDate(dateFormat: "d MMMM yyyy") == Date().getGregorianDate(dateFormat: "d MMMM yyyy")}){
-                self.todayInfo = today
-                let array = Array(today.drink! as Set as! Set<Drink>)
-                self.numberOfWoter = Int(array.sum(for: \.amount))
-            }
-            else{
-                print("no day yet")
-            }
-        }
-    }
-    
+        
     func userAddWaterByShortcutItem(shortcutItem: UIApplicationShortcutItem ){
         if let drink: DrinkType = waterTypesListManager.drinkTypesList.first(where: {$0.id == shortcutItem.type}){
             DispatchQueue.main.asyncAfter(deadline:  .now() + 0.3){
@@ -230,10 +221,12 @@ struct Home: View {
     }
     
     func updateDrinkAndUI(drink: DrinkType){
-        self.numberOfWoter += drink.amount
+//        self.numberOfWoter += drink.amount
         self.homeVM.addWaterToCureentDay(waterType: drink, daysItems: self.daysItems)
         
     }
+    
+    
 }
 
 struct Home_Previews: PreviewProvider {
@@ -291,4 +284,59 @@ struct Home_Previews: PreviewProvider {
  }
  
  
+ //                if daysItems.count > 0 && daysItems.last?.drink != nil {
+ //
+ //                    let a: [Drink] = ((daysItems.last!.drink!.allObjects) as! [Drink])
+ //
+ //                    let b = a.sorted { d1, d2 in
+ //                        d1.time! < d2.time!
+ //                    }
+ //
+ //                    HStack{
+ //                        Text("\(b.last?.amount ?? 0)")
+ //                    }
+ //                }
+
+ 
+ 
+ //        WaveShape()
+ //            .fill(gradient)
+ //            .rotation3DEffect(.degrees(180), axis: (x: 1, y: 0, z: 0))
+ //            .overlay(alignment: .center){
+ //
+ //                HStack {
+ //                    ScrollView(.horizontal) {
+ //                        HStack(spacing: 16.0){
+ //                            ForEach(  waterTypesListManager.drinkTypesList.indices, id: \.self) { index in
+ //
+ //                                AddWaterButton(waterType: waterTypesListManager.drinkTypesList[index], imageFrame: CGSize(width: 30, height: 30), viewFrame: CGSize(width: 80, height: 80)){ number in
+ ////                                    self.numberOfWoter += number.amount
+ //                                    self.homeVM.addWaterToCureentDay(waterType: waterTypesListManager.drinkTypesList[index], daysItems: self.daysItems)
+ //                                }
+ //
+ //                            }
+ //                        }
+ //                        .frame(maxWidth: .infinity, alignment: .leading)
+ //                        .padding(.horizontal)
+ //                    }
+ //                }
+ //            }
+
+ */
+
+
+/*
+func todayWaterInfo(){
+    if daysItems.count > 0 {
+        print("daysItems.count = \(daysItems.count)")
+        if let today: Day = daysItems.first(where: {$0.date?.getGregorianDate(dateFormat: "d MMMM yyyy") == Date().getGregorianDate(dateFormat: "d MMMM yyyy")}){
+            self.todayInfo = today
+//                let array = Array(today.drink! as Set as! Set<Drink>)
+//                self.numberOfWoter = Int(array.sum(for: \.amount))
+        }
+        else{
+            print("no day yet")
+        }
+    }
+}
  */
