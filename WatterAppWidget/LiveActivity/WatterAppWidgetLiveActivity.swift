@@ -28,10 +28,24 @@ struct WatterAppWidgetLiveActivity: Widget {
                 // Expanded UI goes here.  Compose the expanded UI through
                 // various regions, like leading/trailing/center/bottom
                 DynamicIslandExpandedRegion(.leading) {
-                    Text("Leading")
+//                    Text("Leading")
+                    Image(systemName: "drop.fill")
+                        .imageScale(.medium)
+    //                    .font(.system(size: 20, weight: .bold, design: .rounded))
+                        .symbolRenderingMode(.palette)
+                        .foregroundStyle(.blue)
+                        .transition(.move(edge: .trailing))
+
                 }
                 DynamicIslandExpandedRegion(.trailing) {
-                    Text("Trailing")
+//                    Text("Trailing")
+                    Image(systemName: "drop.fill")
+                        .imageScale(.medium)
+    //                    .font(.system(size: 20, weight: .bold, design: .rounded))
+                        .symbolRenderingMode(.palette)
+                        .foregroundStyle(.blue)
+                        .transition(.move(edge: .leading))
+
                 }
                 DynamicIslandExpandedRegion(.bottom) {
                     VStack {

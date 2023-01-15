@@ -22,7 +22,7 @@ struct WatterLockScreenLiveActivityView: View {
                   label:{ },
                   currentValueLabel:{
                 
-                        VStack(spacing: 10.0) {
+                        VStack(spacing: 0) {
                             Image(systemName: "drop.fill")
                                 .imageScale(.large)
                                 .font(.system(size: 20, weight: .bold, design: .rounded))
@@ -42,7 +42,7 @@ struct WatterLockScreenLiveActivityView: View {
             VStack(alignment: .leading){
                 Text("Congratulations!")
                     .font(.headline)
-                Text("You have progressed up the road to the daily threshold!")
+                Text("You have progressed up the road to the daily norm!")
                     .font(.subheadline)
                 
             }
