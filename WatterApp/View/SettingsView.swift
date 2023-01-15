@@ -46,7 +46,7 @@ struct SettingsView: View {
         
         VStack(spacing: 20){
             WaveBGHeaderView(){
-                TitleHeaderView(title: "Settinngs")
+                TitleHeaderView(title: "Settings")
             }
             .frame(maxWidth: .infinity, maxHeight: 100)
             

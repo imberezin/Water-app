@@ -102,7 +102,11 @@ extension Date{
     }
 
 
-        
+    func toString (_ format:String) -> String{
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        return formatter.string(from: self)
+    }
         
 //    // returns an integer from 1 - 7, with 1 being Sunday and 7 being Saturday
 //    print(Date().dayNumberOfWeek()!) // 4
@@ -122,6 +126,20 @@ extension Date: RawRepresentable {
 
 extension Calendar {
     static let gregorian = Calendar(identifier: .gregorian)
+    
+    var currentWeek: [WeekDay]{
+        guard let firstWeekDay = self.dateInterval(of: .weekOfMonth, for: Date())?.start
+        else {return []}
+        var week: [WeekDay] = []
+        for index in 0..<7{
+            if let day = self.date(byAdding: .day, value: index, to: firstWeekDay){
+                let weekDaySymbol: String =  day.toString("EEEE")
+                let isToday = self.isDateInToday(day)
+                week.append(.init(string: weekDaySymbol, date: day,  isToday: isToday))
+            }
+        }
+        return week
+    }
 }
 
 
@@ -136,4 +154,11 @@ extension DateComponents {
 //       print("component = \(component)")
       return component
    }
+}
+
+struct WeekDay: Identifiable{
+    var id: UUID = .init()
+    var string: String
+    var date: Date
+    var isToday: Bool = false
 }

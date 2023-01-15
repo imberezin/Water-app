@@ -18,8 +18,6 @@ struct StatisticsView: View {
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Day.date, ascending: true)],predicate: NSPredicate(format : "date < %@ AND  date > %@", Date().endOfWeek() as CVarArg, Date().startOfWeek() as CVarArg))
     private var items: FetchedResults<Day>
         
-
-
     var body: some View {
         
         NavigationView {

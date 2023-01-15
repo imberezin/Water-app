@@ -73,6 +73,11 @@ class AwardListViewVM: ObservableObject {
         return await PersistenceController.shared.fetchAllDaysItemsInBg()!
     }
     
+    func getTodayList() async -> [DayItem]{
+        return await PersistenceController.shared.fatchTodayDrinkInfo()!
+    }
+    
+    
     @MainActor
     func checkhowMoreDaysNeedToGetAward(numberOfDays:Int) {
         Task{

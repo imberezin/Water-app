@@ -45,7 +45,7 @@ class HomeVM: ObservableObject {
             self.slectedAwardItem = nil
             
             if self.todayQuotaaAward == false{
-                let list = await awardListViewVM.getFulldaysList()
+                let list = await awardListViewVM.getTodayList()
                 let flag = awardListViewVM.checkFullDailyQuota(daysList: list)
                 if flag{
                     self.slectedAwardItem = AwardItem(imageName: "award9", awardName: "Full daily quota", daysNumber: 1)
