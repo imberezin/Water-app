@@ -108,7 +108,7 @@ struct PersistenceController {
         fetchRequest.predicate = NSPredicate(format : "date < %@ AND  date > %@", Date().daysAfter(number: 1) as CVarArg, Date().daysBefore(number: 1) as CVarArg)
         do {
             let results = try viewContext.fetch(fetchRequest)
-            print(results.count)
+           // print(results.count)
             if !results.isEmpty{
                 self.updateDayItem(day: results.first! as! Day, drink: drink)
             }else{
@@ -267,8 +267,8 @@ struct PersistenceController {
         
         let arr: [DayItem] = covertToDayItemArray(daysList: results)
         
-        print(arr.first?.total ?? 0)
-        print(arr.last?.total ?? 0)
+        //print(arr.first?.total ?? 0)
+        // print(arr.last?.total ?? 0)
         
         return arr.sorted(by:{
             $0.date.compare($1.date) == .orderedAscending})

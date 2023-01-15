@@ -70,7 +70,7 @@ class NotificationCenterManager: NSObject, ObservableObject{
     func scheduleNotificationToRange(startTime: Date, endTime: Date, hour: Int = 3, toRepeat:Bool){
 
         let delta = startTime.distance(to: endTime)
-        print(delta)
+        print("delta = \(delta)")
         let diff = delta / (60*60)
         
         let numberOfReminer:Int = Int(diff/Double(hour)) + 1
@@ -288,7 +288,7 @@ extension NotificationCenterManager: UNUserNotificationCenterDelegate{
         }
         
         application.applicationIconBadgeNumber = 0
-        print(response.actionIdentifier)
+        print("response.actionIdentifier = \(response.actionIdentifier)")
         NotificationCenterManager.shared.actionIdentifier = response.actionIdentifier
         
         

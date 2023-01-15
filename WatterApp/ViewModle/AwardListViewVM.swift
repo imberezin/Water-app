@@ -64,7 +64,7 @@ class AwardListViewVM: ObservableObject {
                 tempList[index].active = tempAwardsIndexs[index]
             }
             self.awardslist = tempList//.map({$0})
-            print(self.awardslist.map({$0.active}))
+            print("self.awardslist.map = \(self.awardslist.map({$0.active}))")
             
         }
     }
