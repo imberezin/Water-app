@@ -35,6 +35,8 @@
 		190A72A32941FF6C009E79C7 /* PieDateVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190A72A22941FF6C009E79C7 /* PieDateVM.swift */; };
 		190A72A52941FFB9009E79C7 /* PieSliceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190A72A42941FFB9009E79C7 /* PieSliceView.swift */; };
 		190A72A729421998009E79C7 /* UserPrivateinfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190A72A629421998009E79C7 /* UserPrivateinfo.swift */; };
+		190CD6C62974861100724B9F /* WaveBGHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BC50062965677900386897 /* WaveBGHeaderView.swift */; };
+		190CD6C82974A02200724B9F /* AnimatedDropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190CD6C72974A02200724B9F /* AnimatedDropView.swift */; };
 		19132AE1296AAD8B0063B85F /* WatterLockScreenLiveActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19132ADF296AAD550063B85F /* WatterLockScreenLiveActivityView.swift */; };
 		191BB21B2937FDC200F99A26 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191BB21A2937FDC200F99A26 /* DateExtension.swift */; };
 		191BB21D293805EA00F99A26 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191BB21C293805EA00F99A26 /* SettingsView.swift */; };
@@ -145,6 +147,7 @@
 		190A72A22941FF6C009E79C7 /* PieDateVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieDateVM.swift; sourceTree = "<group>"; };
 		190A72A42941FFB9009E79C7 /* PieSliceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieSliceView.swift; sourceTree = "<group>"; };
 		190A72A629421998009E79C7 /* UserPrivateinfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPrivateinfo.swift; sourceTree = "<group>"; };
+		190CD6C72974A02200724B9F /* AnimatedDropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedDropView.swift; sourceTree = "<group>"; };
 		19132ADF296AAD550063B85F /* WatterLockScreenLiveActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatterLockScreenLiveActivityView.swift; sourceTree = "<group>"; };
 		191BB21A2937FDC200F99A26 /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		191BB21C293805EA00F99A26 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -280,6 +283,7 @@
 				19FC0D0C2962EE260017F16B /* WaterTypeImageView.swift */,
 				1932257C2964CA7600BBEE66 /* CustomeToolbarItemGroupView.swift */,
 				19BC50062965677900386897 /* WaveBGHeaderView.swift */,
+				190CD6C72974A02200724B9F /* AnimatedDropView.swift */,
 			);
 			path = CusomeViews;
 			sourceTree = "<group>";
@@ -594,6 +598,7 @@
 				1945CC312965917B005B82CF /* ActivityManager.swift in Sources */,
 				1957958C295C2CB4005E7BA4 /* WatterAppWidgetBundle.swift in Sources */,
 				1909FA85295C300100D73F9E /* WatterApp.xcdatamodeld in Sources */,
+				190CD6C62974861100724B9F /* WaveBGHeaderView.swift in Sources */,
 				1909FA81295C2FCA00D73F9E /* DateExtension.swift in Sources */,
 				1909FAA4295DD54100D73F9E /* SpeedometerGaugeStyle.swift in Sources */,
 				19132AE1296AAD8B0063B85F /* WatterLockScreenLiveActivityView.swift in Sources */,
@@ -667,6 +672,7 @@
 				19C72CD129545299009662FF /* NewWorkoutManager.swift in Sources */,
 				197A454B293C0B7D008B33DA /* WaveShape.swift in Sources */,
 				1949679A295997B90014BA4F /* GenericPopupView.swift in Sources */,
+				190CD6C82974A02200724B9F /* AnimatedDropView.swift in Sources */,
 				193BB08C293DF25B00AB5840 /* SettingsVM.swift in Sources */,
 				19FAEA502965789F003E1F0F /* WatterWidgetAttributes.swift in Sources */,
 				1965CF9B29618E250049BAC6 /* WaterTypesListView.swift in Sources */,

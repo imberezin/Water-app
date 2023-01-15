@@ -11,13 +11,16 @@ import CoreData
 
 struct ContentView: View {
     
+    
+    @State var showPreviewPage: Bool = true
+
     var body: some View {
         GeometryReader { geo in
             let size = geo.size
             let bottomEdge = geo.safeAreaInsets.bottom
-
-            MainView(size: size, bottomEdge: bottomEdge)
-                .ignoresSafeArea(.all, edges: .bottom)
+                MainView(size: size, bottomEdge: bottomEdge)
+              //  .overlay(self.showPreviewPage ? AnimatedDropView(showView: $showPreviewPage) : nil)
+                    .ignoresSafeArea(.all, edges: .bottom)
         }
     }
     
