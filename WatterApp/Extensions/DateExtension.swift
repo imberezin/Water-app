@@ -101,6 +101,17 @@ extension Date{
         return start.daysAfter(number: 6)
     }
 
+    func getPreviousWeekStartDay(from date:Date) -> Date{
+        let startOfCurrentWeek = date.startOfWeek()
+        let startOfPreviuseWeek = startOfCurrentWeek.daysBefore(number: 7)
+        return startOfPreviuseWeek.startOfDay
+    }
+
+    func getNextWeekStartDay(from date:Date) -> Date{
+        let startOfCurrentWeek = date.startOfWeek()
+        let startOfPreviuseWeek = startOfCurrentWeek.daysAfter(number: 7)
+        return startOfPreviuseWeek.startOfDay
+    }
 
     func toString (_ format:String) -> String{
         let formatter = DateFormatter()
