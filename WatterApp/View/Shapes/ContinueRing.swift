@@ -34,9 +34,9 @@ struct ContinueRing: View{
 //                .frame(width: 250.0, height: 250.0)
             .frame(width: ringFrame.width, height: ringFrame.height)
                 .padding(40.0)
-            VStack(alignment: .center, spacing: 8.0){
+            VStack(alignment: .center, spacing:TargetDevice.currentDevice == .nativeMac  ? 16 : 8){
                 Text("You drank")
-                    .font(.title3)
+                    .font(TargetDevice.currentDevice == .nativeMac  ? .title : .title3)
                     .fontWeight(.semibold)
                     .foregroundColor(Color.blue)
                 
@@ -46,7 +46,7 @@ struct ContinueRing: View{
                     .foregroundColor(Color.blue)
 
                 Text("of a \(Int(total))ml today")
-                    .font(.title3)
+                    .font(TargetDevice.currentDevice == .nativeMac  ? .title : .title3)
                     .fontWeight(.semibold)
                     .foregroundColor(Color.blue)
 
@@ -144,6 +144,7 @@ struct ActivityRing: View {
 
 
 extension Color {
+#if os(iOS)
     var components: (r: Double, g: Double, b: Double, o: Double)? {
         let uiColor: UIColor
         
@@ -166,6 +167,31 @@ extension Color {
         
         return (Double(r), Double(g), Double(b), Double(o))
     }
+    #else
+    var components: (r: Double, g: Double, b: Double, o: Double)? {
+        let uiColor: NSColor
+        
+        var r: CGFloat = 0
+        var g: CGFloat = 0
+        var b: CGFloat = 0
+        var o: CGFloat = 0
+        
+        if self.description.contains("NamedColor") {
+            let lowerBound = self.description.range(of: "name: \"")!.upperBound
+            let upperBound = self.description.range(of: "\", bundle")!.lowerBound
+            let assetsName = String(self.description[lowerBound..<upperBound])
+            
+            uiColor = NSColor(named: assetsName)!
+        } else {
+            uiColor = NSColor(self)
+        }
+      //  uiColor.getRed(&r, green: &g, blue: &b, alpha: &o) 
+
+//        guard uiColor.getRed(&r, green: &g, blue: &b, alpha: &o) else { return nil }
+        
+        return (Double(r), Double(g), Double(b), Double(o))
+    }
+    #endif
     
     func interpolateTo(color: Color, fraction: Double) -> Color {
         let s = self.components!

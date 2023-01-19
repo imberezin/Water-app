@@ -30,13 +30,19 @@ class WaterTypesListManager: ObservableObject {
     }
     
     var plistGroupURL: URL {
+        dump("plistGroupURL")
+#if os(iOS)
         guard let groupURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.kaltura.waterapp") else {
             fatalError("could not get shared app group directory.")
         }
         return groupURL.appendingPathComponent("WaterTypesList.plist")
+#else
+        return self.localRadeUrl
+        #endif
     }
     
     var localRadeUrl: URL{
+        dump("localRadeUrl")
         return Bundle.main.url(forResource: "WaterTypesList", withExtension: "plist")!
         
     }
@@ -175,6 +181,7 @@ class WaterTypesListManager: ObservableObject {
         
     }
     
+#if os(iOS)
     func buildNotificationDrinkActions(maxNumber: Int) -> [UNNotificationAction] {
         
         
@@ -206,6 +213,7 @@ class WaterTypesListManager: ObservableObject {
         return notificationActionArray.reversed()
     }
     
+#endif
     
     @MainActor
     func saveListIfNeded(isNeded: Bool){

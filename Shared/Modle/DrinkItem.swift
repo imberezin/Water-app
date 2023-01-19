@@ -12,7 +12,7 @@ struct DrinkItem: Identifiable{
     public var name: String
     public var amount: Int64
     public var date: Day?
-    public var time: Date?
+    public var time: Date
     
     init(name: String, amount: Int64, date: Day? = nil, time: Date = Date()) {
         self.name = name

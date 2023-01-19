@@ -94,8 +94,14 @@ struct ChartsView_Previews: PreviewProvider {
     
     static var previews: some View {
         
+#if os(iOS)
+
         StatisticsView()
             .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        #else
+        StatisticsMacView()
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        #endif
         
     }
 }

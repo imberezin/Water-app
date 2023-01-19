@@ -49,14 +49,6 @@ struct MainView: View {
 
 
 
-enum Tab: String, CaseIterable{
-    
-    case home = "mug"
-    case scan = "figure.walk"
-    case folder = "list.bullet.clipboard"
-    case cart = "gearshape"
-}
-
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()

@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 import WidgetKit
-import ActivityKit
+//import ActivityKit
 
 class HomeVM: ObservableObject {
     
@@ -104,9 +104,9 @@ class HomeVM: ObservableObject {
         
         DispatchQueue.main.asyncAfter(deadline: .now()+0.5){
             WidgetCenter.shared.reloadAllTimelines()
-            
-            ActivityManager.shared.sendRequest(for : waterType, daysItems: daysItems)
-
+#if os(iOS)
+        ActivityManager.shared.sendRequest(for : waterType, daysItems: daysItems)
+#endif
             
             self.checkAndUpadteIfUserNeedToGetNewAwardMedal()
         }

@@ -10,6 +10,13 @@
 		190516C52962CB19004E3A1E /* DrinkType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190516C42962CB19004E3A1E /* DrinkType.swift */; };
 		190516C62962CB19004E3A1E /* DrinkType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190516C42962CB19004E3A1E /* DrinkType.swift */; };
 		190745EC293F30DC00C6B5BF /* Pie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190745EB293F30DC00C6B5BF /* Pie.swift */; };
+		19088B53297973D400DCFC90 /* StatisticsMacView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19088B52297973D400DCFC90 /* StatisticsMacView.swift */; };
+		19088B542979750500DCFC90 /* ChartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F8707F2938F18000500178 /* ChartsView.swift */; };
+		19088B57297976BC00DCFC90 /* StatisticsDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19088B56297976BC00DCFC90 /* StatisticsDetailsView.swift */; };
+		19088B58297976F100DCFC90 /* PieDateVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190A72A22941FF6C009E79C7 /* PieDateVM.swift */; };
+		19088B59297976FA00DCFC90 /* PieDateUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190A72A02941FF41009E79C7 /* PieDateUnit.swift */; };
+		19088B5A2979779800DCFC90 /* PieSliceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190A72A42941FFB9009E79C7 /* PieSliceView.swift */; };
+		19088B5B2979779800DCFC90 /* Pie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190745EB293F30DC00C6B5BF /* Pie.swift */; };
 		1909FA81295C2FCA00D73F9E /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191BB21A2937FDC200F99A26 /* DateExtension.swift */; };
 		1909FA82295C2FD300D73F9E /* GeneralExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FB055C29493FB90085709A /* GeneralExtensions.swift */; };
 		1909FA83295C2FDD00D73F9E /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1969C9D929375A070032AED5 /* Persistence.swift */; };
@@ -59,6 +66,22 @@
 		193BB097293DF45400AB5840 /* AddWaterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193BB096293DF45400AB5840 /* AddWaterButton.swift */; };
 		1945CC302965917B005B82CF /* ActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1945CC2F2965917B005B82CF /* ActivityManager.swift */; };
 		1945CC312965917B005B82CF /* ActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1945CC2F2965917B005B82CF /* ActivityManager.swift */; };
+		1949322329794BC0001CAEE4 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193BB087293D33BF00AB5840 /* HomeVM.swift */; };
+		1949322429794BD6001CAEE4 /* UserPrivateinfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190A72A629421998009E79C7 /* UserPrivateinfo.swift */; };
+		1949322529794BE1001CAEE4 /* AwardListViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1938E92A29587F3E003F8390 /* AwardListViewVM.swift */; };
+		1949322629794BE9001CAEE4 /* AwardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196F6D45295A4751009D444F /* AwardItem.swift */; };
+		1949322729794C91001CAEE4 /* DrinkType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190516C42962CB19004E3A1E /* DrinkType.swift */; };
+		1949322829794CD7001CAEE4 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1969C9D929375A070032AED5 /* Persistence.swift */; };
+		1949322929794DA2001CAEE4 /* WaveBGHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BC50062965677900386897 /* WaveBGHeaderView.swift */; };
+		1949322A29794DA9001CAEE4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1909FA98295D803E00D73F9E /* Constants.swift */; };
+		1949322B29794DB1001CAEE4 /* WaveShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197A454A293C0B7D008B33DA /* WaveShape.swift */; };
+		1949322D2979548B001CAEE4 /* AddDrinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1949322C2979548B001CAEE4 /* AddDrinkView.swift */; };
+		1949322E297956CF001CAEE4 /* WaterTypesListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1959016529407BEE008AE6D5 /* WaterTypesListManager.swift */; };
+		1949322F297956E3001CAEE4 /* AddWaterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193BB096293DF45400AB5840 /* AddWaterButton.swift */; };
+		1949323229795BFD001CAEE4 /* WaterTypesList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1949323129795BFD001CAEE4 /* WaterTypesList.plist */; };
+		1949323329796902001CAEE4 /* ContinueRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197A454C293C0B9F008B33DA /* ContinueRing.swift */; };
+		1949323529796B0F001CAEE4 /* TargetDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1949323429796B0F001CAEE4 /* TargetDevice.swift */; };
+		1949323729796B5F001CAEE4 /* TargetDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1949323429796B0F001CAEE4 /* TargetDevice.swift */; };
 		1949679A295997B90014BA4F /* GenericPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19496799295997B90014BA4F /* GenericPopupView.swift */; };
 		1949679C2959A36D0014BA4F /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1949679B2959A36D0014BA4F /* ViewExtensions.swift */; };
 		1949679E2959A8630014BA4F /* BackgroundPopupCaption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1949679D2959A8630014BA4F /* BackgroundPopupCaption.swift */; };
@@ -76,6 +99,22 @@
 		1959016629407BEE008AE6D5 /* WaterTypesListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1959016529407BEE008AE6D5 /* WaterTypesListManager.swift */; };
 		196109942938B9EB00D505B2 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196109932938B9EB00D505B2 /* StatisticsView.swift */; };
 		1965CF9B29618E250049BAC6 /* WaterTypesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1965CF9A29618E250049BAC6 /* WaterTypesListView.swift */; };
+		19694B912979376B00FD0D1E /* MacAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19694B902979376B00FD0D1E /* MacAppApp.swift */; };
+		19694B932979376C00FD0D1E /* MainContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19694B922979376C00FD0D1E /* MainContentView.swift */; };
+		19694B982979376D00FD0D1E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19694B972979376D00FD0D1E /* Preview Assets.xcassets */; };
+		19694B9E2979379F00FD0D1E /* WatterApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1969C9DB29375A070032AED5 /* WatterApp.xcdatamodeld */; };
+		19694BA0297937E200FD0D1E /* DrinkItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197A4545293C0098008B33DA /* DrinkItem.swift */; };
+		19694BA1297937F800FD0D1E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1969C9E029375A090032AED5 /* Assets.xcassets */; };
+		19694BA22979380D00FD0D1E /* DayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197A4547293C00B3008B33DA /* DayItem.swift */; };
+		19694BA32979387E00FD0D1E /* GeneralExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FB055C29493FB90085709A /* GeneralExtensions.swift */; };
+		19694BA5297938BD00FD0D1E /* UIImageExtanstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19694BA4297938BD00FD0D1E /* UIImageExtanstion.swift */; };
+		19694BA6297938BD00FD0D1E /* UIImageExtanstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19694BA4297938BD00FD0D1E /* UIImageExtanstion.swift */; };
+		19694BA72979392000FD0D1E /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191BB21A2937FDC200F99A26 /* DateExtension.swift */; };
+		19694BAA29793B5D00FD0D1E /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19694BA929793B5D00FD0D1E /* ViewExtension.swift */; };
+		19694BAD29793BE700FD0D1E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19694BAC29793BE700FD0D1E /* MainView.swift */; };
+		19694BAF29793CB300FD0D1E /* SlideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19694BAE29793CB300FD0D1E /* SlideMenuView.swift */; };
+		19694BB129793D9F00FD0D1E /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19694BB029793D9F00FD0D1E /* Tab.swift */; };
+		19694BB229793D9F00FD0D1E /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19694BB029793D9F00FD0D1E /* Tab.swift */; };
 		1969C9D829375A070032AED5 /* WatterAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1969C9D729375A070032AED5 /* WatterAppApp.swift */; };
 		1969C9DA29375A070032AED5 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1969C9D929375A070032AED5 /* Persistence.swift */; };
 		1969C9DD29375A070032AED5 /* WatterApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1969C9DB29375A070032AED5 /* WatterApp.xcdatamodeld */; };
@@ -136,6 +175,8 @@
 /* Begin PBXFileReference section */
 		190516C42962CB19004E3A1E /* DrinkType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkType.swift; sourceTree = "<group>"; };
 		190745EB293F30DC00C6B5BF /* Pie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pie.swift; sourceTree = "<group>"; };
+		19088B52297973D400DCFC90 /* StatisticsMacView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsMacView.swift; sourceTree = "<group>"; };
+		19088B56297976BC00DCFC90 /* StatisticsDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsDetailsView.swift; sourceTree = "<group>"; };
 		1909FA8A295C3F4100D73F9E /* watterAppWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = watterAppWidgetExtension.entitlements; sourceTree = "<group>"; };
 		1909FA8E295C936000D73F9E /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 		1909FA90295C955000D73F9E /* WatterAppWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatterAppWidgetView.swift; sourceTree = "<group>"; };
@@ -170,6 +211,9 @@
 		193BB093293DF3FF00AB5840 /* CustomTextTapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextTapView.swift; sourceTree = "<group>"; };
 		193BB096293DF45400AB5840 /* AddWaterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWaterButton.swift; sourceTree = "<group>"; };
 		1945CC2F2965917B005B82CF /* ActivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityManager.swift; sourceTree = "<group>"; };
+		1949322C2979548B001CAEE4 /* AddDrinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDrinkView.swift; sourceTree = "<group>"; };
+		1949323129795BFD001CAEE4 /* WaterTypesList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = WaterTypesList.plist; path = WatterApp/WaterTypesList.plist; sourceTree = SOURCE_ROOT; };
+		1949323429796B0F001CAEE4 /* TargetDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetDevice.swift; sourceTree = "<group>"; };
 		19496799295997B90014BA4F /* GenericPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericPopupView.swift; sourceTree = "<group>"; };
 		1949679B2959A36D0014BA4F /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		1949679D2959A8630014BA4F /* BackgroundPopupCaption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundPopupCaption.swift; sourceTree = "<group>"; };
@@ -191,6 +235,17 @@
 		196109812938B3CF00D505B2 /* Drink+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Drink+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		196109932938B9EB00D505B2 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
 		1965CF9A29618E250049BAC6 /* WaterTypesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterTypesListView.swift; sourceTree = "<group>"; };
+		19694B8E2979376B00FD0D1E /* MacApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		19694B902979376B00FD0D1E /* MacAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacAppApp.swift; sourceTree = "<group>"; };
+		19694B922979376C00FD0D1E /* MainContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentView.swift; sourceTree = "<group>"; };
+		19694B942979376D00FD0D1E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		19694B972979376D00FD0D1E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		19694B992979376D00FD0D1E /* MacApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacApp.entitlements; sourceTree = "<group>"; };
+		19694BA4297938BD00FD0D1E /* UIImageExtanstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtanstion.swift; sourceTree = "<group>"; };
+		19694BA929793B5D00FD0D1E /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		19694BAC29793BE700FD0D1E /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		19694BAE29793CB300FD0D1E /* SlideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenuView.swift; sourceTree = "<group>"; };
+		19694BB029793D9F00FD0D1E /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 		1969C9D429375A070032AED5 /* WatterApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatterApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1969C9D729375A070032AED5 /* WatterAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatterAppApp.swift; sourceTree = "<group>"; };
 		1969C9D929375A070032AED5 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -232,6 +287,13 @@
 			files = (
 				19579589295C2CB4005E7BA4 /* SwiftUI.framework in Frameworks */,
 				19579587295C2CB4005E7BA4 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		19694B8B2979376B00FD0D1E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,14 +387,8 @@
 		1961098E2938B5DE00D505B2 /* Modle */ = {
 			isa = PBXGroup;
 			children = (
-				1969C9DB29375A070032AED5 /* WatterApp.xcdatamodeld */,
 				1961098F2938B5E900D505B2 /* DBfiles */,
-				197A4545293C0098008B33DA /* DrinkItem.swift */,
-				197A4547293C00B3008B33DA /* DayItem.swift */,
-				190A72A629421998009E79C7 /* UserPrivateinfo.swift */,
 				19C72CD629545605009662FF /* Workout.swift */,
-				196F6D45295A4751009D444F /* AwardItem.swift */,
-				190516C42962CB19004E3A1E /* DrinkType.swift */,
 			);
 			path = Modle;
 			sourceTree = "<group>";
@@ -394,12 +450,72 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
+		19694B8F2979376B00FD0D1E /* MacApp */ = {
+			isa = PBXGroup;
+			children = (
+				1949323129795BFD001CAEE4 /* WaterTypesList.plist */,
+				19694BAB29793BD500FD0D1E /* View */,
+				19694B902979376B00FD0D1E /* MacAppApp.swift */,
+				19694B942979376D00FD0D1E /* Assets.xcassets */,
+				19694B992979376D00FD0D1E /* MacApp.entitlements */,
+				19694B962979376D00FD0D1E /* Preview Content */,
+				19694BA929793B5D00FD0D1E /* ViewExtension.swift */,
+			);
+			path = MacApp;
+			sourceTree = "<group>";
+		};
+		19694B962979376D00FD0D1E /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				19694B972979376D00FD0D1E /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		19694B9D2979378700FD0D1E /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				19694B9F297937C400FD0D1E /* Modle */,
+				19694BB029793D9F00FD0D1E /* Tab.swift */,
+				1949323429796B0F001CAEE4 /* TargetDevice.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		19694B9F297937C400FD0D1E /* Modle */ = {
+			isa = PBXGroup;
+			children = (
+				197A4545293C0098008B33DA /* DrinkItem.swift */,
+				197A4547293C00B3008B33DA /* DayItem.swift */,
+				190A72A629421998009E79C7 /* UserPrivateinfo.swift */,
+				196F6D45295A4751009D444F /* AwardItem.swift */,
+				190516C42962CB19004E3A1E /* DrinkType.swift */,
+				1969C9DB29375A070032AED5 /* WatterApp.xcdatamodeld */,
+			);
+			path = Modle;
+			sourceTree = "<group>";
+		};
+		19694BAB29793BD500FD0D1E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				19694BAC29793BE700FD0D1E /* MainView.swift */,
+				19694BAE29793CB300FD0D1E /* SlideMenuView.swift */,
+				19694B922979376C00FD0D1E /* MainContentView.swift */,
+				1949322C2979548B001CAEE4 /* AddDrinkView.swift */,
+				19088B52297973D400DCFC90 /* StatisticsMacView.swift */,
+				19088B56297976BC00DCFC90 /* StatisticsDetailsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		1969C9CB29375A070032AED5 = {
 			isa = PBXGroup;
 			children = (
+				19694B9D2979378700FD0D1E /* Shared */,
 				1909FA8A295C3F4100D73F9E /* watterAppWidgetExtension.entitlements */,
 				1969C9D629375A070032AED5 /* WatterApp */,
 				1957958A295C2CB4005E7BA4 /* WatterAppWidget */,
+				19694B8F2979376B00FD0D1E /* MacApp */,
 				19579585295C2CB4005E7BA4 /* Frameworks */,
 				1969C9D529375A070032AED5 /* Products */,
 			);
@@ -410,6 +526,7 @@
 			children = (
 				1969C9D429375A070032AED5 /* WatterApp.app */,
 				19579584295C2CB4005E7BA4 /* watterAppWidgetExtension.appex */,
+				19694B8E2979376B00FD0D1E /* MacApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -450,6 +567,7 @@
 				191BB21A2937FDC200F99A26 /* DateExtension.swift */,
 				19FB055C29493FB90085709A /* GeneralExtensions.swift */,
 				1949679B2959A36D0014BA4F /* ViewExtensions.swift */,
+				19694BA4297938BD00FD0D1E /* UIImageExtanstion.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -504,6 +622,23 @@
 			productReference = 19579584295C2CB4005E7BA4 /* watterAppWidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		19694B8D2979376B00FD0D1E /* MacApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 19694B9A2979376D00FD0D1E /* Build configuration list for PBXNativeTarget "MacApp" */;
+			buildPhases = (
+				19694B8A2979376B00FD0D1E /* Sources */,
+				19694B8B2979376B00FD0D1E /* Frameworks */,
+				19694B8C2979376B00FD0D1E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MacApp;
+			productName = MacApp;
+			productReference = 19694B8E2979376B00FD0D1E /* MacApp.app */;
+			productType = "com.apple.product-type.application";
+		};
 		1969C9D329375A070032AED5 /* WatterApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1969C9E829375A090032AED5 /* Build configuration list for PBXNativeTarget "WatterApp" */;
@@ -530,11 +665,14 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1410;
+				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1410;
 				TargetAttributes = {
 					19579583295C2CB4005E7BA4 = {
 						CreatedOnToolsVersion = 14.1;
+					};
+					19694B8D2979376B00FD0D1E = {
+						CreatedOnToolsVersion = 14.2;
 					};
 					1969C9D329375A070032AED5 = {
 						CreatedOnToolsVersion = 14.1;
@@ -556,6 +694,7 @@
 			targets = (
 				1969C9D329375A070032AED5 /* WatterApp */,
 				19579583295C2CB4005E7BA4 /* watterAppWidgetExtension */,
+				19694B8D2979376B00FD0D1E /* MacApp */,
 			);
 		};
 /* End PBXProject section */
@@ -567,6 +706,16 @@
 			files = (
 				1909FAA0295DB5CA00D73F9E /* WaterTypesList.plist in Resources */,
 				19579593295C2CB9005E7BA4 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		19694B8C2979376B00FD0D1E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				19694B982979376D00FD0D1E /* Preview Assets.xcassets in Resources */,
+				19694BA1297937F800FD0D1E /* Assets.xcassets in Resources */,
+				1949323229795BFD001CAEE4 /* WaterTypesList.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -598,6 +747,7 @@
 				1909FAA1295DB61D00D73F9E /* AddWaterButton.swift in Sources */,
 				19FAEA4F2965788F003E1F0F /* WatterWidgetAttributes.swift in Sources */,
 				1909FA89295C300E00D73F9E /* AwardItem.swift in Sources */,
+				19694BA6297938BD00FD0D1E /* UIImageExtanstion.swift in Sources */,
 				1945CC312965917B005B82CF /* ActivityManager.swift in Sources */,
 				1957958C295C2CB4005E7BA4 /* WatterAppWidgetBundle.swift in Sources */,
 				1909FA85295C300100D73F9E /* WatterApp.xcdatamodeld in Sources */,
@@ -619,6 +769,45 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		19694B8A2979376B00FD0D1E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1949322F297956E3001CAEE4 /* AddWaterButton.swift in Sources */,
+				19694B932979376C00FD0D1E /* MainContentView.swift in Sources */,
+				19088B5B2979779800DCFC90 /* Pie.swift in Sources */,
+				19088B542979750500DCFC90 /* ChartsView.swift in Sources */,
+				1949323329796902001CAEE4 /* ContinueRing.swift in Sources */,
+				1949322A29794DA9001CAEE4 /* Constants.swift in Sources */,
+				19694BAD29793BE700FD0D1E /* MainView.swift in Sources */,
+				19088B58297976F100DCFC90 /* PieDateVM.swift in Sources */,
+				1949322829794CD7001CAEE4 /* Persistence.swift in Sources */,
+				19694BA72979392000FD0D1E /* DateExtension.swift in Sources */,
+				1949322629794BE9001CAEE4 /* AwardItem.swift in Sources */,
+				1949322B29794DB1001CAEE4 /* WaveShape.swift in Sources */,
+				1949322E297956CF001CAEE4 /* WaterTypesListManager.swift in Sources */,
+				1949322729794C91001CAEE4 /* DrinkType.swift in Sources */,
+				19088B53297973D400DCFC90 /* StatisticsMacView.swift in Sources */,
+				19088B59297976FA00DCFC90 /* PieDateUnit.swift in Sources */,
+				1949322329794BC0001CAEE4 /* HomeVM.swift in Sources */,
+				19088B5A2979779800DCFC90 /* PieSliceView.swift in Sources */,
+				19088B57297976BC00DCFC90 /* StatisticsDetailsView.swift in Sources */,
+				19694BA0297937E200FD0D1E /* DrinkItem.swift in Sources */,
+				1949322429794BD6001CAEE4 /* UserPrivateinfo.swift in Sources */,
+				19694B9E2979379F00FD0D1E /* WatterApp.xcdatamodeld in Sources */,
+				19694BB229793D9F00FD0D1E /* Tab.swift in Sources */,
+				19694BA22979380D00FD0D1E /* DayItem.swift in Sources */,
+				19694BA32979387E00FD0D1E /* GeneralExtensions.swift in Sources */,
+				19694BAF29793CB300FD0D1E /* SlideMenuView.swift in Sources */,
+				1949323729796B5F001CAEE4 /* TargetDevice.swift in Sources */,
+				1949322D2979548B001CAEE4 /* AddDrinkView.swift in Sources */,
+				1949322529794BE1001CAEE4 /* AwardListViewVM.swift in Sources */,
+				19694BAA29793B5D00FD0D1E /* ViewExtension.swift in Sources */,
+				19694B912979376B00FD0D1E /* MacAppApp.swift in Sources */,
+				1949322929794DA2001CAEE4 /* WaveBGHeaderView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1969C9D029375A070032AED5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -630,6 +819,7 @@
 				190516C52962CB19004E3A1E /* DrinkType.swift in Sources */,
 				19277CEC29463119006BFE64 /* NotificationCenterManager.swift in Sources */,
 				19C72CD5295455A3009662FF /* MapView.swift in Sources */,
+				19694BB129793D9F00FD0D1E /* Tab.swift in Sources */,
 				197A4544293C0010008B33DA /* StatisticsDetailsView.swift in Sources */,
 				193BB08A293D42A100AB5840 /* SettingsReminderView.swift in Sources */,
 				19F87C762940D8B600816561 /* testView.swift in Sources */,
@@ -655,6 +845,7 @@
 				1932257D2964CA7600BBEE66 /* CustomeToolbarItemGroupView.swift in Sources */,
 				190A72A12941FF41009E79C7 /* PieDateUnit.swift in Sources */,
 				193BB094293DF3FF00AB5840 /* CustomTextStringFiled.swift in Sources */,
+				19694BA5297938BD00FD0D1E /* UIImageExtanstion.swift in Sources */,
 				19726A8229474E63001A9A21 /* AppDelegate.swift in Sources */,
 				1937D470293761490041FFCF /* MainView.swift in Sources */,
 				193BB08F293DF39000AB5840 /* BackgroundGroupCaption.swift in Sources */,
@@ -684,6 +875,7 @@
 				19FC0D0D2962EE260017F16B /* WaterTypeImageView.swift in Sources */,
 				1909FA99295D803E00D73F9E /* Constants.swift in Sources */,
 				193BB095293DF3FF00AB5840 /* CustomTextTapView.swift in Sources */,
+				1949323529796B0F001CAEE4 /* TargetDevice.swift in Sources */,
 				19F870802938F18000500178 /* ChartsView.swift in Sources */,
 				1945CC302965917B005B82CF /* ActivityManager.swift in Sources */,
 			);
@@ -758,6 +950,64 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		19694B9B2979376D00FD0D1E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MacApp/MacApp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MacApp/Preview Content\"";
+				DEVELOPMENT_TEAM = X8RDCFJK95;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kaltura.mediaWaApp.MacApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		19694B9C2979376D00FD0D1E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MacApp/MacApp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MacApp/Preview Content\"";
+				DEVELOPMENT_TEAM = X8RDCFJK95;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kaltura.mediaWaApp.MacApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -911,7 +1161,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.kaltura.mediaWaApp.WatterApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -959,7 +1211,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.kaltura.mediaWaApp.WatterApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -974,6 +1228,15 @@
 			buildConfigurations = (
 				1957959B295C2CB9005E7BA4 /* Debug */,
 				1957959C295C2CB9005E7BA4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		19694B9A2979376D00FD0D1E /* Build configuration list for PBXNativeTarget "MacApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				19694B9B2979376D00FD0D1E /* Debug */,
+				19694B9C2979376D00FD0D1E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

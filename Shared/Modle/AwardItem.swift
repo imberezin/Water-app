@@ -7,8 +7,9 @@
 
 import Foundation
 import SwiftUI
+#if os(iOS)
 import UIKit
-
+#endif
 struct AwardItem: Identifiable, Equatable{
     static func == (lhs: AwardItem, rhs: AwardItem) -> Bool {
         lhs.id == rhs.id
@@ -27,8 +28,12 @@ struct AwardItem: Identifiable, Equatable{
         self.active = active
         self.daysNumber = daysNumber
 //        let oldImage = UIImage(named: imageName)
+#if os(iOS)
         let newImage = UIImage(named: imageName)!.maskWithColor(color: .red)
         self.photo = Photo(image: Image(uiImage: newImage!), caption: awardName, description: "I am happy to share that I won the \(awardName) medal")
+#else
+        self.photo = Photo(image: Image(imageName), caption: awardName, description: "I am happy to share that I won the \(awardName) medal")
+#endif
     }
 }
 

@@ -7,7 +7,9 @@
 
 import CoreData
 import SwiftUI
-import UIKit
+#if os(iOS)
+    import UIKit
+#endif
 import Charts
 
 enum WaterType: Int, CaseIterable{
@@ -52,11 +54,20 @@ struct PersistenceController {
     init(inMemory: Bool = false) {
         
         //based: https://medium.com/@pietromessineo/ios-share-coredata-with-extension-and-app-groups-69f135628736
+#if os(iOS)
         let storeURL = URL.storeURL(for: "group.com.kaltura.waterapp", databaseName: "WatterApp")
         let storeDescription = NSPersistentStoreDescription(url: storeURL)
         container = NSPersistentContainer(name: "WatterApp")
         container.persistentStoreDescriptions = [storeDescription]
-
+#else
+        let storeDirectory = NSPersistentContainer.defaultDirectoryURL()
+        let storeURL = storeDirectory.appendingPathComponent("WatterApp.sqlite")
+        let storeDescription = NSPersistentStoreDescription(url: storeURL)
+        container = NSPersistentContainer(name: "WatterApp")
+        container.persistentStoreDescriptions = [storeDescription]
+#endif
+        
+        
         if inMemory {
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
         }
