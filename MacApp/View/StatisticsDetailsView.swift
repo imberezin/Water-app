@@ -12,19 +12,19 @@ struct StatisticsDetailsView: View {
     
     @State var item: Day
     @State var UpdateUI: Bool = false
-    
+        
     @StateObject var pieDateVM = PieDateVM()
     
     let colors1 = [Color.blue.opacity(0.30),Color.blue.opacity(0.50),Color.blue.opacity(0.70)]
     let gradient = Gradient(colors: [.green, .yellow, .orange, .red])
-
+    
     
     var body: some View {
         let array = Array(item.drink! as Set as! Set<Drink>).sorted(by:{
             $0.time!.compare($1.time!) == .orderedDescending})
         let totalScore = array.sum(for: \.amount)
         
-        let newArray: [DrinkItem] = array.map({.init(name: $0.name ?? "", amount: $0.amount, time:  $0.time ?? Date())})
+//        let newArray: [DrinkItem] = array.map({.init(name: $0.name ?? "", amount: $0.amount, time:  $0.time ?? Date())})
         
         GeometryReader { geometry in
             
@@ -39,7 +39,7 @@ struct StatisticsDetailsView: View {
                     VStack(alignment: .center, spacing: 16){
                         
                         Pie(pieDateVM: pieDateVM)
-                            .frame(width: 500,height: 400)
+                            .frame(width: 600,height: 400)
                             .padding(.horizontal)
                             .onAppear{
                                 withAnimation(.linear(duration: 0.7)){
@@ -49,47 +49,33 @@ struct StatisticsDetailsView: View {
                             .padding(.top,36)
                         
                         
-                        Table(newArray) {
-//                            TableColumn("Name", value: \.name){ water in
-//                                Text(String(water.name))
-//                                    .font(.headline)
-//                            }
-                            TableColumn("") { water in
-                                HStack{
-                                    Text(String(water.name))
-                                        .font(.subheadline)
-                                    Spacer()
+                        
+                        ScrollViewReader{ value in
+                                                        
+                            List{
+                                ForEach(  array.indices, id: \.self) { index in
 
-                                    Text(String(water.amount))
-                                        .font(.subheadline)
-                                    Spacer()
-                                    Button(action: {}){
-                                        Text("Remove")
-                                            .padding(6)
-                                            .background(.red)
-                                            .clipShape(RoundedRectangle(cornerRadius: 8))
-                                            .padding(6)
+                                    DrinkListRow(drink: array[index])
+                                        .id(index)
+                                }
+                                .onDelete { onDelete(indexSet: $0) }
+                                .onAppear{
+                                    DispatchQueue.main.asyncAfter(deadline: .now()+0.3){
+                                        withAnimation{
+                                            value.scrollTo(array.count-2)
+                                            
+                                        }
                                     }
                                 }
-                                    .frame( height: 36, alignment: .leading)
                             }
-                            
-                        }.tableStyle(.bordered)
-                            .scrollDisabled(true)
                             .scrollIndicators(.visible)
-
-//                        List{
-//                            ForEach(array, id: \.self) { drink in
-//                                DrinkListRow(drink: drink)
-//                            }
-//                               .onDelete { onDelete(indexSet: $0) }
-//
-//                        }
+                            .frame(height: 300)
+                            
+                        }
                         
-
-                        .padding(.horizontal, 48)
-          
-                        .scrollContentBackground(.hidden)
+                           .padding(.horizontal, 48)
+                        
+                                  .scrollContentBackground(.hidden)
                         .zIndex(0)
                         
                         Text("Your total drink is **\(totalScore)**")
@@ -121,7 +107,7 @@ struct StatisticsDetailsView: View {
         
         let array = Array(item.drink! as Set as! Set<Drink>).sorted(by:{
             $0.time!.compare($1.time!) == .orderedDescending})
-
+        
         let drinkInArray = array[indexSet.first!]
         print("drinkInArray.id = \(drinkInArray.id?.uuidString ?? "")")
         
@@ -139,39 +125,39 @@ struct StatisticsDetailsView: View {
             }
             DispatchQueue.main.asyncAfter(deadline: .now()+0.5){
                 WidgetCenter.shared.reloadAllTimelines()
-
+                
             }
-
-//            self.UpdateUI.toggle()
-
+            
+            //            self.UpdateUI.toggle()
+            
         }
     }
     
     
-      private let itemFormatter: DateFormatter = {
-          let formatter = DateFormatter()
-          formatter.dateStyle = .long
-          formatter.timeStyle = .none
-          return formatter
-      }()
-      
-      private let timeFormatter: DateFormatter = {
-          let formatter = DateFormatter()
-          formatter.dateStyle = .none
-          formatter.timeStyle = .short
-          return formatter
-      }()
+    private let itemFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        formatter.timeStyle = .none
+        return formatter
+    }()
+    
+    private let timeFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .none
+        formatter.timeStyle = .short
+        return formatter
+    }()
 }
 
 struct StatisticsDetailsView_Previews: PreviewProvider {
-
+    
     static var previews: some View {
         let day = PersistenceController.shared.getOneDay()
         StatisticsDetailsView(item: day)
             .frame(width: 1000,  height: 800,  alignment: .leading)
-
+        
             .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
             .environmentObject(WaterTypesListManager())
-
+        
     }
 }

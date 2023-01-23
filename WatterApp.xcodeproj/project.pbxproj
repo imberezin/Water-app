@@ -129,6 +129,8 @@
 		197A4548293C00B3008B33DA /* DayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197A4547293C00B3008B33DA /* DayItem.swift */; };
 		197A454B293C0B7D008B33DA /* WaveShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197A454A293C0B7D008B33DA /* WaveShape.swift */; };
 		197A454D293C0B9F008B33DA /* ContinueRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197A454C293C0B9F008B33DA /* ContinueRing.swift */; };
+		19BA5B94297EB3400001D93F /* CustomButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191BB220293806A300F99A26 /* CustomButtonStyle.swift */; };
+		19BA5B95297EB3400001D93F /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191BB21E2938063000F99A26 /* CustomButton.swift */; };
 		19BC50072965677900386897 /* WaveBGHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BC50062965677900386897 /* WaveBGHeaderView.swift */; };
 		19C72CCF2954526E009662FF /* MapManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C72CCE2954526E009662FF /* MapManager.swift */; };
 		19C72CD129545299009662FF /* NewWorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C72CD029545299009662FF /* NewWorkoutManager.swift */; };
@@ -800,8 +802,10 @@
 				19694BA32979387E00FD0D1E /* GeneralExtensions.swift in Sources */,
 				19694BAF29793CB300FD0D1E /* SlideMenuView.swift in Sources */,
 				1949323729796B5F001CAEE4 /* TargetDevice.swift in Sources */,
+				19BA5B94297EB3400001D93F /* CustomButtonStyle.swift in Sources */,
 				1949322D2979548B001CAEE4 /* AddDrinkView.swift in Sources */,
 				1949322529794BE1001CAEE4 /* AwardListViewVM.swift in Sources */,
+				19BA5B95297EB3400001D93F /* CustomButton.swift in Sources */,
 				19694BAA29793B5D00FD0D1E /* ViewExtension.swift in Sources */,
 				19694B912979376B00FD0D1E /* MacAppApp.swift in Sources */,
 				1949322929794DA2001CAEE4 /* WaveBGHeaderView.swift in Sources */,

@@ -93,6 +93,7 @@ struct WatterAppWidgetMediumView: View {
                 .stroke(Color.blue, lineWidth: 3)
         )
         .clipShape(Circle())
+        .contentShape(Circle())
     }
 }
 
