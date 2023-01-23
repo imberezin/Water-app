@@ -25,10 +25,9 @@ struct DropDown: View{
                 Text(title)
             }
             HStack {
-                Picker("Pick a language", selection: $selected) { // 3
+                Picker("", selection: $selected) { // 3
                         ForEach(data, id: \.self) { item in // 4
                             Text(item)
-                              
                         }
                     }.pickerStyle(.menu)
                 
@@ -63,7 +62,7 @@ struct HStackDropDown: View{
             Spacer()
 
    
-            Picker("Pick a language", selection: $selected) { // 3
+            Picker("", selection: $selected) { // 3
                 ForEach(data, id: \.self) { item in // 4
                     Text(item)
                 }

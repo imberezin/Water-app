@@ -8,15 +8,6 @@
 import SwiftUI
 
 
-enum CheckoutFocusable: Int, Hashable {
-    case fullNameType = 0
-    case heightType
-    case weightType
-    case ageType
-    case customTotalType
-    case genderType
-    case amountType
-}
 
 //    let genderArray: [String] = ["Male", "Fmale", "Other"]
 

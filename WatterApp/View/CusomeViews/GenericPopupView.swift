@@ -50,11 +50,21 @@ public struct Popup<PopupContent>: ViewModifier where PopupContent: View {
         return isPresented ? displayedOffset : hiddenOffset
     }
     private var screenWidth: CGFloat {
+#if os(iOS)
+
         UIScreen.main.bounds.size.width
+#else
+        NSScreen.main!.visibleFrame.width / 1.5 - 350
+#endif
     }
 
     private var screenHeight: CGFloat {
+#if os(iOS)
+
         UIScreen.main.bounds.size.height
+#else
+        NSScreen.main!.visibleFrame.height
+#endif
     }
     
     public func body(content: Content) -> some View {

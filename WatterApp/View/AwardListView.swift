@@ -24,10 +24,12 @@ struct AwardListView: View {
             
             ScrollView(.horizontal){
                 HStack{
+                    
                     ForEach(Array(zip(self.awardListViewVM.awardslist.indices, self.awardListViewVM.awardslist)), id: \.0) { index, item in
                         
                         ListItemView(awardItem: item, index:index)
-                        
+                            .padding(.trailing, TargetDevice.currentDevice == .nativeMac ? 36 : 0)
+                            .padding(.leading, TargetDevice.currentDevice == .nativeMac && index == 0 ? 32 : 0)
                     }
                 }
             }
@@ -47,16 +49,24 @@ struct AwardListView: View {
         }){
             
             ZStack(alignment: .bottom){
-                
+#if os(iOS)
                 let oldImage = UIImage(named: awardItem.imageName)
-                
+#else
+                let oldImage = NSImage(named: awardItem.imageName)
+#endif
                 let newImage = awardItem.active ? oldImage!.maskWithColor(color: .red) : oldImage
-                                
+#if os(iOS)
+
                 Image(uiImage: newImage!)
                     .resizable()
                     .clipShape(Circle())
                     .frame(width: 90,height: 90)
-                
+#else
+                Image(nsImage: newImage!)
+                    .resizable()
+                    .clipShape(Circle())
+                    .frame(width: 90,height: 90)
+#endif
                 Text(awardItem.awardName)
                     .frame(width: 90,height: 25,alignment: .center)
                     .background(Color("azureColor"))
@@ -68,6 +78,7 @@ struct AwardListView: View {
 
 
 
+#if os(iOS)
 
 struct AwardListView_Previews: PreviewProvider {
     static var previews: some View {
@@ -83,6 +94,7 @@ struct AwardListView_Previews: PreviewProvider {
     }
 }
 
+#endif
 
 
 /*

@@ -23,7 +23,9 @@ class NotificationCenterManager: NSObject, ObservableObject{
     
     let waterTypesListManager: WaterTypesListManager  =  WaterTypesListManager.shared
     
+#if os(iOS)
     @Published var shortcutItem: UIApplicationShortcutItem?
+#endif
     @Published var actionIdentifier: String?
     @Published var isAllowedToSendPush: Bool = true
     
@@ -45,7 +47,9 @@ class NotificationCenterManager: NSObject, ObservableObject{
             if granted{
                 //                self.isAllowedToSendPush = true
                 DispatchQueue.main.async {
+#if os(iOS)
                     UIApplication.shared.registerForRemoteNotifications()
+#endif
                 }
             }else{
                 print("not granted")
@@ -267,6 +271,8 @@ extension NotificationCenterManager: UNUserNotificationCenterDelegate{
         completionHandler([.banner, .sound])
     }
     
+#if os(iOS)
+
     // This function will be called right after user tap on the notification
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         
@@ -307,11 +313,12 @@ extension NotificationCenterManager: UNUserNotificationCenterDelegate{
         }
     }
     
-    
+#endif
     
     
 }
 
+#if os(iOS)
 
 extension UIApplication {
     private static let notificationSettingsURLString: String? = {
@@ -343,3 +350,5 @@ extension UIApplication {
         return await self.open(url)
     }
 }
+
+#endif

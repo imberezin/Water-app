@@ -28,7 +28,7 @@ class AwardListViewVM: ObservableObject {
     func updateAwardslist(checkAlsoListAwards: Bool = true){
         var tempList = [AwardItem]()
         
-        for index in 0..<awardItemNames.count{
+        for index in 0..<awardItemNames.count-1{
             let awardItem = AwardItem(imageName: "award\(index)", awardName: awardItemNames[index],daysNumber: awardDayssNumbers[index])
             tempList.append(awardItem)
             

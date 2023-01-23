@@ -13,7 +13,9 @@ struct CustomNumberFiled: View{
     
     let title:String
     let systemName: String
+#if os(iOS)
     let keyboardType: UIKeyboardType
+#endif
     let checkoutFocusableId: CheckoutFocusable
     @Binding var value: Int
     
@@ -27,7 +29,9 @@ struct CustomNumberFiled: View{
             }
             TextField(title, value: $value, formatter: NumberFormatter())
                 .backgroundCaption()
+#if os(iOS)
                 .keyboardType(keyboardType)
+#endif
                 .id(checkoutFocusableId.rawValue)
         }
         .padding(.vertical,8)
@@ -40,7 +44,9 @@ struct CustomHStackNumberFiled: View{
     
     let title:String
     let systemName: String
+#if os(iOS)
     let keyboardType: UIKeyboardType
+#endif
     let checkoutFocusableId: CheckoutFocusable?
     @Binding var value: Int
     let proxy: GeometryProxy
@@ -56,7 +62,9 @@ struct CustomHStackNumberFiled: View{
                 .multilineTextAlignment(.trailing)
                 .padding(.trailing, 10)
                 .backgroundCaption()
+#if os(iOS)
                 .keyboardType(keyboardType)
+#endif
                 .id(checkoutFocusableId?.rawValue)
                 .frame(width: proxy.size.width*0.4)
         }

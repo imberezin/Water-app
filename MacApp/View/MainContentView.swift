@@ -32,12 +32,9 @@ struct MainContentView: View {
                 case .folder:
                     StatisticsMacView()
                         .padding(.top, 100)
+                    
                 default:
-                    HStack{
-                        Text(currentTab.title)
-                            .font(.title)
-                            .foregroundColor(.black)
-                    }
+                    SettingsMacView()
                 }
                 Spacer()
             }

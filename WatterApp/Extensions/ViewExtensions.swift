@@ -24,7 +24,7 @@ extension View {
                 view: view, onClose: onClose)
         )
     }
-
+        
     func backgroundCaption() -> some View {
         modifier(BackgroundGroupCaption())
     }

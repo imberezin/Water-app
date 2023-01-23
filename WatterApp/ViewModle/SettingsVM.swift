@@ -53,7 +53,9 @@ class SettingsVM: ObservableObject {
         self.userPrivateinfo.enabledReminde = enabledReminder
         self.userPrivateinfo.slectedRimniderHour = slectedRimniderHour
 //        NotificationCenterManager.shared.scheduleNotification(hour: slectedRimniderHour, toRepeat: enabledReminder)
+
         NotificationCenterManager.shared.scheduleNotificationToRange(startTime: startTime, endTime:endTime, hour: slectedRimniderHour, toRepeat: enabledReminder)
+        
     }
     
 }

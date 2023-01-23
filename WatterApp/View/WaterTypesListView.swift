@@ -10,14 +10,17 @@ import SwiftUI
 struct WaterTypesListView: View {
     @EnvironmentObject var waterTypesListManager : WaterTypesListManager
     @Environment(\.dismiss) var dismiss
-
+    
     @State var selectedItem: DrinkType = DrinkType(name: "fake", amount: 0, imageMame: "fake")
     @State var showEditPopup: Bool = false
     @State var disclosureGroupIsExpanded: Bool = false
+#if !os(iOS)
+    @Binding var editWaterList: Bool
+#endif
     
-   //Based: https://onmyway133.com/posts/how-to-pass-focusstate-binding-in-swiftui/
+    //Based: https://onmyway133.com/posts/how-to-pass-focusstate-binding-in-swiftui/
     var checkoutInFocus: FocusState<CheckoutFocusable?>.Binding
-
+    
     var items: [GridItem] {
         return Array(repeating: .init(.adaptive(minimum: 50)), count: 4)
     }
@@ -36,6 +39,7 @@ struct WaterTypesListView: View {
                 List{
                     ForEach ( waterTypesListManager.drinkTypesList, id: \.id){ waterItem in
                         WatterCellView(for: waterItem)
+                            .padding(.bottom, TargetDevice.currentDevice == .nativeMac ? 8 : 0)
                             .onTapGesture {
                                 self.selectedItem = waterItem
                                 self.showEditPopup.toggle()
@@ -43,57 +47,73 @@ struct WaterTypesListView: View {
                     }
                     .onDelete(perform: deleteItems)
                     .onMove(perform: moveItem)
-
+                    
                 }
                 .scrollContentBackground(.hidden)
                 .padding(.horizontal,-16)
                 
                 HStack{
+                    Spacer()
+                    
                     CustomButton(text: "Close") {
                         self.waterTypesListManager.needToUpdateListWaterList = false
-                        dismiss()
+                        dismissView()
                     }
-                    
+                    Spacer()
                     CustomButton(text: "Save") {
                         self.waterTypesListManager.needToUpdateListWaterList = true
-                        dismiss()
+                        dismissView()
                     }
+                    Spacer()
+                    
                 }
                 
                 .toolbar {
-                #if os(iOS)
+#if os(iOS)
                     ToolbarItem(placement: .navigationBarTrailing) {
                         EditButton()
                     }
+                    
                     ToolbarItem {
                         Button(action: addItem) {
                             Label("Add Item", systemImage: "plus")
                         }
                     }
-                #endif
+#endif
                 }
                 
                 
             }
             
-        }
-        .popup(isPresented: $showEditPopup, view: {
-            WaterTypeEditPopupView()
-        }, onClose:{
-            self.checkoutInFocus.wrappedValue = .none
-            self.selectedItem = DrinkType(name: "fake", amount: 0, imageMame: "fake")
-          //  self.updateWaterList()
-        })
-        .ignoresSafeArea(.container, edges: .bottom)
+            .popup(isPresented: $showEditPopup, view: {
+                WaterTypeEditPopupView()
+            }, onClose:{
+                self.checkoutInFocus.wrappedValue = .none
+                self.selectedItem = DrinkType(name: "fake", amount: 0, imageMame: "fake")
+                //  self.updateWaterList()
+            })
+#if os(iOS)
 
-        .onAppear{
-            Task{
-               // await self.waterTypesListManager.buildDrinkList()
-                self.waterTypesListManager.loadPropertyList()
+            .ignoresSafeArea(.container, edges: .bottom)
+#endif
+            .onAppear{
+                Task{
+                    // await self.waterTypesListManager.buildDrinkList()
+                    self.waterTypesListManager.loadPropertyList()
+                }
             }
         }
     }
     
+    func dismissView(){
+        withAnimation{
+#if os(iOS)
+            dismiss()
+#else
+            self.editWaterList = false
+#endif
+        }
+    }
     
     func updateWaterList() {
 
@@ -124,12 +144,19 @@ struct WaterTypesListView: View {
                     
                     HStackDropDown(title: "Drink Name", systemName: "mug", data: waterTypesListManager.drinkNameList, selected: $selectedItem.name, proxy: proxy)
                         .padding(.top,8)
-                    
+#if os(iOS)
+
                     CustomHStackNumberFiled(title: "Amount", systemName: "sum", keyboardType: .numberPad, checkoutFocusableId: CheckoutFocusable.amountType, value: $selectedItem.amount, proxy: proxy)
                         .focused(checkoutInFocus, equals: .amountType)
 
                         .padding(.trailing,-4)
-                    
+#else
+                    CustomHStackNumberFiled(title: "Amount", systemName: "sum",  checkoutFocusableId: CheckoutFocusable.amountType, value: $selectedItem.amount, proxy: proxy)
+                        .focused(checkoutInFocus, equals: .amountType)
+
+                        .padding(.trailing,-4)
+
+#endif
                     DisclosureGroup(isExpanded: $disclosureGroupIsExpanded) {
                         GroupImagesGroupView()
                     } label: {
@@ -207,6 +234,8 @@ struct WaterTypesListView: View {
             WaterTypeImageView(imageName: waterItem.imageName, frame: CGSize(width: 50, height: 50))
             
         }
+        .padding(.horizontal, TargetDevice.currentDevice == .nativeMac ? 16 : 0)
+//        .background(TargetDevice.currentDevice == .nativeMac ? .white : .clear)
         .frame(maxWidth: .infinity)
         .contentShape(Rectangle())
     }
@@ -235,6 +264,8 @@ struct WaterTypesListView: View {
     
 }
 
+#if os(iOS)
+
 struct WaterTypesListView_Previews: PreviewProvider {
     
     @FocusState static var checkoutInFocus: CheckoutFocusable?
@@ -245,7 +276,7 @@ struct WaterTypesListView_Previews: PreviewProvider {
             .environmentObject(WaterTypesListManager())
     }
 }
-
+#endif
 
 
 
@@ -257,7 +288,11 @@ struct CardGroupBoxStyle: GroupBoxStyle {
             configuration.content
         }
         .padding()
+#if os(iOS)
         .background(Color(.systemGroupedBackground))
+#else
+        .background(Color(.gray))
+#endif
         .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
     }
 }

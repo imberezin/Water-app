@@ -13,7 +13,9 @@ struct CustomTextStringFiled: View{
     
     let title:String
     let systemName: String
+#if os(iOS)
     let keyboardType: UIKeyboardType
+#endif
     @Binding var value: String
     
     var body: some View {
@@ -26,7 +28,9 @@ struct CustomTextStringFiled: View{
             }
             TextField(title, text: $value)
                 .backgroundCaption()
+#if os(iOS)
                 .keyboardType(keyboardType)
+#endif
                 .id(CheckoutFocusable.fullNameType.rawValue)
         }
         .padding(.vertical,8)
