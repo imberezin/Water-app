@@ -27,6 +27,18 @@ enum TargetDevice {
         currentDeviceModel = "watchOS"
         #endif
         
+#if os(iOS)
+        if currentDeviceModel.starts(with: "iPhone") {
+            return .iPhone
+        }
+        if currentDeviceModel.starts(with: "iPad") {
+            return .iPad
+        }
+        if currentDeviceModel.starts(with: "watchOS") {
+            return .iWatch
+        }
+#else
+
         if (currentDeviceModel != nil) && currentDeviceModel!.starts(with: "iPhone") {
             return .iPhone
         }
@@ -36,7 +48,10 @@ enum TargetDevice {
         if (currentDeviceModel != nil) && currentDeviceModel!.starts(with: "watchOS") {
             return .iWatch
         }
+#endif
+
         return .nativeMac
+
     }
 }
 
