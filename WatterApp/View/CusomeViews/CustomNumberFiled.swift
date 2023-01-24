@@ -53,14 +53,17 @@ struct CustomHStackNumberFiled: View{
 
     var body: some View {
         
-        
+        let _ = print ("width = \(proxy.size.width*0.4)")
+
         HStack {
             Image(systemName: systemName)
             Text(title)
+            
             Spacer()
+            
             TextField(title, value: $value, formatter: NumberFormatter())
                 .multilineTextAlignment(.trailing)
-                .padding(.trailing, 10)
+                .padding(.trailing, 0)
                 .backgroundCaption()
 #if os(iOS)
                 .keyboardType(keyboardType)

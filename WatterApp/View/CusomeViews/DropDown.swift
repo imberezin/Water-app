@@ -52,6 +52,8 @@ struct HStackDropDown: View{
     let proxy: GeometryProxy
 
     var body: some View {
+        let _ = print ("width = \(proxy.size.width*0.4)")
+
         HStack(alignment: .center, spacing: 8.0) {
             
            
@@ -67,10 +69,15 @@ struct HStackDropDown: View{
                     Text(item)
                 }
             }.pickerStyle(.menu)
-                .frame(width: proxy.size.width*0.4, alignment: .trailing)
-                .backgroundCaption()
+               
+                .frame(width: proxy.size.width*0.4, height: 40, alignment: .trailing)
+                .frame(maxWidth:  TargetDevice.currentDevice == .nativeMac ? proxy.size.width*0.4 : .infinity)
+              //  .frame(height: 40)
+                .padding(.leading, 5)
+                .background(Color("azureColor"))
                 .cornerRadius(5)
         }
+
        
     }
 

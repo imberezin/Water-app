@@ -15,6 +15,8 @@ struct BackgroundGroupCaption: ViewModifier {
             .frame(maxWidth: .infinity)
             .frame(height: 40)
             .padding(.leading, 5)
+            .padding(.trailing, 5)
+
             .background(Color("azureColor"))
             .cornerRadius(5)
         

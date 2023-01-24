@@ -54,7 +54,7 @@ public struct Popup<PopupContent>: ViewModifier where PopupContent: View {
 
         UIScreen.main.bounds.size.width
 #else
-        NSScreen.main!.visibleFrame.width / 1.5 - 350
+        NSScreen.main!.visibleFrame.width / 1.5 - 200
 #endif
     }
 
@@ -73,7 +73,7 @@ public struct Popup<PopupContent>: ViewModifier where PopupContent: View {
                 .frameGetter($presenterContentRect)
                 ZStack {
                 
-                Color.black.opacity(0.5)
+                    Color.black.opacity(TargetDevice.currentDevice == .nativeMac ? 0.3 : 0.5)
                     .edgesIgnoringSafeArea(.all)
                     .onTapGesture {
                         withAnimation(.easeOut) {

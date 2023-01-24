@@ -28,3 +28,7 @@ let fullWaterList = ["Water", "Coffee", "Tee", "Soda",  "Milk", "Wine", "Orange 
  - 5 : "Wine"
  - 6 : "Other"
  */
+
+func sizeByDeviceType (iOS: CGFloat, mac: CGFloat) -> CGFloat{
+    return TargetDevice.currentDevice == .nativeMac ? mac : iOS
+}

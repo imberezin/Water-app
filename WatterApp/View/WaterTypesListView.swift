@@ -13,7 +13,7 @@ struct WaterTypesListView: View {
     
     @State var selectedItem: DrinkType = DrinkType(name: "fake", amount: 0, imageMame: "fake")
     @State var showEditPopup: Bool = false
-    @State var disclosureGroupIsExpanded: Bool = false
+    @State var disclosureGroupIsExpanded: Bool = TargetDevice.currentDevice == .nativeMac ? true : false
 #if !os(iOS)
     @Binding var editWaterList: Bool
 #endif
@@ -35,10 +35,13 @@ struct WaterTypesListView: View {
                     .font(.title2)
                     .fontWeight(.bold)
                     .foregroundColor(Color.blue)
+                    .padding(.top, TargetDevice.currentDevice == .nativeMac ? 32 : 0)
                 
                 List{
                     ForEach ( waterTypesListManager.drinkTypesList, id: \.id){ waterItem in
                         WatterCellView(for: waterItem)
+                            .listRowSeparator(.visible)
+                            .listRowSeparatorTint(Color.blue.opacity(0.5))
                             .padding(.bottom, TargetDevice.currentDevice == .nativeMac ? 8 : 0)
                             .onTapGesture {
                                 self.selectedItem = waterItem
@@ -93,7 +96,7 @@ struct WaterTypesListView: View {
                 //  self.updateWaterList()
             })
 #if os(iOS)
-
+            
             .ignoresSafeArea(.container, edges: .bottom)
 #endif
             .onAppear{
@@ -116,17 +119,17 @@ struct WaterTypesListView: View {
     }
     
     func updateWaterList() {
-
+        
         if let index = self.waterTypesListManager.drinkTypesList.firstIndex(where: {type in type.id == selectedItem.id}){
             self.waterTypesListManager.drinkTypesList[index].name = selectedItem.name
             self.waterTypesListManager.drinkTypesList[index].amount = selectedItem.amount
             self.waterTypesListManager.drinkTypesList[index].imageName = selectedItem.imageName
-
+            
         }else{
             self.waterTypesListManager.drinkTypesList.append(selectedItem)
         }
         selectedItem = DrinkType(name: "fake", amount: 0, imageMame: "fake")
-
+        
     }
     
     
@@ -135,8 +138,10 @@ struct WaterTypesListView: View {
         
         GroupBox("**\(self.selectedItem.name.capitalizedSentence)** Drink Type") {
             GeometryReader{ proxy in
+                
+                let _ = print ("proxy = \(proxy.size)")
                 VStack(alignment: .leading){
-                  
+                    
                     Text("Edit and update drink properties")
                         .font(.subheadline)
                         .fontWeight(.regular)
@@ -145,17 +150,17 @@ struct WaterTypesListView: View {
                     HStackDropDown(title: "Drink Name", systemName: "mug", data: waterTypesListManager.drinkNameList, selected: $selectedItem.name, proxy: proxy)
                         .padding(.top,8)
 #if os(iOS)
-
+                    
                     CustomHStackNumberFiled(title: "Amount", systemName: "sum", keyboardType: .numberPad, checkoutFocusableId: CheckoutFocusable.amountType, value: $selectedItem.amount, proxy: proxy)
                         .focused(checkoutInFocus, equals: .amountType)
-
+                    
                         .padding(.trailing,-4)
 #else
                     CustomHStackNumberFiled(title: "Amount", systemName: "sum",  checkoutFocusableId: CheckoutFocusable.amountType, value: $selectedItem.amount, proxy: proxy)
                         .focused(checkoutInFocus, equals: .amountType)
 
-                        .padding(.trailing,-4)
-
+                    
+                    
 #endif
                     DisclosureGroup(isExpanded: $disclosureGroupIsExpanded) {
                         GroupImagesGroupView()
@@ -177,14 +182,14 @@ struct WaterTypesListView: View {
                             self.showEditPopup = false
                         }
                     }
-
+                    
                 }
             }
         }
         .groupBoxStyle(CardGroupBoxStyle())
         .padding(.vertical)
         .padding()
-        .frame(width:300, height: 400, alignment: .center)
+        .frame(width: sizeByDeviceType(iOS: 300, mac: 500), height: sizeByDeviceType(iOS: 410, mac: 550), alignment: .center)
         .background(Color("azureColor"))
         .cornerRadius(20).shadow(radius: 20)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -203,19 +208,22 @@ struct WaterTypesListView: View {
                         Button {
                             print("index = \(index), imageName =\(imageName)")
                             self.selectedItem.imageName = imageName
-                            DispatchQueue.main.asyncAfter(deadline: .now()+0.1){
-                                withAnimation{
-                                    self.disclosureGroupIsExpanded.toggle()
+                            if TargetDevice.currentDevice != .nativeMac{
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now()+0.1){
+                                    withAnimation{
+                                        self.disclosureGroupIsExpanded.toggle()
+                                    }
                                 }
                             }
                         } label: {
                             WaterTypeImageView(imageName: imageName, frame: CGSize(width: 50, height: 50))
-
+                            
                         }
                     }
                 }
                 Spacer(minLength: 100)
-
+                
             }
             .frame(height: 180)
             
@@ -235,7 +243,7 @@ struct WaterTypesListView: View {
             
         }
         .padding(.horizontal, TargetDevice.currentDevice == .nativeMac ? 16 : 0)
-//        .background(TargetDevice.currentDevice == .nativeMac ? .white : .clear)
+        //        .background(TargetDevice.currentDevice == .nativeMac ? .white : .clear)
         .frame(maxWidth: .infinity)
         .contentShape(Rectangle())
     }
@@ -260,7 +268,7 @@ struct WaterTypesListView: View {
         let source = indexSet.first!
         self.waterTypesListManager.drinkTypesList.swapAt(source, destination)
     }
-
+    
     
 }
 
@@ -269,7 +277,7 @@ struct WaterTypesListView: View {
 struct WaterTypesListView_Previews: PreviewProvider {
     
     @FocusState static var checkoutInFocus: CheckoutFocusable?
-
+    
     static var previews: some View {
         
         WaterTypesListView(checkoutInFocus: $checkoutInFocus)
@@ -279,7 +287,7 @@ struct WaterTypesListView_Previews: PreviewProvider {
 #endif
 
 
-
+//COLORS FROM: https://sarunw.com/posts/dark-color-cheat-sheet/
 struct CardGroupBoxStyle: GroupBoxStyle {
     func makeBody(configuration: Configuration) -> some View {
         VStack(alignment: .center) {
@@ -291,7 +299,7 @@ struct CardGroupBoxStyle: GroupBoxStyle {
 #if os(iOS)
         .background(Color(.systemGroupedBackground))
 #else
-        .background(Color(.gray))
+        .background(Color(red: 0.95, green: 0.95, blue: 0.97))
 #endif
         .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
     }
