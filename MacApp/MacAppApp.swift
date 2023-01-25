@@ -6,11 +6,15 @@
 //
 
 import SwiftUI
+import OSLog
 
 @main
 struct MacAppApp: App {
     
+    @NSApplicationDelegateAdaptor private var appDelegate: AppDelegate
+
     let persistenceController = PersistenceController.shared
+    
     
     @Environment(\.scenePhase) var scenePhase
 

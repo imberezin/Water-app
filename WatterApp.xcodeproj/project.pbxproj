@@ -151,6 +151,7 @@
 		19BA5BAC297ED30E0001D93F /* WaterTypeImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FC0D0C2962EE260017F16B /* WaterTypeImageView.swift */; };
 		19BA5BAD297EDA4E0001D93F /* GenericPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19496799295997B90014BA4F /* GenericPopupView.swift */; };
 		19BC50072965677900386897 /* WaveBGHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BC50062965677900386897 /* WaveBGHeaderView.swift */; };
+		19C0BFC62981439300F1CD14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C0BFC52981439300F1CD14 /* AppDelegate.swift */; };
 		19C72CCF2954526E009662FF /* MapManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C72CCE2954526E009662FF /* MapManager.swift */; };
 		19C72CD129545299009662FF /* NewWorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C72CD029545299009662FF /* NewWorkoutManager.swift */; };
 		19C72CD5295455A3009662FF /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C72CD4295455A3009662FF /* MapView.swift */; };
@@ -287,6 +288,8 @@
 		19BA5B96297EC2A00001D93F /* SettingsMacView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsMacView.swift; sourceTree = "<group>"; };
 		19BA5B99297EC2C90001D93F /* CheckoutFocusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutFocusable.swift; sourceTree = "<group>"; };
 		19BC50062965677900386897 /* WaveBGHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveBGHeaderView.swift; sourceTree = "<group>"; };
+		19C0BFC52981439300F1CD14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		19C0BFC7298150AB00F1CD14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		19C72CCE2954526E009662FF /* MapManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapManager.swift; sourceTree = "<group>"; };
 		19C72CD029545299009662FF /* NewWorkoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWorkoutManager.swift; sourceTree = "<group>"; };
 		19C72CD2295452DA009662FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -477,9 +480,11 @@
 		19694B8F2979376B00FD0D1E /* MacApp */ = {
 			isa = PBXGroup;
 			children = (
+				19C0BFC7298150AB00F1CD14 /* Info.plist */,
 				1949323129795BFD001CAEE4 /* WaterTypesList.plist */,
 				19694BAB29793BD500FD0D1E /* View */,
 				19694B902979376B00FD0D1E /* MacAppApp.swift */,
+				19C0BFC52981439300F1CD14 /* AppDelegate.swift */,
 				19694B942979376D00FD0D1E /* Assets.xcassets */,
 				19694B992979376D00FD0D1E /* MacApp.entitlements */,
 				19694B962979376D00FD0D1E /* Preview Content */,
@@ -817,6 +822,7 @@
 				19BA5B9E297EC6330001D93F /* CustomTextTapView.swift in Sources */,
 				1949323329796902001CAEE4 /* ContinueRing.swift in Sources */,
 				1949322A29794DA9001CAEE4 /* Constants.swift in Sources */,
+				19C0BFC62981439300F1CD14 /* AppDelegate.swift in Sources */,
 				19694BAD29793BE700FD0D1E /* MainView.swift in Sources */,
 				19088B58297976F100DCFC90 /* PieDateVM.swift in Sources */,
 				1949322829794CD7001CAEE4 /* Persistence.swift in Sources */,
@@ -1023,6 +1029,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MacApp/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1052,6 +1059,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MacApp/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

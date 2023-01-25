@@ -8,10 +8,12 @@
 import Foundation
 import UserNotifications
 import SwiftUI
+import OSLog
 
 @MainActor
 class NotificationCenterManager: NSObject, ObservableObject{
     
+    let defaultLog = Logger()
     
     static let shared = NotificationCenterManager()
     
@@ -32,10 +34,13 @@ class NotificationCenterManager: NSObject, ObservableObject{
     override init() {
         super.init()
         UNUserNotificationCenter.current().delegate = self
+        defaultLog.log("==== init Notifications ====")
         
     }
     
     func registerForPushNotifications() {
+        defaultLog.log("==== registerForPushNotifications ====")
+        
         //        UNUserNotificationCenter.current().delegate = self
         UNUserNotificationCenter.current().requestAuthorization(options: [.badge, .alert, .sound, .providesAppNotificationSettings]){
             
@@ -44,6 +49,9 @@ class NotificationCenterManager: NSObject, ObservableObject{
             // 1. Check to see if permission is granted
             //            guard granted else { return }
             // 2. Attempt registration for remote notifications on the main thread
+            self.defaultLog.log("==== granted = \(granted) ====")
+            self.defaultLog.log("==== error = \(error) ====")
+            
             if granted{
                 //                self.isAllowedToSendPush = true
                 DispatchQueue.main.async {
@@ -64,8 +72,8 @@ class NotificationCenterManager: NSObject, ObservableObject{
         DispatchQueue.main.async {
             //self.savedDate = nil
         }
-//        UNUserNotificationCenter.current()
-//            .removePendingNotificationRequests(withIdentifiers: [noteficationid])
+        //        UNUserNotificationCenter.current()
+        //            .removePendingNotificationRequests(withIdentifiers: [noteficationid])
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         
     }
@@ -73,7 +81,7 @@ class NotificationCenterManager: NSObject, ObservableObject{
     
     func scheduleNotificationToRange(startTime: Date, endTime: Date, hour: Int = 3, toRepeat:Bool){
         print("scheduleNotificationToRange")
-
+        
         let delta = startTime.distance(to: endTime)
         print("delta = \(delta)")
         let diff = delta / (60*60)
@@ -83,20 +91,20 @@ class NotificationCenterManager: NSObject, ObservableObject{
         
         let startDayHour = Calendar.current.component(.hour, from: startTime)
         let startDayMinute = Calendar.current.component(.minute, from: startTime)
-
+        
         for index in 0 ..< numberOfReminer{
             let time = Int(startDayHour) + (index * hour)
             print("time = \(time)")
             let trigger = UNCalendarNotificationTrigger(dateMatching: DateComponents.triggerFor(hour:time , minute: startDayMinute), repeats: toRepeat)
-//            let trigger = UNCalendarNotificationTrigger(dateMatching: DateComponents.triggerFor(hour:21 , minute: time+45), repeats: toRepeat)
-
+            //            let trigger = UNCalendarNotificationTrigger(dateMatching: DateComponents.triggerFor(hour:21 , minute: time+45), repeats: toRepeat)
+            
             print("trigger = \(trigger)")
-
+            
             triggers.append(trigger)
         }
         
         self.removeScheduledNotification()
-
+        
         for trigger in triggers {
             scheduleNotification(trigger: trigger)
         }
@@ -151,7 +159,7 @@ class NotificationCenterManager: NSObject, ObservableObject{
         if TargetDevice.currentDevice == .nativeMac{
             self.isAllowedToSendPush = true
             UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-
+            
         }else{
             self.requestAuthorization { allowed in
                 DispatchQueue.main.async {
@@ -222,7 +230,7 @@ class NotificationCenterManager: NSObject, ObservableObject{
         if TargetDevice.currentDevice == .nativeMac{
             self.isAllowedToSendPush = true
             UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-
+            
         }else{
             self.requestAuthorization { allowed in
                 if allowed{
@@ -265,7 +273,7 @@ class NotificationCenterManager: NSObject, ObservableObject{
             if allowed{
                 DispatchQueue.main.async {
                     print("$$$$$^^^^^^^^$$")
-
+                    
                     self.isAllowedToSendPush = allowed
                 }
             }
@@ -277,6 +285,7 @@ class NotificationCenterManager: NSObject, ObservableObject{
 extension NotificationCenterManager: UNUserNotificationCenterDelegate{
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        defaultLog.log("==== willPresent ====")
         
         print("willPresent")
         let userInfo = notification.request.content.userInfo
@@ -285,16 +294,19 @@ extension NotificationCenterManager: UNUserNotificationCenterDelegate{
         completionHandler([.banner, .sound])
     }
     
-#if os(iOS)
-
+    
+    
+    
     // This function will be called right after user tap on the notification
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         
+        defaultLog.log("==== App opened from PushNotification -> NotificationCenterManager ====")
         
         print("App opened from PushNotification -> NotificationCenterManager")
         let userInfo = response.notification.request.content.userInfo
         // Print full message.
         print("didReceive",userInfo)
+#if os(iOS)
         
         let application = UIApplication.shared
         
@@ -308,13 +320,33 @@ extension NotificationCenterManager: UNUserNotificationCenterDelegate{
         }
         
         application.applicationIconBadgeNumber = 0
+#endif
+        
         print("response.actionIdentifier = \(response.actionIdentifier)")
         NotificationCenterManager.shared.actionIdentifier = response.actionIdentifier
         
+        if TargetDevice.currentDevice == .nativeMac{
+            addWaterToCureentDay()
+        }
         
         completionHandler()
         
     }
+    
+    func addWaterToCureentDay(){
+            if let drink: DrinkType = waterTypesListManager.drinkTypesList.first(where: {$0.id == actionIdentifier}){
+                print("=========")
+                print ("\(drink.id)")
+                print ("\(drink.name)")
+                print("=========")
+                
+                PersistenceController.shared.addDrinkToToday(drink: drink)
+            }
+            self.actionIdentifier = nil
+        
+    }
+    
+#if os(iOS)
     
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, openSettingsFor notification: UNNotification?){

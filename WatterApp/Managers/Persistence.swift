@@ -114,12 +114,16 @@ struct PersistenceController {
     
     
     func addDrinkToToday(drink: DrinkType){
+        print("addDrinkToToday = \(drink)")
+
         let viewContext = container.viewContext
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Day")
         fetchRequest.predicate = NSPredicate(format : "date < %@ AND  date > %@", Date().daysAfter(number: 1) as CVarArg, Date().daysBefore(number: 1) as CVarArg)
+        print("fetchRequest.predicate = \(String(describing: fetchRequest.predicate))")
+
         do {
             let results = try viewContext.fetch(fetchRequest)
-           // print(results.count)
+            print("results.count = \(results.count)")
             if !results.isEmpty{
                 self.updateDayItem(day: results.first! as! Day, drink: drink)
             }else{
@@ -180,6 +184,9 @@ struct PersistenceController {
     
     func updateDayItem(day: Day, drink: DrinkType){
         
+        print("updateDayItem = \(day)")
+        print("updateDayItem = \(drink)")
+
         let viewContext = container.viewContext
         
         let drinkItem = DrinkItem(name: drink.name, amount: Int64(drink.amount))
@@ -195,10 +202,14 @@ struct PersistenceController {
         
         do {
             try viewContext.save()
+            print("save!")
+
         } catch {
             // Replace this implementation with code to handle the error appropriately.
             // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
             let nsError = error as NSError
+            print("error = \(error)")
+
             fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
         }
 

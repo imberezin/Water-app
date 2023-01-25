@@ -9,8 +9,12 @@ import SwiftUI
 
 struct AddDrinkView: View {
 
+    @Environment(\.scenePhase) var scenePhase
+
     @Environment(\.managedObjectContext) private var viewContext
+    
     @EnvironmentObject var waterTypesListManager: WaterTypesListManager
+    @EnvironmentObject var notificationCenterManager: NotificationCenterManager
 
     @StateObject var homeVM: HomeVM
     
@@ -38,7 +42,21 @@ struct AddDrinkView: View {
         .onAppear{
             self.waterTypesListManager.loadPropertyList()
         }
+        .onChange(of: scenePhase) { newValue in
+            switch newValue {
+            case .active:
+                print("Home - active")
+                if let actionIdentifier = self.notificationCenterManager.actionIdentifier{
+                    self.userAddWaterByNotifcationAction(actionIdentifier: actionIdentifier)
+                }
+            case .background:
+                print("Home - background")
                 
+                // 3
+            default:
+                break
+            }
+        }
     }
     
     @ViewBuilder
@@ -74,6 +92,19 @@ struct AddDrinkView: View {
       //  .offset(y:-20)
 
     }
+    
+    func userAddWaterByNotifcationAction( actionIdentifier: String){
+        if let drink: DrinkType = waterTypesListManager.drinkTypesList.first(where: {$0.id == actionIdentifier}){
+            print("=========")
+            print ("\(drink.id)")
+            print ("\(drink.name)")
+            print("=========")
+            DispatchQueue.main.asyncAfter(deadline:  .now() + 0.3){
+                self.homeVM.addWaterToCureentDay(waterType: drink, daysItems: self.daysItems)
+                self.notificationCenterManager.actionIdentifier = nil
+            }
+        }
+    }
 
 }
 
@@ -82,6 +113,8 @@ struct AddDrinkView_Previews: PreviewProvider {
         MainView()
             .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
             .environmentObject(WaterTypesListManager())
+            .environmentObject(NotificationCenterManager())
+
 
     }
 }
