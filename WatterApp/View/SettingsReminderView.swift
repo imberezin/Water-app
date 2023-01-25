@@ -87,7 +87,12 @@ struct SettingsRemindeViewV2: View {
                     ForEach(array, id: \.self) { flavor in
                         Text("\(flavor) hours")
                     }
-                }.pickerStyle(.radioGroup)
+                }
+#if os(iOS)
+                .pickerStyle(.menu)
+#else
+                .pickerStyle(.radioGroup)
+#endif
             }
             Divider()
 
