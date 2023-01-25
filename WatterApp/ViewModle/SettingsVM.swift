@@ -50,6 +50,7 @@ class SettingsVM: ObservableObject {
     
     @MainActor
     func didSave(startTime: Date, endTime: Date,slectedRimniderHour: Int, enabledReminder: Bool){
+        print("didSave")
         self.userPrivateinfo.enabledReminde = enabledReminder
         self.userPrivateinfo.slectedRimniderHour = slectedRimniderHour
 //        NotificationCenterManager.shared.scheduleNotification(hour: slectedRimniderHour, toRepeat: enabledReminder)

@@ -93,7 +93,9 @@ struct SettingsMacView: View {
             }
             .padding(.horizontal,24)
         .padding(.top,64)
-            
+        .popup(isPresented: $showReminder) { // 3
+            SettingsRemindeViewV2(settingsVM: settingsVM, showReminder: $showReminder)
+        }
             if editWaterList {
                 WaterTypesListView(editWaterList: $editWaterList, checkoutInFocus: $checkoutInFocus).transition(.move(edge: .bottom))
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)

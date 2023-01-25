@@ -159,6 +159,7 @@
 		19C72CDB2954597A009662FF /* NewWorkoutInfoBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C72CDA2954597A009662FF /* NewWorkoutInfoBarView.swift */; };
 		19C72CDD29545AFD009662FF /* WorkoutInfoBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C72CDC29545AFD009662FF /* WorkoutInfoBarView.swift */; };
 		19C72CDF29545EB5009662FF /* HealthKitDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C72CDE29545EB5009662FF /* HealthKitDataStore.swift */; };
+		19E1F6E329811F2B00665643 /* SettingsReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193BB089293D42A000AB5840 /* SettingsReminderView.swift */; };
 		19F870802938F18000500178 /* ChartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F8707F2938F18000500178 /* ChartsView.swift */; };
 		19F87C742940C59E00816561 /* WaterTypesList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 19F87C732940C59E00816561 /* WaterTypesList.plist */; };
 		19F87C762940D8B600816561 /* testView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F87C752940D8B600816561 /* testView.swift */; };
@@ -820,6 +821,7 @@
 				19088B58297976F100DCFC90 /* PieDateVM.swift in Sources */,
 				1949322829794CD7001CAEE4 /* Persistence.swift in Sources */,
 				19BA5BAC297ED30E0001D93F /* WaterTypeImageView.swift in Sources */,
+				19E1F6E329811F2B00665643 /* SettingsReminderView.swift in Sources */,
 				19694BA72979392000FD0D1E /* DateExtension.swift in Sources */,
 				1949322629794BE9001CAEE4 /* AwardItem.swift in Sources */,
 				19BA5BA3297EC70D0001D93F /* BackgroundGroupCaption.swift in Sources */,

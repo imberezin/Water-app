@@ -11,15 +11,27 @@ import SwiftUI
 struct MacAppApp: App {
     
     let persistenceController = PersistenceController.shared
-        
-    @StateObject var waterTypesListManager = WaterTypesListManager.shared
+    
+    @Environment(\.scenePhase) var scenePhase
 
+    @StateObject var waterTypesListManager: WaterTypesListManager = WaterTypesListManager.shared
+    @StateObject var notificationCenterManager: NotificationCenterManager =  NotificationCenterManager.shared
     
     var body: some Scene {
         WindowGroup {
             MainView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 .environmentObject(waterTypesListManager)
+                .environmentObject(notificationCenterManager)
+                .onChange(of: scenePhase) { scenePhase in
+                    switch scenePhase {
+                    case.active:
+                        self.notificationCenterManager.updateNotifactionStatus()
+                        print("active")
+                 
+                    default: return
+                    }
+                }
 
         }
         .windowStyle(HiddenTitleBarWindowStyle())

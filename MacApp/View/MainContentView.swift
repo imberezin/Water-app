@@ -10,6 +10,7 @@ import SwiftUI
 struct MainContentView: View {
     
     @StateObject var homeVM = HomeVM()
+    @StateObject var settingsVM = SettingsVM()
 
     @State var todayInfo: Day? = nil
     @State var showReminderView: Bool = false
@@ -41,9 +42,11 @@ struct MainContentView: View {
             .padding()
 
         }
+        .popup(isPresented: $showReminderView) { // 3
+            SettingsRemindeViewV2(settingsVM: settingsVM, showReminder: $showReminderView)
+        }
         .ignoresSafeArea()
         .padding(.leading, -8)
-
     }
     
     

@@ -54,7 +54,7 @@ public struct Popup<PopupContent>: ViewModifier where PopupContent: View {
 
         UIScreen.main.bounds.size.width
 #else
-        NSScreen.main!.visibleFrame.width / 1.5 - 200
+        NSScreen.main!.visibleFrame.width / 1.5 - 270
 #endif
     }
 
@@ -86,7 +86,7 @@ public struct Popup<PopupContent>: ViewModifier where PopupContent: View {
                         .animation(Animation.easeOut(duration: 0.3), value: currentOffset)
                 
             }
-            .offset(x: 0, y: isPresented ?  displayedOffset : 1000)
+            .offset(x: 0, y: isPresented ?  displayedOffset : 1200)
         }
 
     }

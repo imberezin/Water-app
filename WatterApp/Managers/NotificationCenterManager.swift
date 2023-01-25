@@ -72,6 +72,7 @@ class NotificationCenterManager: NSObject, ObservableObject{
     
     
     func scheduleNotificationToRange(startTime: Date, endTime: Date, hour: Int = 3, toRepeat:Bool){
+        print("scheduleNotificationToRange")
 
         let delta = startTime.distance(to: endTime)
         print("delta = \(delta)")
@@ -147,13 +148,19 @@ class NotificationCenterManager: NSObject, ObservableObject{
         
         let request = UNNotificationRequest(identifier: uuidString, content: notificationContent, trigger: trigger)
         
-        self.requestAuthorization { allowed in
-            DispatchQueue.main.async {
-                if allowed{
-                    self.isAllowedToSendPush = true
-                    UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-                }else{
-                    self.isAllowedToSendPush = false
+        if TargetDevice.currentDevice == .nativeMac{
+            self.isAllowedToSendPush = true
+            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+
+        }else{
+            self.requestAuthorization { allowed in
+                DispatchQueue.main.async {
+                    if allowed{
+                        self.isAllowedToSendPush = true
+                        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+                    }else{
+                        self.isAllowedToSendPush = false
+                    }
                 }
             }
         }
@@ -212,21 +219,26 @@ class NotificationCenterManager: NSObject, ObservableObject{
         
         let request = UNNotificationRequest(identifier: "test", content: notificationContent, trigger: timeIntervalNotificationTrigger)
         
-        self.requestAuthorization { allowed in
-            if allowed{
-                DispatchQueue.main.async {
-                    self.isAllowedToSendPush = true
-                }
-                UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-            }else{
-                DispatchQueue.main.async {
+        if TargetDevice.currentDevice == .nativeMac{
+            self.isAllowedToSendPush = true
+            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+
+        }else{
+            self.requestAuthorization { allowed in
+                if allowed{
+                    DispatchQueue.main.async {
+                        self.isAllowedToSendPush = true
+                    }
+                    UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+                }else{
+                    DispatchQueue.main.async {
+                        print("$$$$$$$$")
+                        self.isAllowedToSendPush = false
+                    }
                     
-                    self.isAllowedToSendPush = false
                 }
-                
             }
         }
-        
         
     }
     
@@ -252,6 +264,8 @@ class NotificationCenterManager: NSObject, ObservableObject{
         self.requestAuthorization(){ allowed in
             if allowed{
                 DispatchQueue.main.async {
+                    print("$$$$$^^^^^^^^$$")
+
                     self.isAllowedToSendPush = allowed
                 }
             }
