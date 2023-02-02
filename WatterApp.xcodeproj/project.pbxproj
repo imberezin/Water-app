@@ -124,6 +124,9 @@
 		196F6D46295A4751009D444F /* AwardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196F6D45295A4751009D444F /* AwardItem.swift */; };
 		19726A8029466496001A9A21 /* water3.png in Resources */ = {isa = PBXBuildFile; fileRef = 19726A7F29466496001A9A21 /* water3.png */; };
 		19726A8229474E63001A9A21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19726A8129474E63001A9A21 /* AppDelegate.swift */; };
+		1979D21B29894AE800E65E36 /* iCloudPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1979D21A29894AE800E65E36 /* iCloudPersistence.swift */; };
+		1979D21C29894AE800E65E36 /* iCloudPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1979D21A29894AE800E65E36 /* iCloudPersistence.swift */; };
+		1979D21D29894AE800E65E36 /* iCloudPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1979D21A29894AE800E65E36 /* iCloudPersistence.swift */; };
 		197A4544293C0010008B33DA /* StatisticsDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197A4543293C0010008B33DA /* StatisticsDetailsView.swift */; };
 		197A4546293C0098008B33DA /* DrinkItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197A4545293C0098008B33DA /* DrinkItem.swift */; };
 		197A4548293C00B3008B33DA /* DayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197A4547293C00B3008B33DA /* DayItem.swift */; };
@@ -280,6 +283,7 @@
 		196F6D45295A4751009D444F /* AwardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardItem.swift; sourceTree = "<group>"; };
 		19726A7F29466496001A9A21 /* water3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = water3.png; sourceTree = "<group>"; };
 		19726A8129474E63001A9A21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1979D21A29894AE800E65E36 /* iCloudPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCloudPersistence.swift; sourceTree = "<group>"; };
 		197A4543293C0010008B33DA /* StatisticsDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsDetailsView.swift; sourceTree = "<group>"; };
 		197A4545293C0098008B33DA /* DrinkItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkItem.swift; sourceTree = "<group>"; };
 		197A4547293C00B3008B33DA /* DayItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayItem.swift; sourceTree = "<group>"; };
@@ -467,6 +471,7 @@
 			isa = PBXGroup;
 			children = (
 				1969C9D929375A070032AED5 /* Persistence.swift */,
+				1979D21A29894AE800E65E36 /* iCloudPersistence.swift */,
 				1959016529407BEE008AE6D5 /* WaterTypesListManager.swift */,
 				19277CEB29463119006BFE64 /* NotificationCenterManager.swift */,
 				19C72CCE2954526E009662FF /* MapManager.swift */,
@@ -778,6 +783,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1909FA96295D7C1E00D73F9E /* WaterEntry.swift in Sources */,
+				1979D21C29894AE800E65E36 /* iCloudPersistence.swift in Sources */,
 				1909FA91295C955000D73F9E /* WatterAppWidgetView.swift in Sources */,
 				1909FA97295D7FF500D73F9E /* WaveShape.swift in Sources */,
 				1909FA86295C300900D73F9E /* UserPrivateinfo.swift in Sources */,
@@ -816,6 +822,7 @@
 			files = (
 				19BA5BA9297ECAD20001D93F /* UIImageExtanstion.swift in Sources */,
 				1949322F297956E3001CAEE4 /* AddWaterButton.swift in Sources */,
+				1979D21D29894AE800E65E36 /* iCloudPersistence.swift in Sources */,
 				19694B932979376C00FD0D1E /* MainContentView.swift in Sources */,
 				19088B5B2979779800DCFC90 /* Pie.swift in Sources */,
 				19088B542979750500DCFC90 /* ChartsView.swift in Sources */,
@@ -876,6 +883,7 @@
 				191BB21D293805EA00F99A26 /* SettingsView.swift in Sources */,
 				196109942938B9EB00D505B2 /* StatisticsView.swift in Sources */,
 				193BB091293DF3EB00AB5840 /* CustomNumberFiled.swift in Sources */,
+				1979D21B29894AE800E65E36 /* iCloudPersistence.swift in Sources */,
 				19C72CD729545605009662FF /* Workout.swift in Sources */,
 				190516C52962CB19004E3A1E /* DrinkType.swift in Sources */,
 				19277CEC29463119006BFE64 /* NotificationCenterManager.swift in Sources */,

@@ -15,7 +15,8 @@ struct MacAppApp: App {
 
     let persistenceController = PersistenceController.shared
     
-    
+    let cloudPersistence = iCloudPersistence.shared
+
     @Environment(\.scenePhase) var scenePhase
 
     @StateObject var waterTypesListManager: WaterTypesListManager = WaterTypesListManager.shared
@@ -34,6 +35,14 @@ struct MacAppApp: App {
                         print("active")
                  
                     default: return
+                    }
+                }
+                .onAppear{
+//        cloudPersistence.addTest()
+                    cloudPersistence.refresh(){ error in
+                        if error != nil{
+                            print(error!)
+                        }
                     }
                 }
 

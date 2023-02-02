@@ -23,6 +23,8 @@ struct WatterAppApp: App {
     
     @StateObject var waterTypesListManager = WaterTypesListManager.shared
     
+    let cloudPersistence = iCloudPersistence.shared
+    
     var body: some Scene {
         
         WindowGroup {
@@ -41,6 +43,14 @@ struct WatterAppApp: App {
                         self.addDynamicQuickActions()
                     default: return
                     }
+                }
+                .onAppear{
+                    cloudPersistence.addTest()
+//                    cloudPersistence.refresh(){ error in
+//                        if error != nil{
+//                            print(error!)
+//                        }
+//                    }
                 }
         }
     }

@@ -12,6 +12,7 @@ import SwiftUI
 #endif
 import Charts
 
+
 enum WaterType: Int, CaseIterable{
     case water = 200
     case bigWater = 300
