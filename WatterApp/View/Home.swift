@@ -37,9 +37,11 @@ struct Home: View {
     var body: some View {
         
         
-        let array =  daysItems.last?.drink  != nil ? Array(daysItems.last?.drink as! Set<Drink>) : [Drink(context: viewContext)]
+        let array =  daysItems.first?.drink  != nil ? Array(daysItems.first?.drink as! Set<Drink>) : [Drink(context: viewContext)]
           let   waterAmountNumber = Int(array.sum(for: \.amount))
         let _ = print("arrayCount = \(daysItems.count)")
+        let _ = print("daysItems = \(daysItems)")
+
         let _ = print("date = \(daysItems.last?.date)")
 
         let _ = print("waterAmountNumber = \(waterAmountNumber)")
